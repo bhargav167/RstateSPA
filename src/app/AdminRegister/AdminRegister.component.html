@@ -1,0 +1,66 @@
+<body>
+  <div class="limiter">
+    <div class="container-login6">
+      <div class="wrap-login100">
+        <form class="login100-form validate-form p-l-55 p-r-55 p-t-50" [formGroup]="registerFields" autocomplete="off"
+          (ngSubmit)="register()">
+         
+          <div style="margin-top: -5px; color: lightslategray;" class="container row">
+            <div class="col-md-5">
+
+            </div>
+            <div class="col-md-2">
+              <i class="fa fa-4x fa-user-secret"></i>
+            </div>
+            <div class="col-md-5">
+
+            </div>
+          </div>
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Name">
+            <input type="text" class="input100" name="name" id="name" formControlName="FullName"
+              placeholder="Enter your name" />
+
+            <span class="focus-input100"></span>
+          </div> 
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Email Here...">
+            <input type="email" name="email" class="input100" id="email" formControlName="Email"
+              placeholder="Enter your email" />
+            <span class="focus-input100"></span>
+          </div>
+           <div class="wrap-input100 validate-input m-b-16" data-validate="Phone number">
+             <input type="tel" name="email" class="input100" id="email" formControlName="PhoneNo"
+               placeholder="Enter your phone number" />
+             <span class="focus-input100"></span>
+           </div>
+          <div class="wrap-input100 validate-input m-b-16" data-validate="password">
+            <input type="password" formControlName="Password" class="input100" name="pass" id="pass"
+              placeholder="Password" />
+            <span class="focus-input100"></span>
+          </div>
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Confirm password">
+            <input type="password" formControlName="ConfirmPassword" class="input100" name="re_pass" id="re_pass"
+              placeholder="Confirm password" />
+            <span class="focus-input100"></span>
+          </div>
+          <div class="container-login100-form-btn">
+            <button type="submit" [disabled]="!registerFields.valid" class="login100-form-btn">
+              <span *ngIf="this.btnLoader" class="spinner-border spinner-border-sm" role="status"></span>
+              <span *ngIf="this.btnLoader" class="load-text"> Loading...</span>
+              <span *ngIf="!this.btnLoader" class="btn-text"><i class="fa fa-user-secret"></i> Sign Up</span>
+            </button>
+          </div>
+          <br>
+          <!-- <div class="flex-col-c ">
+            <span class="txt1 p-b-9">
+              I am already member
+            </span>
+            <a [routerLink]="['/adminlogin']" routerLinkActive="router-link-active" class="txt3">
+              Sign in now
+            </a>
+          </div> -->
+        </form>
+      </div>
+    </div>
+  </div>
+ </body>
+ 

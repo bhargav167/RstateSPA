@@ -1,0 +1,1735 @@
+ <!DOCTYPE html>
+ <html lang="en">
+  <head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>SPACING</title> 
+    <!-- favicon -->
+    <link rel=icon href="../../assets/img/Spacing/Favicon Logo png.png" sizes="20x20" type="image/png">
+    <!-- Vendor Stylesheet -->
+    <style>
+      a.sellrpBtn {
+      cursor: pointer;
+      position: relative;
+      font-size: 14px;
+      color: #fff;
+      }
+      a.postPropertyBtn {
+      font-weight: 600;
+      padding: 8px 12px;
+      border: 1px solid #ff6600;
+      border-radius: 2px!important;
+      background: rgba(0,0,0,.3);
+      }
+      a.a:hover{
+         font-weight: 600;
+         padding: 8px 12px;
+         border: 1px solid #ff6600;
+         border-radius: 2px!important;
+         background: rgba(0,0,0,.3); 
+         color: white;
+      }
+     a:hover{
+color: white;
+      }
+    </style>
+</head>
+<div class="wrapper">
+  <div class="main-header">
+    <!-- Logo Header -->
+    <div class="logo-header" data-background-color="blue"> 
+      <a href="index.html"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+          style="height:48px; width:180px;" alt="logo"></a> 
+    </div>  
+    
+    <!-- End Navbar -->
+  </div>
+  <div class="css-13qwdb3">
+    <div class="css-70qvj9">
+      <div class=" css-mppj2p">
+        <div class="input-container">
+          <div (click)="PropToggle()" class="css-9181qe">
+            <div class="css-r9ub9f">{{propTypeSearchingstr}}</div><span class="css-1wo62rd"></span>
+          </div>
+        </div>
+        <div *ngIf="showProp" class="content-container css-ekk0gt">
+          <div  class="css-eqc9z0">
+            <div class="sel-cont css-0">
+              <div  class="options-wrap">
+                <div (click)="LoadByApartment('Apartment')" [ngClass]="{'css-1wv2abf': apartmentActive}" class="option css-5uj2yn">Apartment</div>
+                <div (click)="LoadByApartment('Independent House')"  [ngClass]="{'css-1wv2abf': independentHouseActive}" class="option css-5uj2yn">Independent House</div>
+                <div (click)="LoadByApartment('Independent Floor')" [ngClass]="{'css-1wv2abf': independentFloorActive}" class="option css-5uj2yn">Independent Floor</div>
+                <div (click)="LoadByApartment('Plot')" [ngClass]="{'css-1wv2abf': plotActive}" class="option css-5uj2yn">Plot</div>
+                <div (click)="LoadByApartment('Villa')" [ngClass]="{'css-1wv2abf': villaActive}" class="option css-5uj2yn">Villa</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="css-mppj2p">
+        <div class="input-container">
+          <div (click)="BhkToggle()" class="css-9181qe">
+            <div class="css-r9ub9f">BHK Type</div><span class="css-1wo62rd"></span>
+          </div>
+          <div *ngIf="showBhk" class="content-container css-ekk0gt">
+            <div  class="css-eqc9z0">
+              <div class="sel-cont css-0">
+                <div class="options-wrap">
+                  <div (click)="LoadByBhk('1 Bhk')" [ngClass]="{'css-1wv2abf': onebhkActive}"
+                    class="option css-5uj2yn">1 BHK</div>
+                  <div (click)="LoadByBhk('2 Bhk')" [ngClass]="{'css-1wv2abf': twobhkActive}"
+                    class="option css-5uj2yn">2 BHK</div>
+                  <div (click)="LoadByBhk('3 Bhk')" [ngClass]="{'css-1wv2abf': threebhkActive}"
+                    class="option css-5uj2yn">3 BHK</div>
+                  <div (click)="LoadByBhk('3+ Bhk')" [ngClass]="{'css-1wv2abf': plusActive}" class="option css-5uj2yn">
+                    3+ BHK</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" css-mppj2p">
+        <div class="input-container">
+          <div (click)="priceToggle()" class="css-9181qe">
+            <div class="css-yanpj4"></div> 0 - <div class="css-yanpj4"></div> 4.00Cr <span class="css-1wo62rd"></span>
+          </div>
+          <div *ngIf="showprice" class="content-container css-ekk0gt">
+             <div  class="css-eqc9z0">
+              <div class="sel-cont css-0">
+                <div class="options-wrap">
+                  <div style="width: 500px;"
+                    class="">
+                    <ng5-slider (mouseup)="LoadByPrice()" [(value)]="minValue" [(highValue)]="maxValue" [options]="options">
+                    </ng5-slider> 
+                  </div>
+                
+                </div>
+              </div>
+            </div> 
+          </div>
+
+        </div>
+      </div>
+      <!-- <div class=" css-mppj2p">
+        <div class="input-container">
+          <div class="css-9181qe">
+            <div class="css-r9ub9f">Sale Type</div><span class="css-1wo62rd"></span>
+          </div>
+        </div>
+      </div> -->
+    <div class=" css-mppj2p">
+        <div class="input-container">
+          <div (click)="PossToggle()" class="css-9181qe">
+            <div class="css-r9ub9f">Possession Status</div><span class="css-1wo62rd"></span>
+          </div>
+          <div *ngIf="showPoss"  class="content-container css-ekk0gt">
+            <div  class="css-eqc9z0">
+              <div class="sel-cont css-0">
+                <div class="options-wrap">
+                  <div (click)="LoadByBhk('1 Bhk')" [ngClass]="{'css-1wv2abf': onebhkActive}"
+                    class="option css-5uj2yn">Ready to move</div>
+                  <div (click)="LoadByBhk('2 Bhk')" [ngClass]="{'css-1wv2abf': twobhkActive}"
+                    class="option css-5uj2yn">In 1 year</div>
+                  <div (click)="LoadByBhk('3 Bhk')" [ngClass]="{'css-1wv2abf': threebhkActive}"
+                    class="option css-5uj2yn">In 3 years</div>
+                  <div (click)="LoadByBhk('3+ Bhk')" [ngClass]="{'css-1wv2abf': plusActive}" class="option css-5uj2yn">
+                    Beyond 3 years</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" css-1tecn1l">
+        <div class="input-container">
+          <div></div>
+          <div (click)="Reset()" style="cursor: pointer;"  class="css-9181qe">Reset Filters<span class="css-1wo62rd"></span></div>
+        </div>
+      </div> 
+      <div class="css-i9gxme"></div><a href="/edge" class="css-1y6ic72"><img
+          src="//c.housingcdn.com/s/assets/srpSnippet.4dd126e3.svg" class="img css-1mpq983"></a>
+    </div>
+  </div>
+   <body>
+
+       <!-- Projects start -->
+       <div style="margin-left: 45px;" class="featured-projects pd-top-60 pd-bottom-70">
+         <div class="">
+           <div class="section-title">
+             <b class="filter-title mt-3 mb-lg-0">All property in {{searchlocation}}</b>
+           
+
+           </div>
+           <div class="banner-area jarallax">
+             <div class="">
+               <div class="search-page-wrap pd-top-50 pd-bottom-70">
+                 <div class="search-container">
+                   <div class="">
+                     <div class="row justify-content-center">
+                       <div class="col-xl-12 col-lg-12">
+
+                         <div class="row">
+                           <ng-container *ngIf="IshomeLoading">
+                             <div class="card br">
+                               <div class="wrapper">
+                                 <div class="profilePic animate din"></div>
+                                 <div class="comment br animate w80"></div>
+                                 <div class="comment br animate"></div>
+                                 <div class="comment br animate"></div>
+                               </div>
+                             </div>
+                             <div class="card br">
+                               <div class="wrapper">
+                                 <div class="profilePic animate din"></div>
+                                 <div class="comment br animate w80"></div>
+                                 <div class="comment br animate"></div>
+                                 <div class="comment br animate"></div>
+                               </div>
+                             </div>
+                             <div class="card br">
+                               <div class="wrapper">
+                                 <div class="profilePic animate din"></div>
+                                 <div class="comment br animate w80"></div>
+                                 <div class="comment br animate"></div>
+                                 <div class="comment br animate"></div>
+                               </div>
+                             </div>
+                           </ng-container>
+                           <ng-container *ngIf="!IshomeLoading">
+                            <article *ngFor="let item of Alldetais.all; let i=index" id="srp-7" class="css-h7k7mr">
+                              <div *ngIf="item.basicDetailId.wantTo=='Rent'"
+                                class="css-k008qs">
+                                <div *ngFor="let img of Alldetais.imgs" class="thumb">
+                                  <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                    id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                    *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url!='null'"
+                                    [src]="img.url" style="height:243px; width: 350px;" alt="img">
+                                  <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                    id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                    *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url=='null'"
+                                    [src]="DefaultPropImages"  style="height:243px; width: 350px;" alt="img">
+                                  <!-- <a href="#"><i class="fa fa-heart"></i></a>  -->
+                                </div>
+                                <div class="css-v64o2m">
+                                  <div id="modalActivate" data-toggle="modal"
+                                  data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" class="css-70qvj9">
+                                    <div class="css-yr18fa">₹ {{item.basicDetailId.mothlyRent}}</div>
+                                  </div>
+
+                                  <div id="modalActivate" data-toggle="modal"
+                                  data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" class="css-ltqa49"><a class="css-869w8l">
+                                      <h3 class="css-zekqfr">
+
+                                        <div *ngIf="propertyConfig?.isBhk==true" style="font-size:large;"
+                                          class="css-ybv4ci">{{item.basicDetailId.bhk}}
+                                          {{item.basicDetailId.propertyType}}</div>
+                                        <div *ngIf="propertyConfig?.isBhk==false" style="font-size:large;"
+                                          class="css-ybv4ci">xxx BHK {{item.basicDetailId.propertyType}}</div>
+
+                                      </h3>
+                                    </a></div><span data-q="address" class="css-1ybkpwu">{{item.locationId.locality}}
+                                    {{item.locationId.sector}}</span>
+                                  <div id="modalActivate" data-toggle="modal"
+                                  data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" data-q="features" class="css-mifb2i">
+                                    <div class="css-ebj250">
+                                      <div class="css-16mq4qa">Build Up Area</div>
+                                      <div class="css-1ty8tu4">{{item.basicDetailId.buildUpArea}} sq.ft</div>
+                                    </div>
+                                    <div class="css-ebj250">
+                                      <div class="css-16mq4qa">Carpet Area</div>
+                                      <div *ngIf="propertyConfig?.carpetArea==true" class="css-1ty8tu4">
+                                        {{item.basicDetailId.carpetArea}} sq.ft</div>
+                                      <div *ngIf="propertyConfig?.carpetArea==false" class="css-1ty8tu4"> xxx sq.ft
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div id="modalActivate" data-toggle="modal"
+                                  data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" data-q="desc" class="css-nqm4eq"><span style="font-size: medium;"
+                                      class="css-tb5n5c">
+                                      Property For {{item.basicDetailId.wantTo}}
+                                    </span>
+                                  </div>
+                                  <div class="css-19yzxlt">
+                                    <div data-q="seller-data" class="contact-bar css-tatn4f">
+                                      <div class="thumbnail-wrapper css-1uoxvj3">
+                                        
+                                      </div>
+                                      <div class="details css-sac6n0">
+                                        <!-- <div class="css-wni7av"><span class="css-0">Chittaranjan Singh</span></div>
+                                        <div class="css-113fu5b">Owner</div> -->
+                                      </div><button href="#myModal" data-toggle="modal" (click)="loadPropertyOwnerDetailandProp(item.uniqueID)" class="cta css-149igx6">Contact</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- SELL PROPERTY -->
+                              <div  *ngIf="item.basicDetailId.wantTo=='Sell' && item.basicDetailId.propertyType!='Plot'"
+                              class="css-k008qs">
+                              <div *ngFor="let img of Alldetais.imgs" class="thumb">
+                                <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                  id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                  *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url!='null'"
+                                  [src]="img.url"  style="height:243px; width: 350px;" alt="img">
+                                <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                  id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                  *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url=='null'"
+                                  [src]="DefaultPropImages"   style="height:243px; width: 350px;" alt="img">
+                                <!-- <a href="#"><i class="fa fa-heart"></i></a>  -->
+                              </div>
+                              <div class="css-v64o2m">
+                                <div  id="modalActivate" data-toggle="modal"
+                                data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" class="css-70qvj9">
+                                  <div class="css-yr18fa">₹ {{item.basicDetailId.mothlyRent}}</div>
+                                </div>
+
+                                <div id="modalActivate" data-toggle="modal"
+                                data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" class="css-ltqa49"><a class="css-869w8l">
+                                    <h3 class="css-zekqfr">
+
+                                      <div  *ngIf="propertyConfig?.isBhk==true" style="font-size:large;"
+                                        class="css-ybv4ci">{{item.basicDetailId.bhk}}
+                                        {{item.basicDetailId.propertyType}}</div>
+                                      <div   *ngIf="propertyConfig?.isBhk==false" style="font-size:large;"
+                                        class="css-ybv4ci">xx BHK {{item.basicDetailId.propertyType}}</div>
+
+                                    </h3>
+                                  </a></div><span data-q="address" class="css-1ybkpwu">{{item.locationId.locality}}
+                                  {{item.locationId.sector}}</span>
+                                <div id="modalActivate" data-toggle="modal"
+                                data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" data-q="features" class="css-mifb2i">
+                                  <div id="modalActivate" data-toggle="modal"
+                                  data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" class="css-ebj250">
+                                    <div class="css-16mq4qa">Build Up Area</div>
+                                    <div class="css-1ty8tu4">{{item.basicDetailId.buildUpArea}} sq.ft</div>
+                                  </div>
+                                  <div  id="modalActivate" data-toggle="modal"
+                                  data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" class="css-ebj250">
+                                    <div class="css-16mq4qa">Carpet Area</div>
+                                    <div *ngIf="propertyConfig?.carpetArea==true" class="css-1ty8tu4">
+                                      {{item.basicDetailId.carpetArea}} sq.ft</div>
+                                    <div *ngIf="propertyConfig?.carpetArea==false" class="css-1ty8tu4"> xxx sq.ft
+                                    </div>
+                                  </div>
+                                </div>
+                                <div id="modalActivate" data-toggle="modal"
+                                data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" data-q="desc" class="css-nqm4eq"><span style="font-size: medium;"
+                                    class="css-tb5n5c">
+                                    Property For {{item.basicDetailId.wantTo}}
+                                  </span>
+                                </div>
+                                <div class="css-19yzxlt">
+                                  <div data-q="seller-data" class="contact-bar css-tatn4f">
+                                    <div class="thumbnail-wrapper css-1uoxvj3">
+                                      
+                                    </div>
+                                    <div class="details css-sac6n0">
+                                      <!-- <div class="css-wni7av"><span class="css-0">Chittaranjan Singh</span></div>
+                                      <div class="css-113fu5b">Owner</div> -->
+                                    </div><button href="#myModal" data-toggle="modal" (click)="loadPropertyOwnerDetailandProp(item.uniqueID)" class="cta css-149igx6">Contact</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                             <!-- SELL PROPERTY && Plot -->
+                             <div  *ngIf="item.basicDetailId.wantTo=='Sell' && item.basicDetailId.propertyType=='Plot'"
+                             class="css-k008qs">
+                             <div *ngFor="let img of Alldetais.imgs" class="thumb">
+                               <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                 id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                 *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url!='null'"
+                                 [src]="img.url"  style="height:243px; width: 350px;" alt="img">
+                               <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                 id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                 *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url=='null'"
+                                 [src]="DefaultPropImages"  style="height:243px; width: 350px;" alt="img">
+                               <!-- <a href="#"><i class="fa fa-heart"></i></a>  -->
+                             </div>
+                             <div class="css-v64o2m">
+                               <div id="modalActivate" data-toggle="modal"
+                               data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" class="css-70qvj9">
+                                 <div id="modalActivate" data-toggle="modal"
+                                 data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" class="css-yr18fa">₹ {{item.basicDetailId.plotPrice}}</div>
+                               </div>
+
+                               <div id="modalActivate" data-toggle="modal"
+                               data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" class="css-ltqa49"><a class="css-869w8l">
+                                   <h3 class="css-zekqfr">
+
+                                     <div id="modalActivate" data-toggle="modal"
+                                     data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" style="font-size:large;"
+                                       class="css-ybv4ci">{{item.basicDetailId.transactionType}}
+                                       {{item.basicDetailId.propertyType}}</div>  
+                                   </h3>
+                                 </a></div><span data-q="address" class="css-1ybkpwu">{{item.locationId.locality}}
+                                 {{item.locationId.sector}}</span>
+                               <div id="modalActivate" data-toggle="modal"
+                               data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" data-q="features" class="css-mifb2i">
+                                 <div class="css-ebj250">
+                                   <div class="css-16mq4qa">Build Up Area</div>
+                                   <div class="css-1ty8tu4">{{item.basicDetailId.buildUpArea}} sq.ft</div>
+                                 </div>
+                                 <div class="css-ebj250">
+                                   <div class="css-16mq4qa">Carpet Area</div>
+                                   <div *ngIf="propertyConfig?.carpetArea==true" class="css-1ty8tu4">
+                                     {{item.basicDetailId.carpetArea}} sq.ft</div>
+                                   <div *ngIf="propertyConfig?.carpetArea==false" class="css-1ty8tu4"> xxx sq.ft
+                                   </div>
+                                 </div>
+                               </div>
+                               <div id="modalActivate" data-toggle="modal"
+                               data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" data-q="desc" class="css-nqm4eq"><span style="font-size: medium;"
+                                   class="css-tb5n5c">
+                                   Property For {{item.basicDetailId.wantTo}}
+                                 </span>
+                               </div>
+                               <div class="css-19yzxlt">
+                                 <div data-q="seller-data" class="contact-bar css-tatn4f">
+                                   <div class="thumbnail-wrapper css-1uoxvj3">
+                                    
+                                   </div>
+                                   <div class="details css-sac6n0">
+                                     <!-- <div class="css-wni7av"><span class="css-0">Chittaranjan Singh</span></div>
+                                     <div class="css-113fu5b">Owner</div> -->
+                                   </div><button  href="#myModal" data-toggle="modal" (click)="loadPropertyOwnerDetailandProp(item.uniqueID)" class="cta css-149igx6">Contact</button>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+
+                             <!-- PG PROPERTY -->
+                             <div *ngIf="item.basicDetailId.wantTo=='PG'"  
+                             class="css-k008qs">
+                             <div *ngFor="let img of Alldetais.imgs" class="thumb">
+                               <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                 id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                 *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url!='null'"
+                                 [src]="img.url"  style="height:243px; width: 350px;" alt="img">
+                               <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                 id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                 *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url=='null'"
+                                 [src]="DefaultPropImages"  style="height:243px; width: 350px;" alt="img">
+                               <!-- <a href="#"><i class="fa fa-heart"></i></a>  -->
+                             </div>
+
+                             <div class="css-v64o2m">
+                               <div  id="modalActivate" data-toggle="modal"
+                               data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" class="css-70qvj9">
+                                 <div class="css-yr18fa">₹ {{item.basicDetailId.pgRent}}</div>
+                               </div>
+
+                               <div  id="modalActivate" data-toggle="modal"
+                               data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" class="css-ltqa49"><a class="css-869w8l">
+                                   <h3 class="css-zekqfr">
+
+                                     <div style="font-size:large;"
+                                       class="css-ybv4ci">{{item.basicDetailId.pgName}}
+                                       {{item.basicDetailId.roomType}}</div>  
+                                   </h3>
+                                 </a></div><span data-q="address" class="css-1ybkpwu">{{item.locationId.locality}}
+                                 {{item.locationId.sector}}</span>
+                               <div  id="modalActivate" data-toggle="modal"
+                               data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" data-q="features" class="css-mifb2i">
+                                 <div class="css-ebj250">
+                                   <div class="css-16mq4qa">Meal Avalable</div>
+                                   <div class="css-1ty8tu4">{{item.basicDetailId.mealAvalable}}</div>
+                                 </div>
+                                 <div class="css-ebj250">
+                                   <div class="css-16mq4qa">Non Veg Allowed</div>
+                                   <div class="css-1ty8tu4">
+                                     {{item.basicDetailId.nonVegAllowed}}</div>
+                                 </div>
+                               </div>
+                               <div  id="modalActivate" data-toggle="modal"
+                               data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)" data-q="desc" class="css-nqm4eq"><span style="font-size: medium;"
+                                   class="css-tb5n5c">
+                                   Property For {{item.basicDetailId.wantTo}}
+                                 </span>
+                               </div>
+                               <div class="css-19yzxlt">
+                                 <div data-q="seller-data" class="contact-bar css-tatn4f">
+                                   <div class="thumbnail-wrapper css-1uoxvj3">
+                                     
+                                   </div>
+                                   <div class="details css-sac6n0">
+                                     <!-- <div class="css-wni7av"><span class="css-0">Chittaranjan Singh</span></div>
+                                     <div class="css-113fu5b">Owner</div> -->
+                                   </div><button href="#myModal" data-toggle="modal" (click)="loadPropertyOwnerDetailandProp(item.uniqueID)" class="cta css-149igx6">Contact</button>
+                                 </div>
+                               </div>
+                             </div>
+
+                           </div>
+                            </article>
+                           </ng-container>
+
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+         <!-- feature Projects area end -->
+    <div class="center">
+      <pagination class="pagination-sm my-pagination"
+      [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+      (pageChanged)="pageChanged($event)" 
+      id="comp-pagination"
+      class="my-pagination"
+      [(ngModel)]="currentPage"></pagination>
+    </div>
+   </body>
+     <!--Details Modal -->
+  <div class="modal fade right" id="exampleModalPreview" tabindex="1" role="dialog"
+  aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+ 
+  <div  class="modal-dialog-full-width modal-dialog momodel modal-fluid" role="document">
+    <div class="modal-content-full-width modal-content ">
+      <div style="background-color: #3f4448f0;" class="modal-header-full-width modal-header text-center">
+        <div class="logo">
+          <a href="index.html"><img src="./../../assets/img/Spacing/Logo.png"
+              style="height:48px; width:180px;" alt="logo"></a>
+        </div>
+        <button type="button" class="close " (click)="modalDismiss()" data-dismiss="modal" aria-label="Close">
+          <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="lds-hourglass" *ngIf="isDetailLoading==true"></div>
+       <div *ngIf="isDetailLoading==false" style="overflow-y:auto;" class="modal-body p-4" id="result">
+         <div class="property-details-area">
+           <div class="bg-gray pd-top-60 pd-bottom-90">
+             <div class="container"> 
+                <h3
+                  style="font-size: 24px; color: black; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"
+                  class="modal-title w-70" *ngFor="let item1 of detais.all"
+                  id="exampleModalPreviewLabel">
+                  Details
+                  Of
+                  <span *ngIf="item1.basicDetailId.wantTo=='Rent'">{{item1.basicDetailId.propertyType}}</span>
+                  <span
+                    *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType!='Plot'">{{item1.basicDetailId.propertyType}}</span>
+                  <span
+                    *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType=='Plot'">Plot</span>
+
+                  <span *ngIf="item1.basicDetailId.wantTo=='PG'">PG</span>
+                </h3>
+                <hr>
+               <div class="row">
+               
+                 <div class="col-xl-9 col-lg-8">
+                   <div style="margin-left: -15px;" class="row">
+                      <owl-carousel *ngIf="imgLoaded==true" class="col-md-12" [options]="SlideOptions" [items]="images"
+                       [carouselClasses]="['owl-theme', 'sliding']">
+                       <div class="item" *ngFor="let img of images;let i=index">
+                         <div style="align-content: center">
+                           <img style="width: 950px; height: 550px;" (click)="open(i)" src={{img.thumb}} />
+                         </div>
+                       </div>
+                     </owl-carousel>
+                      <owl-carousel *ngIf="imgLoaded==false" class="col-md-12" [options]="SlideOptions"
+                        [items]="images" [carouselClasses]="['owl-theme', 'sliding']">
+                        <div class="item">
+                          <div style="align-content: center">
+                            <img style="height: 600px;" [src]="DefaultPropImages">
+                          </div>
+                        </div>
+                      </owl-carousel>  
+                   </div>
+
+                   <div style="margin-left: -5px;" class="property-details-slider-info">
+                     <h5 style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: bolder; color: #ff6600;"
+                       *ngFor="let item1 of detais.all">
+                       <span
+                         *ngIf="item1.basicDetailId.wantTo=='Rent'">{{item1.basicDetailId.mothlyRent | ShortNumber}} / Per
+                         Month
+                       </span>
+                       <span
+                         *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType!='Plot'">{{item1.basicDetailId.mothlyRent | ShortNumber}} / Selling
+                         Price</span>
+                       <span
+                         *ngIf="item1.basicDetailId.wantTo=='PG'"><span>{{item1.basicDetailId.pgRent | ShortNumber}} / Per
+                           Month</span>
+                       </span>
+                        <span
+                          *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType=='Plot'">{{item1.basicDetailId.plotPrice | ShortNumber}} / Selling
+                          Price</span>
+                     </h5>
+                   </div>
+                 </div>
+                 <div class="col-xl-3 col-lg-4">
+                   <div class="widget widget-owner-info mt-lg-0 mt-5">
+                     <div class="owner-info text-center">
+                       <div class="thumb">
+                         <img style="height: 140px; width: 150px;" class="img-thumbnail"
+                          [src]="ownerimageUrl"
+                         alt="img">
+                       </div>
+
+                       <div class="details">
+                         <h6 *ngFor="let item1 of detais.all">For {{item1.basicDetailId.wantTo}}</h6>
+
+                         <div *ngFor="let item1 of detais.all" class="designation">
+                           <span
+                             *ngIf="item1.basicDetailId.wantTo=='Rent'">{{item1.basicDetailId.propertyType}}</span>
+                           <span
+                             *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType!='Plot'">{{item1.basicDetailId.propertyType}}</span>
+                           <span *ngIf="item1.basicDetailId.wantTo=='PG'">{{item1.basicDetailId.pgFor}}</span>
+                         </div>
+                         <div class="py-2">
+                           <button type="button" href="#myModal" data-toggle="modal"
+                           (click)="loadPropertyOwnerDetail(item.userId)"
+                             class="btn btn-tomato"><i class="fa fa-address-book" aria-hidden="true"></i>
+                             Contact</button>
+                         </div>
+                         <!-- <p class="reviews"><i style="color: #ff6600;" class="fa fa-star"></i><span>4.8</span> 70
+                           Review</p> -->
+                       </div>
+                     </div>
+
+                     <div class="contact-info">
+                       <h6 class="mb-3">Contact Info</h6>
+                       <div class="media">
+                         <div class="media-left">
+                           <img src="./../../assets/img/loc.png" alt="img">
+                         </div>
+                         <div class="media-body">
+                           <p>Address<br>
+                             <span *ngFor="let item1 of
+                           detais.all">{{item1.locationId.city}},{{hideuseraddress}}
+                             </span></p>
+                         </div>
+                       </div>
+                       <div class="media">
+                         <div class="media-left">
+                           <i style="color: #ff6600;" class="fa fa-phone"></i>
+                         </div>
+                         <div class="media-body">
+                           <p>Phone<br>
+                             <span>{{hideuserPhone}}</span></p>
+
+                         </div>
+                       </div>
+                       <div class="media mb-0">
+                         <div class="media-left">
+                           <i style="color: #ff6600;" class="fa fa-envelope"></i>
+                         </div>
+                         <div class="media-body">
+                           <p>Email<br>
+                             <span>{{hideemail}}</span></p>
+
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div *ngFor="let item1 of detais.all" class="container">
+             <!-- FOR REnt -->
+             <div *ngIf="item1.basicDetailId.wantTo=='Rent'"
+               class="property-news-single-card border-bottom-yellow pb-3">
+               <br>
+               <h4>Available Features</h4>
+               <br>
+               <hr>
+               <div class="row">
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-bed"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Furnished Type</h6>
+                       <p *ngIf="propertyConfig?.furnishType==true">{{item1.basicDetailId.furnishedType}}</p>
+                         <p *ngIf="propertyConfig?.furnishType==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-bed"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>BHK</h6>
+                       <p *ngIf="propertyConfig?.isBhk==true">{{item1.basicDetailId.bhk}}</p>
+                        <p *ngIf="propertyConfig?.isBhk==false">xxx BHK</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-building"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Balcony</h6>
+                       <p *ngIf="propertyConfig?.balcony==true">{{item1.basicDetailId.balconey}}</p>
+                        <p *ngIf="propertyConfig?.balcony==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-bath"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Bathroom</h6>
+                       <p *ngIf="propertyConfig?.bathRoom==true">{{item1.basicDetailId.bathroom}}</p>
+                         <p *ngIf="propertyConfig?.bathRoom==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-users"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Preferred Tenant Type</h6>
+                       <p *ngIf="propertyConfig?.tenantType==true">{{item1.basicDetailId.teneandType}}</p>
+                        <p *ngIf="propertyConfig?.tenantType==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-bullseye" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Age Of Property (In Years)</h6>
+                       <p *ngIf="propertyConfig?.ageOfProperty==true">{{item1.basicDetailId.propertadyAge}}</p>
+                       <p *ngIf="propertyConfig?.ageOfProperty==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-money" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Rent</h6>
+                       <p *ngIf="propertyConfig?.monthlyRent==true">
+                         {{item1.basicDetailId.mothlyRent | ShortNumber}} / Per Month</p>
+                           <p *ngIf="propertyConfig?.monthlyRent==false">
+                             xxx/Per Month</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Available From</h6>
+                       <p *ngIf="propertyConfig?.availableFrom==true">{{item1.basicDetailId.avalableFrom | date}}</p>
+                        <p *ngIf="propertyConfig?.availableFrom==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-area-chart" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Built Up Area</h6>
+                       <p *ngIf="propertyConfig?.buildArea==true">{{item1.basicDetailId.buildUpArea}}</p>
+                        <p *ngIf="propertyConfig?.buildArea==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="" aria-hidden="true">SD</i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Security Deposit</h6>
+                       <p *ngIf="propertyConfig?.securityDeposite==true">
+                         {{item1.basicDetailId.securityDeposite}}</p>
+                        <p *ngIf="propertyConfig?.securityDeposite==false">NA</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-money" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Security Deposit Amount</h6>
+                       <p
+                         *ngIf="item1.basicDetailId.securityDepositeAmt!=null && propertyConfig?.securityDeposite==true">
+                         {{item1.basicDetailId.securityDepositeAmt | ShortNumber}}</p>
+                          <p
+                            *ngIf="item1.basicDetailId.securityDepositeAmt==0 && propertyConfig?.securityDeposite==true">
+                           0</p>
+
+                             <p
+                               *ngIf="item1.basicDetailId.securityDepositeAmt!=null && propertyConfig?.securityDeposite==false">
+                              xxx</p>
+                             <p
+                               *ngIf="item1.basicDetailId.securityDepositeAmt==0 && propertyConfig?.securityDeposite==false">
+                              xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-car" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Cover Parking</h6>
+                       <p *ngIf="propertyConfig?.coverParking==true">{{item1.basicDetailId.coverParking}}</p>
+                        <p *ngIf="propertyConfig?.coverParking==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-car" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Open Parking</h6>
+                       <p *ngIf="propertyConfig?.openParking==true">{{item1.basicDetailId.openParking}}</p>
+                       <p *ngIf="propertyConfig?.openParking==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+
+             <!-- For Only Sell -->
+             <div *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType!='Plot'"
+               class="property-news-single-card border-bottom-yellow pb-3">
+               <br>
+               <h4>Available Features</h4>
+               <br>
+               <hr>
+               <div class="row">
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-bed"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Property Type</h6>
+                       <p>{{item1.basicDetailId.propertyType}}</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-bed"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>BHK</h6>
+                       <p *ngIf="propertyConfig?.isBhk==true">{{item1.basicDetailId.bhk}}</p>
+                          <p *ngIf="propertyConfig?.isBhk==false">xxx BHK</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-building"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Balcony</h6>
+                       <p *ngIf="propertyConfig?.balcony==true">{{item1.basicDetailId.balconey}}</p>
+                         <p *ngIf="propertyConfig?.balcony==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-bath"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Bathroom</h6>
+                       <p *ngIf="propertyConfig?.bathRoom==true">{{item1.basicDetailId.bathroom}}</p>
+                        <p *ngIf="propertyConfig?.bathRoom==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-users"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Construction Status</h6>
+                       <p *ngIf="propertyConfig?.constructionStatus==true">{{item1.basicDetailId.constructionType}}
+                       </p>
+                         <p *ngIf="propertyConfig?.constructionStatus==false">xxx
+                         </p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-users"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Transaction Type</h6>
+                       <p *ngIf="propertyConfig?.transactionType==true">{{item1.basicDetailId.transactionType}}</p>
+                        <p *ngIf="propertyConfig?.transactionType==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-bullseye" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Age Of Property (In Years)</h6>
+                       <p *ngIf="propertyConfig?.ageOfProperty==true">{{item1.basicDetailId.propertadyAge}}</p>
+                        <p *ngIf="propertyConfig?.ageOfProperty==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-money" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Selling Price</h6>
+                       <p *ngIf="propertyConfig?.monthlyRent==true">
+                         {{item1.basicDetailId.mothlyRent | ShortNumber}} / Selling Price</p>
+                           <p *ngIf="propertyConfig?.monthlyRent==false">
+                             xxx/Selling Price</p>
+                     </div>
+                   </div>
+                 </div>
+
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-money" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Brokerage</h6>
+                       <p>{{item1.basicDetailId.brokerage}}</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-money" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Brokerage Amount</h6>
+                       <p>{{item1.basicDetailId.brokerageAmt | ShortNumber}}</p>
+                     </div>
+                   </div>
+                 </div>
+
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-car" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Cover Parking</h6>
+                       <p *ngIf="propertyConfig?.coverParking==true">{{item1.basicDetailId.coverParking}}</p>
+                       <p *ngIf="propertyConfig?.coverParking==false">xx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-car" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Open Parking</h6>
+                       <p *ngIf="propertyConfig?.openParking==true">{{item1.basicDetailId.openParking}}</p>
+                        <p *ngIf="propertyConfig?.openParking==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+
+             <!-- For Only Sell && Plot -->
+             <div *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType=='Plot'"
+               class="property-news-single-card border-bottom-yellow pb-3">
+               <br>
+               <h4>Available Features</h4>
+               <br>
+               <hr>
+               <div class="row">
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-bed"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Property Type</h6>
+                       <p>{{item1.basicDetailId.propertyType}}</p>
+                     </div>
+                   </div>
+                 </div>
+
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-users"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Possession Status</h6>
+                       <p>{{item1.basicDetailId.possesionType}}</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-users"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Transaction Type</h6>
+                       <p *ngIf="propertyConfig?.transactionType==true">{{item1.basicDetailId.transactionType}}</p>
+                        <p *ngIf="propertyConfig?.transactionType==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-money" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Plot Price</h6>
+                       <p>{{item1.basicDetailId.plotPrice | ShortNumber}} / Selling Price</p>
+                     </div>
+                   </div>
+                 </div>
+
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-money" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Brokerage</h6>
+                       <p>{{item1.basicDetailId.brokerage}}</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-money" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Brokerage Amount</h6>
+                       <p>{{item1.basicDetailId.brokerageAmt | ShortNumber}}</p>
+                     </div>
+                   </div>
+                 </div>
+
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-car" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Plot Area</h6>
+                       <p>{{item1.basicDetailId.ploatArea}}</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-car" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Area Unit</h6>
+                       <p>{{item1.basicDetailId.areaUnit}}</p>
+                     </div>
+                   </div>
+                 </div>
+                   <div class="col-md-3 col-sm-6">
+                     <div class="single-floor-list media">
+                       <div class="media-left">
+                         <i class="fa fa-car" aria-hidden="true"></i>
+                       </div>
+                       <div class="media-body">
+                         <h6>Plot Number</h6>
+                         <p>{{item1.basicDetailId.floorRange}}</p>
+                       </div>
+                     </div>
+                   </div>
+               </div>
+             </div>
+
+             <!-- For Only PG -->
+             <div *ngIf="item1.basicDetailId.wantTo=='PG'"
+               class="property-news-single-card border-bottom-yellow pb-3">
+               <br>
+               <h4>Available Features</h4>
+
+               <hr>
+               <div class="row">
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-building"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>PG Name</h6>
+                       <p *ngIf="propertyConfig?.pGName==true">{{item1.basicDetailId.pgName}}</p>
+                        <p *ngIf="propertyConfig?.pGName==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-bed"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Total Beds</h6>
+                       <p *ngIf="propertyConfig?.totalBed==true">{{item1.basicDetailId.toatalBed}}</p>
+                       <p *ngIf="propertyConfig?.totalBed==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="" aria-hidden="true">PG</i>
+                     </div>
+                     <div class="media-body">
+                       <h6>PG is for</h6>
+                       <p *ngIf="propertyConfig?.pgFor==true">{{item1.basicDetailId.pgFor}}</p>
+                        <p *ngIf="propertyConfig?.pgFor==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="" aria-hidden="true">S</i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Suited for</h6>
+                       <p *ngIf="propertyConfig?.suitedFor==true">{{item1.basicDetailId.pgSuitedFor}}</p>
+                        <p *ngIf="propertyConfig?.suitedFor==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-cutlery" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Meals Available</h6>
+                       <p *ngIf="propertyConfig?.mealAvalable==true">{{item1.basicDetailId.mealAvalable}}</p>
+                        <p *ngIf="propertyConfig?.mealAvalable==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="" aria-hidden="true">NV</i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Non Veg Allowed</h6>
+                       <p *ngIf="propertyConfig?.nonVegAllowed==true">{{item1.basicDetailId.nonVegAllowed}}</p>
+                        <p *ngIf="propertyConfig?.nonVegAllowed==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-delicious" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Room Type</h6>
+                       <p *ngIf="propertyConfig?.roomType==true">{{item1.basicDetailId.roomType}}</p>
+                       <p *ngIf="propertyConfig?.roomType==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-bed" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Total Beds in a Room</h6>
+                       <p *ngIf="propertyConfig?.bedInRoom==true">{{item1.basicDetailId.bedInRoom}}</p>
+                        <p *ngIf="propertyConfig?.bedInRoom==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-money" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Rent</h6>
+                       <p *ngIf="propertyConfig?.pgRent==true">{{item1.basicDetailId.pgRent | ShortNumber}} / Per
+                         Month</p>
+                          <p *ngIf="propertyConfig?.pgRent==false">xxx/Per
+                            Month</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="" aria-hidden="true">SD</i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Security Deposit</h6>
+                       <p>{{item1.basicDetailId.pgSecurityDeposite}}</p>
+                     </div>
+                   </div>
+                 </div>
+
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-car" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6> Property Managed By</h6>
+                       <p *ngIf="propertyConfig?.propertyManagedBy==true">{{item1.basicDetailId.propertyManageBy}}</p>
+                          <p *ngIf="propertyConfig?.propertyManagedBy==false">xxx
+                          </p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-male" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6> Opposite Sex Allowed</h6>
+                       <p *ngIf="propertyConfig?.oppositeSexAllowed==true">{{item1.basicDetailId.oppositeSex}}</p>
+                          <p *ngIf="propertyConfig?.oppositeSexAllowed==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="" aria-hidden="true">VA</i>
+                     </div>
+                     <div class="media-body">
+                       <h6> Visitors Allowed</h6>
+                       <p *ngIf="propertyConfig?.visitorsAllowed==true">{{item1.basicDetailId.visitorAllowed}}</p>
+                         <p *ngIf="propertyConfig?.visitorsAllowed==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-users" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6> Guardian Allowed</h6>
+                       <p *ngIf="propertyConfig?.guardianAllowed==true">{{item1.basicDetailId.visitorAllowed}}</p>
+                        <p *ngIf="propertyConfig?.guardianAllowed==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-beer" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6> Drinking Allowed</h6>
+                       <p *ngIf="propertyConfig?.drinkingAllowed==true">{{item1.basicDetailId.drinkingAllowed}}</p>
+                        <p *ngIf="propertyConfig?.drinkingAllowed==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                      <i class="fa fa-smoking">SA</i>
+                     </div>
+                     <div class="media-body">
+                       <h6> Smoking Allowed</h6>
+                       <p *ngIf="propertyConfig?.smokingAllowed==true">{{item1.basicDetailId.smokingAllowed}}</p>
+                        <p *ngIf="propertyConfig?.smokingAllowed==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="" aria-hidden="true">FO</i>
+                     </div>
+                     <div class="media-body">
+                       <h6>Facilities Offered</h6>
+                       <p *ngIf="propertyConfig?.facilitiesOffered==true">{{item1.basicDetailId.facilitiesOffered}}
+                       </p>
+                          <p *ngIf="propertyConfig?.facilitiesOffered==false">xxx
+                          </p>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-3 col-sm-6">
+                   <div class="single-floor-list media">
+                     <div class="media-left">
+                       <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                     </div>
+                     <div class="media-body">
+                       <h6> Common Areas</h6>
+                       <p *ngIf="propertyConfig?.commonAreas==true">{{item1.basicDetailId.commonArea}}</p>
+                        <p *ngIf="propertyConfig?.commonAreas==false">xxx</p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+               <!-- For Only PG Amenties -->
+               <div *ngIf="item1.basicDetailId.wantTo=='PG'"
+                 class="property-news-single-card border-bottom-yellow pb-3">
+                 <br>
+                 <h4>Security Amenities</h4> 
+                 <hr>
+                 <div *ngIf="amentiesloded" class="row">
+                 
+                    <div *ngIf="AmentiesList.CCTV==true" class="col-md-3 col-sm-6">
+                      <div class="single-floor-list media">
+                        <div class="media-left">
+                            <div><i class="icon-CCTV"></i></div>
+                        </div> 
+                         <div class="media-body">
+                            <p>CCTV</p>
+                            </div>
+                      </div>
+                    </div> 
+                     <div *ngIf="AmentiesList.GatedCommunity==true" class="col-md-3 col-sm-6">
+                       <div class="single-floor-list media">
+                         <div class="media-left">
+                           <div><i class="icon-gated-society"></i></div>
+                         </div>
+                         <div class="media-body">
+                           <p>Gated Community</p>
+                         </div>
+                       </div>
+                     </div>
+                      <div *ngIf="AmentiesList.Microwave==true" class="col-md-3 col-sm-6">
+                        <div class="single-floor-list media">
+                          <div class="media-left">
+                            <div><i class="icon-microwave"></i></div>
+                          </div>
+                          <div class="media-body">
+                            <p>Microwave</p>
+                          </div>
+                        </div>
+                      </div>
+                       <div *ngIf="AmentiesList.WaterPurifier==true" class="col-md-3 col-sm-6">
+                         <div class="single-floor-list media">
+                           <div class="media-left">
+                             <div><i class="icon-water-purifier"></i></div>
+                           </div>
+                           <div class="media-body">
+                             <p>Water Purifier</p>
+                           </div>
+                         </div>
+                       </div>
+                        <div *ngIf="AmentiesList.TTTable==true" class="col-md-3 col-sm-6">
+                          <div class="single-floor-list media">
+                            <div class="media-left">
+                              <div><i class="icon-pingPong"></i></div>
+                            </div>
+                            <div class="media-body">
+                              <p>TT Table</p>
+                            </div>
+                          </div>
+                        </div>
+                         <div *ngIf="AmentiesList.Fridge==true" class="col-md-3 col-sm-6">
+                           <div class="single-floor-list media">
+                             <div class="media-left">
+                               <div><i class="icon-fridge"></i></div>
+                             </div>
+                             <div class="media-body">
+                               <p>Fridge</p>
+                             </div>
+                           </div>
+                         </div>
+                           <div *ngIf="AmentiesList.WashingMachine==true" class="col-md-3 col-sm-6">
+                             <div class="single-floor-list media">
+                               <div class="media-left">
+                                 <div><i class="icon-washing-machine"></i></div>
+                               </div>
+                               <div class="media-body">
+                                 <p>Washing Machine</p>
+                               </div>
+                             </div>
+                           </div>
+                            <div *ngIf="AmentiesList.TV==true" class="col-md-3 col-sm-6">
+                              <div class="single-floor-list media">
+                                <div class="media-left">
+                                  <div><i class="icon-tv"></i></div>
+                                </div>
+                                <div class="media-body">
+                                  <p>TV</p>
+                                </div>
+                              </div>
+                            </div>
+                          <div *ngIf="AmentiesList.CoffeeMachine==true" class="col-md-3 col-sm-6">
+                            <div class="single-floor-list media">
+                              <div class="media-left">
+                                <div><i class="icon-coffeeCup"></i></div>
+                              </div>
+                              <div class="media-body">
+                                <p>Coffee Machine</p>
+                              </div>
+                            </div>
+                          </div>
+                           <div *ngIf="AmentiesList.SnacksMachine==true" class="col-md-3 col-sm-6">
+                             <div class="single-floor-list media">
+                               <div class="media-left">
+                                 <div><i class="icon-snack"></i></div>
+                               </div>
+                               <div class="media-body">
+                                 <p>Snacks Machine</p>
+                               </div>
+                             </div>
+                           </div>
+                            <div *ngIf="AmentiesList.Laundry==true" class="col-md-3 col-sm-6">
+                              <div class="single-floor-list media">
+                                <div class="media-left">
+                                  <div><i class="icon-laundry"></i></div>
+                                </div>
+                                <div class="media-body">
+                                  <p>Laundry</p>
+                                </div>
+                              </div>
+                            </div>
+                             <div *ngIf="AmentiesList.Housekeeping==true" class="col-md-3 col-sm-6">
+                               <div class="single-floor-list media">
+                                 <div class="media-left">
+                                   <div><i class="icon-housekeeping"></i></div>
+                                 </div>
+                                 <div class="media-body">
+                                   <p>Housekeeping</p>
+                                 </div>
+                               </div>
+                             </div>
+                              <div *ngIf="AmentiesList.Internet==true" class="col-md-3 col-sm-6">
+                                <div class="single-floor-list media">
+                                  <div class="media-left">
+                                    <div><i class="icon-internet"></i></div>
+                                  </div>
+                                  <div class="media-body">
+                                    <p>Internet</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div *ngIf="AmentiesList.ReservedParking==true" class="col-md-3 col-sm-6">
+                                <div class="single-floor-list media">
+                                  <div class="media-left">
+                                    <div><i class="icon-parking"></i></div>
+                                  </div>
+                                  <div class="media-body">
+                                    <p>Reserved Parking</p>
+                                  </div>
+                                </div>
+                              </div>
+                                <div *ngIf="AmentiesList.Gym==true" class="col-md-3 col-sm-6">
+                                  <div class="single-floor-list media">
+                                    <div class="media-left">
+                                      <div><i class="icon-dumbel"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                      <p>Gym</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                 <div *ngIf="AmentiesList.Lift==true" class="col-md-3 col-sm-6">
+                                   <div class="single-floor-list media">
+                                     <div class="media-left">
+                                       <div><i class="icon-elevator"></i></div>
+                                     </div>
+                                     <div class="media-body">
+                                       <p>Lift</p>
+                                     </div>
+                                   </div>
+                                 </div>
+                                   <div *ngIf="AmentiesList.RegularWaterSupply==true" class="col-md-3 col-sm-6">
+                                     <div class="single-floor-list media">
+                                       <div class="media-left">
+                                         <div><i class="icon-water-supply"></i></div>
+                                       </div>
+                                       <div class="media-body">
+                                         <p>Regular Water Supply</p>
+                                       </div>
+                                     </div>
+                                   </div>
+                                     <div *ngIf="AmentiesList.SwimmingPool==true" class="col-md-3 col-sm-6">
+                                       <div class="single-floor-list media">
+                                         <div class="media-left">
+                                           <div><i class="icon-pool"></i></div>
+                                         </div>
+                                         <div class="media-body">
+                                           <p>Swimming Pool</p>
+                                         </div>
+                                       </div>
+                                     </div>
+                                       <div *ngIf="AmentiesList.PowerBackup==true" class="col-md-3 col-sm-6">
+                                         <div class="single-floor-list media">
+                                           <div class="media-left">
+                                             <div><i class="icon-power-backup"></i></div>
+                                           </div>
+                                           <div class="media-body">
+                                             <p>Power Backup</p>
+                                           </div>
+                                         </div>
+                                       </div>
+                                         <div *ngIf="AmentiesList.Biometric==true" class="col-md-3 col-sm-6">
+                                           <div class="single-floor-list media">
+                                             <div class="media-left">
+                                               <div><i class="icon-biometric"></i></div>
+                                             </div>
+                                             <div class="media-body">
+                                               <p>Biometric</p>
+                                             </div>
+                                           </div>
+                                         </div>
+                                           <div *ngIf="AmentiesList.Security==true" class="col-md-3 col-sm-6">
+                                             <div class="single-floor-list media">
+                                               <div class="media-left">
+                                                 <div><i class="icon-security1"></i></div>
+                                               </div>
+                                               <div class="media-body">
+                                                 <p>Security</p>
+                                               </div>
+                                             </div>
+                                           </div>
+                 </div>
+               </div> 
+           </div>
+         </div>
+       </div>
+    </div>
+  </div>
+</div> 
+ <!--Contact Modal -->
+ <div class="modal fade" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Contact Seller</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="seller-info-cont css-bdk9lp">
+         <div class="seller-name-card css-8ham63">
+           <div class="thumbnail-wrapper css-uwwqev"><img
+               [src]="ownerimageUrl"
+               class="image css-10qiwim" alt="MM"></div>
+         </div>
+         <div class="css-1oppddv">
+           <div class="seller-name css-115b17j" data-q="name">{{names}}</div>
+           <div class="seller-des css-1me87c" data-q="des">{{ownerRole}}</div>
+           <div class="seller-phone css-kvwa8v" data-q="phone">{{hideemail}}</div>
+            <div class="seller-phone css-kvwa8v" data-q="phone">{{hideuserPhone}}</div>
+         </div>
+       </div>
+       <form [formGroup]="SellerContact" autocomplete="off" class="css-omp9hk">
+         <div class="css-hccqyj">Please share your contact</div>
+         <div class="form-item type-pill css-a802sj">
+           <label>Name</label>
+           <input formControlName="name" type="text" class="form-control">
+         </div>
+          <div class="form-item type-pill css-a802sj">
+            <label>Email</label>
+            <input formControlName="email" type="text" class="form-control">
+          </div>
+      
+            <div class="form-item type-pill css-a802sj">
+              <label>Phone Number</label>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="input-group-append">
+                    <span style="font-weight: lighter; height: 4.9vh;
+                    background-color: #ff6600; color: white;" class="input-group-text" id="basic-addon2"><b>+91</b> </span>
+                  </div>
+                    <input (keyup)="PhoneNoValidation($event)" formControlName="phoneNumber" type="text" maxlength="10" class="form-control">
+                </div>
+              </div> 
+            </div>
+
+         <div class="form-item type-pill css-17q6808">
+           <div class="sel-cont css-0">
+             <div class="sel-placeholder css-szbi6c">You are looking for</div>
+             <div class="options-wrap">
+            <div *ngFor="let item of detais?.all">
+              <div *ngIf="item.basicDetailId?.wantTo=='Rent'" class="option active css-1wv2abf">
+                {{item.basicDetailId.propertyType}}</div>
+              <div *ngIf="item.basicDetailId?.wantTo=='Sell' &&
+                                      item.basicDetailId?.propertyType!='Plot'" class="option active css-1wv2abf">
+                {{item.basicDetailId.propertyType}}</div>
+                 <div *ngIf="item.basicDetailId?.wantTo=='Sell' &&
+                                      item.basicDetailId?.propertyType=='Plot'" class="option active css-1wv2abf">
+                   {{item.basicDetailId.propertyType}}</div>
+
+              <div *ngIf="item.basicDetailId?.wantTo=='PG'" class="option active css-1wv2abf">
+                PG</div>
+            </div>
+               
+             </div>
+           </div>
+         </div>
+       </form>
+      </div>
+      <div class="modal-footer">
+          <button type="button" [disabled]="!SellerContact.valid" class="btn btn-tomato" (click)="PostUserContact()">
+            <span *ngIf="this.btnLoader" class="spinner-border spinner-border-sm" role="status"></span>
+            <span *ngIf="this.btnLoader" class="load-text"> Loading...</span>
+            <span *ngIf="!this.btnLoader" class="btn-text"><i class="fa
+fa-address-card"></i> Get Contact
+              Details</span>
+          </button>
+       
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+     <!-- footer area start -->
+     <footer class="footer-area">
+       <div class="container">
+         <div class="footer-top">
+           <div class="row">
+             <div class="col-lg-3 col-sm-6">
+               <div class="widget widget_nav_menu">
+                 <h4 class="widget-title">Popular Searches</h4>
+                 <ul>
+                   <li style="cursor: pointer; margin-bottom: 5px; color: white;"><a style="color: white;">PG for
+                       Boys</a></li>
+                   <li style="cursor: pointer; margin-bottom: 5px;color: white;"><a style="color: white;">PG for
+                       Girls</a></li>
+                   <li style="cursor: pointer; margin-bottom: 5px; color: white;"><a style="color: white;">PG for
+                       All</a></li>
+                 </ul>
+               </div>
+             </div>
+
+             <div class="col-lg-3 col-sm-6">
+               <div class="widget widget_nav_menu">
+                 <h4 class="widget-title">Quick Links</h4>
+                 <ul style="color: white;">
+                   <li style="cursor: pointer;margin-bottom: 5px; color: white;"><a style="color: white;"
+                       >Villa for Rent</a></li>
+                   <li style="cursor: pointer; margin-bottom: 5px; color: white;"><a style="color: white;"
+                       >Apartment for Rent</a></li>
+                 </ul>
+               </div>
+             </div>
+
+             <div class="col-lg-3 col-sm-6">
+
+             </div>
+             <div class="col-lg-3 col-sm-6">
+               <div class="widget widget_nav_menu">
+                 <h4 class="widget-title">Contact Us</h4>
+                 <ul>
+                   <li style="cursor: pointer; margin-bottom: 10px;">Toll Free<a href="#" style="color: blue;"> xxxx xx
+                       xxxx</a></li>
+                   <li style="cursor: pointer; margin-bottom: 10px;"><a style="color: white;">Monday - Saturday (9:00AM
+                       to 7:00PM)</a></li>
+                   <li style="cursor: pointer; margin-bottom: 10px;"> Email:<a href="#" style="color: blue;">
+                       feedback@spacing.com</a></li>
+                 </ul>
+                 <hr>
+                 <div class="row col-lg-6 col-sm-8">
+                   <b> MOBILE APP</b>
+                 </div>
+                 <div style="margin-top:-30px ;" class="row col-lg-8 col-sm-4">
+                   <img style="width: 160px;" src="../../assets/Images/google-play-png-logo-3799.png">
+                 </div>
+                 <b> CONNECT WITH US</b>
+                 <br>
+                 <br>
+                 <div class=""></div><span class="css-m1ruj5"><svg width="100" height="40" viewBox="0 0 100 40">
+                     <g fill="none" fill-rule="evenodd">
+                       <rect width="99" height="39" x=".5" y=".5" fill="#FFF" stroke="#B4B4B4" rx="19.5"></rect>
+                       <path fill="#3A589B"
+                         d="M46.527 32.96h5.058V20.477h3.374l.447-4.3h-3.821l.005-2.154c0-1.12.105-1.723 1.683-1.723h2.109V8h-3.375c-4.054 0-5.48 2.087-5.48 5.595v2.583H44v4.301h2.527v12.48z">
+                       </path>
+                     </g>
+                   </svg></span><span class="css-m1ruj5"><svg width="100" height="40" viewBox="0 0 100 40">
+                     <g fill="none" fill-rule="evenodd">
+                       <rect width="99" height="39" x=".5" y=".5" fill="#FFF" stroke="#B4B4B4" rx="19.5"></rect>
+                       <g fill-rule="nonzero">
+                         <path fill="#FBBB00"
+                           d="M44.432 22.086l-.696 2.6-2.544.053A9.955 9.955 0 0 1 40 20a9.95 9.95 0 0 1 1.118-4.599l2.266.415.992 2.252a5.944 5.944 0 0 0-.32 1.932c0 .734.132 1.437.376 2.086z">
+                         </path>
+                         <path fill="#518EF8"
+                           d="M59.825 18.132a10.019 10.019 0 0 1-.044 3.956 9.998 9.998 0 0 1-3.52 5.71h-.001l-2.853-.146-.404-2.52a5.96 5.96 0 0 0 2.564-3.044H50.22v-3.956h9.605z">
+                         </path>
+                         <path fill="#28B446"
+                           d="M56.26 27.798A9.958 9.958 0 0 1 50 30a9.998 9.998 0 0 1-8.808-5.261l3.24-2.653a5.946 5.946 0 0 0 8.57 3.045l3.258 2.667z">
+                         </path>
+                         <path fill="#F14336"
+                           d="M56.383 12.302l-3.24 2.652a5.948 5.948 0 0 0-8.767 3.114l-3.257-2.667A9.998 9.998 0 0 1 50 10c2.426 0 4.651.864 6.383 2.302z">
+                         </path>
+                       </g>
+                     </g>
+                   </svg></span>
+               </div>
+             </div>
+
+           </div>
+         </div>
+         <div style="color: white;" class="copy-right text-center">
+           © Copyright Spacing Property Made with by <a href="https://" target="_blank"><i class="fa fa-heart"></i><span
+               style="color:#ff6600">SPACING.</span></a>
+         </div>
+       </div>
+     </footer>
+</div>
+
+ </html>
+

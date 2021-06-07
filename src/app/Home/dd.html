@@ -1,0 +1,285 @@
+<div class="featured-projects pd-top-60 pd-bottom-70">
+    <div class="container">
+        <div class="section-title">
+            <h2 class="title">Featured Collections</h2>
+            <b class="filter-title mt-3 mb-lg-0">Handpicked projects for you</b>
+        </div>
+          <div class="banner-area jarallax">
+            <div class="container">
+              <div class="search-page-wrap pd-top-100 pd-bottom-70">
+                <div class="search-container">
+                  <div class="container">
+                    <div class="row justify-content-center"> 
+                      <div class="col-xl-12 col-lg-12">
+                      
+                        <div class="row"> 
+                          <ng-container *ngIf="IshomeLoading">
+                             <div class="card br">
+                               <div class="wrapper">
+                                 <div class="profilePic animate din"></div>
+                                 <div class="comment br animate w80"></div>
+                                 <div class="comment br animate"></div>
+                                 <div class="comment br animate"></div>
+                               </div>
+                             </div>
+                             <div class="card br">
+                               <div class="wrapper">
+                                 <div class="profilePic animate din"></div>
+                                 <div class="comment br animate w80"></div>
+                                 <div class="comment br animate"></div>
+                                 <div class="comment br animate"></div>
+                               </div>
+                             </div>
+                             <div class="card br">
+                               <div class="wrapper">
+                                 <div class="profilePic animate din"></div>
+                                 <div class="comment br animate w80"></div>
+                                 <div class="comment br animate"></div>
+                                 <div class="comment br animate"></div>
+                               </div>
+                             </div>
+                          </ng-container>
+                         <ng-container *ngIf="!IshomeLoading">
+                         <div *ngFor="let item of Alldetais.all; let i=index">
+                           <div class="col-lg-12 col-md-6">
+                             <div *ngIf="item.basicDetailId.wantTo=='Rent'" class="single-feature">
+                               <div *ngFor="let img of Alldetais.imgs" class="thumb"> 
+                                 <img (click)="GetImage(item.uniqueID)"
+                                 style="cursor: pointer;" id="imagemodalActivate" data-toggle="modal"
+                                 data-target="#imageModalPreview"
+                                   *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url!='null'"
+                                   [src]="img.url"
+                                   style="height:317px; width: 299px;" alt="img">
+                                     <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                       id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                       *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url=='null'"
+                                      [src]="DefaultPropImages"
+                                       style="height:317px; width: 299px;" alt="img">
+                                 <!-- <a href="#"><i class="fa fa-heart"></i></a>  -->
+                               </div>
+                               <div class="details">
+                                 <div class="details-wrap">
+                                   <div>
+                                     <a style="cursor: pointer;" id="modalActivate" data-toggle="modal"
+                                       data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)">
+
+                                       <p class="author"><i class="fa fa-user"></i>&nbsp;For
+                                         {{item.basicDetailId.wantTo}}</p>
+                                       <h6 class="title"><a (click)="GetDetails(item.uniqueID)"
+                                           style="cursor:pointer;">{{item.basicDetailId.propertyType}}</a></h6>
+                                       <h6 *ngIf="propertyConfig?.isBhk==true" class="price">
+                                         {{item.basicDetailId.bhk}}</h6>
+                                       <h6 *ngIf="propertyConfig?.isBhk==false" class="price">
+                                         XXX BHK</h6>
+                                       <ul class="info-list">
+                                         <li *ngIf="propertyConfig?.balcony==true"><i class="fa fa-bed"></i>
+                                           {{item.basicDetailId.Balcony}} Balcony
+                                         </li>
+                                         <li *ngIf="propertyConfig?.balcony==false"><i class="fa fa-bed"></i>
+                                           xxx Balcony
+                                         </li>
+                                         <li *ngIf="propertyConfig?.bathRoom==true"><i class="fa fa-bath"></i>
+                                           {{item.basicDetailId.bathroom}} Bathroom</li>
+                                         <li *ngIf="propertyConfig?.bathRoom==false"><i class="fa fa-bath"></i>
+                                           xxx Bathroom</li>
+
+                                       </ul>
+                                     </a>
+                                   </div>
+
+                                 </div>
+                               </div>
+                             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                             
+
+                             <div
+                               *ngIf="item.basicDetailId.wantTo=='Sell' && item.basicDetailId.propertyType!='Plot'"
+                               class="single-feature">
+                               <div *ngFor="let img of Alldetais.imgs" class="thumb">
+
+                                 <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                   id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                   *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url!='null'"
+                                   [src]="img.url" style="height:317px; width: 299px;" alt="img">
+                                 <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                   id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                   *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url=='null'"
+                                   [src]="DefaultPropImages" style="height:317px; width: 299px;"
+                                   alt="img">
+                                 <!-- <a href="#"><i class="fa fa-heart"></i></a> -->
+
+                               </div>
+                               <div class="details">
+                                 <div class="details-wrap">
+                                   <div>
+                                     <a style="cursor: pointer;" id="modalActivate" data-toggle="modal"
+                                       data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)">
+
+                                       <p class="author"><i class="fa fa-user"></i>&nbsp;For
+                                         {{item.basicDetailId.wantTo}}</p>
+                                       <h6 class="title"><a (click)="GetDetails(item.uniqueID)"
+                                           style="cursor:pointer;">{{item.basicDetailId.propertyType}}</a></h6>
+                                       <h6 class="price">{{item.basicDetailId.bhk}}</h6>
+                                       <ul class="info-list">
+                                         <li><i class="fa fa-bed"></i> {{item.basicDetailId.Balcony}} Balcony
+                                         </li>
+                                         <li><i class="fa fa-bath"></i> {{item.basicDetailId.bathroom}} Bath</li>
+                                         <li><img src="./../../../assets/img/7.png" alt="img">
+                                           {{item.basicDetailId.buildUpArea}} sq.
+                                         </li>
+                                       </ul>
+                                     </a>
+                                   </div>
+                                  
+                                 </div>
+                               </div>
+                             </div>
+
+                             <div
+                               *ngIf="item.basicDetailId.wantTo=='Sell' && item.basicDetailId.propertyType=='Plot'"
+                               class="single-feature">
+                               <div 
+                               (click)="GetImage(item.uniqueID)"
+                               style="cursor: pointer;" id="imagemodalActivate" data-toggle="modal"
+                               data-target="#imageModalPreview"
+                               *ngFor="let img of Alldetais.imgs" class="thumb">
+
+                                   <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                     id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                     *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url!='null'"
+                                     [src]="img.url" style="height:317px; width: 299px;" alt="img">
+                                   <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                     id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                     *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url=='null'"
+                                     [src]="DefaultPropImages" style="height:317px; width: 299px;"
+                                     alt="img">
+                                 <!-- <a href="#"><i class="fa fa-heart"></i></a> -->
+
+                               </div>
+                               <div class="details">
+                                 <div class="details-wrap">
+                                   <div>
+                                     <a style="cursor: pointer;" id="modalActivate" data-toggle="modal"
+                                       data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)">
+
+                                       <p class="author"><i class="fa fa-user"></i>&nbsp;For
+                                         {{item.basicDetailId.wantTo}}</p>
+                                       <h6 class="title"><a (click)="GetDetails(item.uniqueID)"
+                                           style="cursor:pointer;">{{item.basicDetailId.propertyType}}</a></h6>
+
+                                       <h6 *ngIf="propertyConfig?.transactionType==true" class="price">
+                                         {{item.basicDetailId.transactionType}}</h6>
+                                       <h6 *ngIf="propertyConfig?.transactionType==false" class="price">
+                                         xxx Transaction Type</h6>
+                                       <ul class="info-list">
+                                         <li><i class="fa fa-money"></i>
+                                           {{item.basicDetailId.plotPrice | ShortNumber}} Pricing
+                                         </li>
+
+                                         <li><img src="./../../../assets/img/7.png" alt="img">
+                                           {{item.basicDetailId.ploatArea}} {{item.basicDetailId.areaUnit}}
+                                         </li>
+                                       </ul>
+                                     </a>
+                                   </div>
+                                   
+                                 </div>
+                               </div>
+                             </div>
+
+                             <div *ngIf="item.basicDetailId.wantTo=='PG'" class="single-feature">
+                               <div *ngFor="let img of Alldetais.imgs;let i=index" class="thumb"> 
+                                  <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                    id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                    *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url!='null'"
+                                    [src]="img.url" style="height:317px; width: 299px;" alt="img">
+                                  <img (click)="GetImage(item.uniqueID)" style="cursor: pointer;"
+                                    id="imagemodalActivate" data-toggle="modal" data-target="#imageModalPreview"
+                                    *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url=='null'"
+                                    [src]="DefaultPropImages" style="height:317px; width: 299px;"
+                                    alt="img">
+                                 <!-- <a href="#"><i class="fa fa-heart"></i></a>  -->
+                               </div>
+
+                               <div class="details">
+                                 <div class="details-wrap">
+                                   <div>
+                                     <a style="cursor: pointer;" id="modalActivate" data-toggle="modal"
+                                       data-target="#exampleModalPreview" (click)="GetDetails(item.uniqueID)">
+
+                                       <p class="author"><i class="fa fa-user"></i>&nbsp;For
+                                         {{item.basicDetailId.wantTo}}</p>
+                                       <h6 *ngIf="propertyConfig?.pGName==true" class="title"><a
+                                           (click)="GetDetails(item.uniqueID)"
+                                           style="cursor:pointer;">{{item.basicDetailId.pgName}}</a></h6>
+                                       <h6 *ngIf="propertyConfig?.pGName==false" class="title"><a
+                                           (click)="GetDetails(item.uniqueID)" style="cursor:pointer;">xxx PG
+                                           Name</a></h6>
+                                            <h6 *ngIf="item.basicDetailId.pgName==null" class="title"><a
+                                                (click)="GetDetails(item.uniqueID)"
+                                                style="cursor:pointer;">NA</a></h6>
+                                       <h6 *ngIf="propertyConfig?.suitedFor==true" class="price">Suitable For
+                                         {{item.basicDetailId.pgSuitedFor}}</h6>
+                                       <h6 *ngIf="propertyConfig?.suitedFor==false" class="price">Suitable For
+                                         xxx</h6>
+                                          
+                                       <ul class="info-list">
+                                         <li *ngIf="propertyConfig?.totalBed==true"><i class="fa fa-bed"></i>
+                                           {{item.basicDetailId.toatalBed}} Bed</li>
+                                         <li *ngIf="propertyConfig?.totalBed==false"><i class="fa fa-bed"></i>
+                                           xxx Bed</li>
+                                         <li *ngIf="propertyConfig?.pgFor==true"> For {{item.basicDetailId.pgFor}}
+                                         </li>
+                                         <li *ngIf="propertyConfig?.pgFor==false">
+                                           PG For xxx</li>
+                                       </ul>
+                                     </a>
+                                   </div>
+
+
+                               
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                        </ng-container>
+                         
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

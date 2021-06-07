@@ -1,0 +1,2963 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>SPACING</title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <link rel="icon" href="../assets/img/icon.ico" type="image/x-icon" /> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Fonts and icons -->
+  <script src="../../assets/Adminjs/plugin/webfont/webfont.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="main-header">
+      <!-- Logo Header -->
+      <div class="logo-header">
+         <a [routerLink]="['/adminpanel']"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+             style="width: 180px; height: 30px" alt="logo"></a>
+      
+        <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+          data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+            <i class="icon-menu"></i>
+          </span>
+        </button>
+        <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+        <div class="nav-toggle">
+          <button class="btn btn-toggle toggle-sidebar">
+            <i class="icon-menu"></i>
+          </button>
+        </div>
+      </div>
+      <!-- End Logo Header -->
+
+      <!-- Navbar Header -->
+      <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2"> 
+        <div class="container-fluid">
+          <!-- <div class="collapse" id="search-nav">
+            <form class="navbar-left navbar-form nav-search mr-md-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <button type="submit" class="btn btn-search pr-1">
+                    <i class="fa fa-search search-icon"></i>
+                  </button>
+                </div>
+                <input type="text" placeholder="Search ..." class="form-control">
+              </div>
+            </form>
+          </div> -->
+         <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+            <li class="nav-item toggle-nav-search hidden-caret">
+              <a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false"
+                aria-controls="search-nav">
+                <i class="fa fa-search"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown hidden-caret">
+              <a 
+              style="cursor: pointer;" id="addmodalActivate1fieldR"
+              data-toggle="modal" role="button" data-target="#addexampleModalPreview1fieldR"
+                class="nav-link dropdown-toggle"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-plus"></i>
+               <b> Add New Admin</b>
+              </a>
+              <ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
+                <li>
+                  <div class="dropdown-title d-flex justify-content-between align-items-center">
+                    Messages
+                    <a href="#" class="small">Mark all as read</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="message-notif-scroll scrollbar-outer">
+                    <div class="notif-center">
+                      <a href="#">
+                        <div class="notif-img">
+                          <img src="./../../assets/Adminimg/jm_denis.jpg" alt="Img Profile">
+                        </div>
+                        <div class="notif-content">
+                          <span class="subject">Jimmy Denis</span>
+                          <span class="block">
+                            How are you ?
+                          </span>
+                          <span class="time">5 minutes ago</span>
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="notif-img">
+                          <img src="../../assets/Adminimg/chadengle.jpg" alt="Img Profile">
+                        </div>
+                        <div class="notif-content">
+                          <span class="subject">Chad</span>
+                          <span class="block">
+                            Ok, Thanks !
+                          </span>
+                          <span class="time">12 minutes ago</span>
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="notif-img">
+                          <img src="../../assets/Adminimg/mlane.jpg" alt="Img Profile">
+                        </div>
+                        <div class="notif-content">
+                          <span class="subject">Jhon Doe</span>
+                          <span class="block">
+                            Ready for the meeting today...
+                          </span>
+                          <span class="time">12 minutes ago</span>
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="notif-img">
+                          <img src="../../assets/Adminimg/talha.jpg" alt="Img Profile">
+                        </div>
+                        <div class="notif-content">
+                          <span class="subject">Talha</span>
+                          <span class="block">
+                            Hi, Apa Kabar ?
+                          </span>
+                          <span class="time">17 minutes ago</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <a class="see-all" href="javascript:void(0);">See all messages<i class="fa fa-angle-right"></i> </a>
+                </li>
+              </ul>
+            </li>
+            <!-- <li class="nav-item dropdown hidden-caret">
+              <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-bell"></i>
+                <span class="notification">4</span>
+              </a>
+              <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+                <li>
+                  <div class="dropdown-title">You have 4 new notification</div>
+                </li>
+                <li>
+                  <div class="notif-scroll scrollbar-outer">
+                    <div class="notif-center">
+                      <a href="#">
+                        <div class="notif-icon notif-primary"> <i class="fa fa-user-plus"></i> </div>
+                        <div class="notif-content">
+                          <span class="block">
+                            New user registered
+                          </span>
+                          <span class="time">5 minutes ago</span>
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="notif-icon notif-success"> <i class="fa fa-comment"></i> </div>
+                        <div class="notif-content">
+                          <span class="block">
+                            Rahmad commented on Admin
+                          </span>
+                          <span class="time">12 minutes ago</span>
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="notif-img">
+                          <img src="../../assets/Adminimg/profile2.jpg" alt="Img Profile">
+                        </div>
+                        <div class="notif-content">
+                          <span class="block">
+                            Reza send messages to you
+                          </span>
+                          <span class="time">12 minutes ago</span>
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="notif-icon notif-danger"> <i class="fa fa-heart"></i> </div>
+                        <div class="notif-content">
+                          <span class="block">
+                            Farrah liked Admin
+                          </span>
+                          <span class="time">17 minutes ago</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown hidden-caret">
+              <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+                <i class="fas fa-layer-group"></i>
+              </a>
+              <div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
+                <div class="quick-actions-header">
+                  <span class="title mb-1">Quick Actions</span>
+                  <span class="subtitle op-8">Shortcuts</span>
+                </div>
+                <div class="quick-actions-scroll scrollbar-outer">
+                  <div class="quick-actions-items">
+                    <div class="row m-0">
+                      <a class="col-6 col-md-4 p-0" href="#">
+                        <div class="quick-actions-item">
+                          <i class="flaticon-file-1"></i>
+                          <span class="text">Generated Report</span>
+                        </div>
+                      </a>
+                      <a class="col-6 col-md-4 p-0" href="#">
+                        <div class="quick-actions-item">
+                          <i class="flaticon-database"></i>
+                          <span class="text">Create New Database</span>
+                        </div>
+                      </a>
+                      <a class="col-6 col-md-4 p-0" href="#">
+                        <div class="quick-actions-item">
+                          <i class="flaticon-pen"></i>
+                          <span class="text">Create New Post</span>
+                        </div>
+                      </a>
+                      <a class="col-6 col-md-4 p-0" href="#">
+                        <div class="quick-actions-item">
+                          <i class="flaticon-interface-1"></i>
+                          <span class="text">Create New Task</span>
+                        </div>
+                      </a>
+                      <a class="col-6 col-md-4 p-0" href="#">
+                        <div class="quick-actions-item">
+                          <i class="flaticon-list"></i>
+                          <span class="text">Completed Tasks</span>
+                        </div>
+                      </a>
+                      <a class="col-6 col-md-4 p-0" href="#">
+                        <div class="quick-actions-item">
+                          <i class="flaticon-file"></i>
+                          <span class="text">Create New Invoice</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown hidden-caret">
+              <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+                <div class="avatar-sm">
+                  <img src="../../assets/img/kisspng-user-logo-information-service-design-5ba34f88a0c3a6.5907352915374293846585.jpg" alt="..." class="avatar-img rounded-circle">
+                </div>
+              </a>
+              <ul class="dropdown-menu dropdown-user animated fadeIn">
+                <div class="dropdown-user-scroll scrollbar-outer">
+                  <li>
+                    <div class="user-box">
+                      <div class="avatar-lg"><img src="../../assets/img/kisspng-user-logo-information-service-design-5ba34f88a0c3a6.5907352915374293846585.jpg" alt="image profile"
+                          class="avatar-img rounded"></div>
+                      <div class="u-text">
+                        <h4>Kshitiz</h4>
+                        <p class="text-muted">hello@example.com</p><a href="profile.html"
+                          class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">My Profile</a>
+                    <a class="dropdown-item" href="#">My Balance</a>
+                    <a class="dropdown-item" href="#">Inbox</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Account Setting</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Logout</a>
+                  </li>
+                </div>
+              </ul>
+            </li> -->
+          </ul> 
+        </div> 
+      </nav>
+      <!-- End Navbar -->
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar sidebar-style-2">
+      <div class="sidebar-wrapper scrollbar scrollbar-inner">
+        <div class="sidebar-content">
+          <div class="user">
+            <div class="avatar-sm float-left mr-2">
+              <img [src]="url" alt="..." class="avatar-img rounded-circle">
+            </div>
+            <div class="info">
+              <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+                <span>
+                  SPACING
+                  <span class="user-level">{{userDetails.fullName}} ({{role}})</span>
+                  <span class="caret"></span>
+                </span>
+              </a>
+              <div class="clearfix"></div>
+              <div class="collapse in" id="collapseExample">
+                <ul class="nav">
+                   <li>
+                     <a style="cursor: pointer;" (click)="Dash()" routerLinkActive="router-link-active">
+                       <span class="link-collapse"><i class="fa fa-dashboard"> &nbsp;&nbsp;&nbsp;Dashboard</i> </span>
+                     </a>
+                   </li>
+                  <li>
+                    <a style="cursor: pointer;" (click)="Edits()" routerLinkActive="router-link-active">
+                      <span class="link-collapse"><i class="fa fa-edit"> &nbsp;&nbsp;&nbsp;Edit Profile</i> </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a style="cursor: pointer;" (click)="logout()">
+                      <span class="link-collapse"><i class="fa
+fa-sign-out"> &nbsp;&nbsp;&nbsp;LogOut</i></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <ul *ngIf="role=='SuperAdmin'" class="nav nav-primary">
+            <li class="nav-item active">
+              <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                <i class="fas fa-home"></i>
+                <p>Dashboard</p> 
+              </a>
+             
+            </li>
+            <li class="nav-section">
+              <span class="sidebar-mini-icon">
+                <i class="fa fa-ellipsis-h"></i>
+              </span>
+              <h4 class="text-section">Manage Section</h4>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="collapse" href="#base">
+                <i class="fas fa-layer-group"></i>
+                <p>Manage Address</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="base">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a 
+                     style="cursor: pointer;" id="addmodalActivate" data-toggle="modal" 
+                     data-target="#addexampleModalPreview" role="button" aria-expanded="false"
+                     aria-controls="collapseLayouts"
+                    >
+                      <span class="sub-item">Manage City</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                    style="cursor: pointer;" id="addmodalActivate1" data-toggle="modal"
+                    role="button" data-target="#addexampleModalPreview1" aria-expanded="false"
+                    aria-controls="collapseLayouts"
+                    >
+                      <span class="sub-item">Manage Locality</span>
+                    </a>
+                  </li>
+                     <li>
+                       <a style="cursor: pointer;" id="addmodalActivate1sec" data-toggle="modal" role="button"
+                         data-target="#addexampleModalPreviewsec" aria-expanded="false" aria-controls="collapseLayouts">
+                         <span class="sub-item">Manage Sector</span>
+                       </a>
+                     </li>
+                <li>
+                  <a style="cursor: pointer;" id="addmodalActivate1poc" data-toggle="modal" role="button"
+                    data-target="#addexampleModalPreviewpoc" aria-expanded="false" aria-controls="collapseLayouts">
+                    <span class="sub-item">Manage Pocket</span>
+                  </a>
+                </li>
+                </ul>
+              </div>
+            </li>
+
+             <li class="nav-item">
+               <a data-toggle="collapse" href="#base1">
+                 <i class="fas fa-eye"></i>
+                 <p>Property Status</p>
+                 <span class="caret"></span>
+               </a>
+               <div class="collapse" id="base1">
+                 <ul class="nav nav-collapse">
+                   <li>
+                     <a class="collapsed py-1" href="#submenu1sub1" data-toggle="collapse"
+                       data-target="#submenu1sub1">
+                        <b>Rent</b> 
+                      <span class="caret"></span>
+                     </a>
+                       <div id="submenu1sub1" class="collapse" id="submenu1sub1" aria-expanded="false">
+                         <ul class="nav nav-collapse">
+                           <li class="nav-item">
+                             <a class="nav-link p-1" 
+                             (click)="AllRentProperty()"
+                               style="cursor: pointer;" 
+                             > <p>Total Property</p> </a>
+                           </li>
+                           <li class="nav-item">
+                             <a class="nav-link p-1" (click)="AllRentConfirmedProperty()" style="cursor: pointer;">
+                              <p>Confirm Property</p> </a>
+                           </li>
+                           <li class="nav-item">
+                             <a class="nav-link p-1" (click)="AllRentPendingProperty()" style="cursor: pointer;">
+                              <p>Pending Property</p> </a>
+                           </li>
+                           <li class="nav-item">
+                             <a class="nav-link p-1" (click)="AllRentRejectProperty()" style="cursor: pointer;">
+                              <p>Reject Property</p> </a>
+                           </li>
+                         </ul>
+                       </div>
+                   </li>
+                     <li>
+                       <a class="collapsed py-1" href="#submenu1sub2" data-toggle="collapse"
+                         data-target="#submenu1sub2">
+                         <b>Sell</b>
+                         <span class="caret"></span>
+                       </a>
+                       <div id="submenu1sub2" class="collapse" id="submenu1sub2" aria-expanded="false">
+                         <ul class="nav nav-collapse">
+                           <li class="nav-item">
+                             <a class="nav-link p-1" (click)="AllSellProperty()" style="cursor: pointer;">
+                                <p>Total Property</p> </a>
+                           </li>
+                           <li class="nav-item">
+                             <a class="nav-link p-1" (click)="AllSellConfirmedProperty()" style="cursor: pointer;">
+                               <p>Confirm Property</p> </a>
+                           </li>
+                           <li class="nav-item">
+                             <a class="nav-link p-1" (click)="AllSellPendingProperty()" style="cursor: pointer;">
+                                <p>Pending Property</p> </a>
+                           </li>
+                           <li class="nav-item">
+                             <a class="nav-link p-1" (click)="AllSellRejectProperty()" style="cursor: pointer;">
+                               <p>Reject Property</p> </a>
+                           </li>
+                         </ul>
+                       </div>
+                     </li>
+                     <li>
+                      <a class="collapsed py-1" href="#submenu1sub3" data-toggle="collapse"
+                        data-target="#submenu1sub3">
+                        <b>PG</b>
+                        <span class="caret"></span>
+                      </a>
+                      <div id="submenu1sub3" class="collapse" id="submenu1sub3" aria-expanded="false">
+                        <ul class="nav nav-collapse">
+                          <li class="nav-item">
+                            <a class="nav-link p-1" (click)="AllPGProperty()" style="cursor: pointer;">
+                               <p>Total Property</p> </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link p-1" (click)="AllPGConfirmedProperty()" style="cursor: pointer;">
+                              <p>Confirm Property</p> </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link p-1" (click)="AllPGPendingProperty()" style="cursor: pointer;">
+                               <p>Pending Property</p> </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link p-1" (click)="AllPGRejectProperty()" style="cursor: pointer;">
+                              <p>Reject Property</p> </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                 </ul>
+               </div>
+             </li>
+               <li class="nav-item">
+                 <a 
+                   style="cursor: pointer;" (click)="loadActiveProperty()" id="addmodalActivate1field"
+                   data-toggle="modal"
+                   role="button" data-target="#addexampleModalPreview1field" aria-expanded="false"
+                   aria-controls="collapseLayouts"
+                 >
+                  <i class="far fa-clone"></i>
+                   <p>Manage Fields</p>
+                 </a>
+
+               </li>
+               
+
+               <!-- start here  -->
+                 <li class="nav-item">
+                   <a data-toggle="collapse" href="#base2">
+                     <i class="fas fa-layer-group"></i>
+                     <p>Role Categories</p>
+                     <span class="caret"></span>
+                   </a>
+                   <div class="collapse" id="base2">
+                     <ul class="nav nav-collapse">
+                        <li class="nav-item">
+                          <a style="cursor: pointer;" (click)="loadAdminList()" role="button"
+                            aria-controls="collapseLayouts">
+                         <i class="fa fa-user-secret" aria-hidden="true"></i>
+                            <p>Admin List</p>
+                          </a>
+                        </li>
+                         <li class="nav-item">
+                           <a style="cursor: pointer;" (click)="loadOwnerList()" role="button"
+                             aria-controls="collapseLayouts">
+                             <i class="fa fa-user-o" aria-hidden="true"></i>
+                             <p>Owner List</p>
+                           </a>
+                         </li>
+                           <li class="nav-item">
+                             <a style="cursor: pointer;" (click)="loadBuilderList()" role="button"
+                               aria-controls="collapseLayouts">
+                               <i class="fa fa-user-circle" aria-hidden="true"></i>
+                               <p>Builder List</p>
+                             </a>
+                           </li>
+                             <li class="nav-item">
+                               <a style="cursor: pointer;" (click)="loadBrokerList()" role="button"
+                                 aria-controls="collapseLayouts">
+                                 <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                 <p>Broker List</p>
+                               </a>
+                             </li>
+                     </ul>
+                   </div>
+                 </li>
+
+               
+                 <li class="nav-item">
+                   <a style="cursor: pointer;" id="addmodalActivate1field2"
+                     data-toggle="modal" role="button" data-target="#addexampleModalPreview2field2" aria-expanded="false"
+                     aria-controls="collapseLayouts">
+                   <i class="fa fa-upload" aria-hidden="true"></i>
+                     <p>Set Property Images</p>
+                   </a> 
+                 </li>
+
+                 <li class="nav-item">
+                  <a style="cursor: pointer;"  [routerLink]="['/my-listings']" routerLinkActive="router-link-active" 
+                    aria-controls="collapseLayouts">
+                  <i class="fa fa-building" aria-hidden="true"></i>
+                    <p>Post Property</p>
+                  </a> 
+                </li>
+            <!-- <li class="nav-item">
+              <a data-toggle="collapse" href="#sidebarLayouts">
+                <i class="fas fa-th-list"></i>
+                <p>Sidebar Layouts</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="sidebarLayouts">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="sidebar-style-1.html">
+                      <span class="sub-item">Sidebar Style 1</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="overlay-sidebar.html">
+                      <span class="sub-item">Overlay Sidebar</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="compact-sidebar.html">
+                      <span class="sub-item">Compact Sidebar</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="static-sidebar.html">
+                      <span class="sub-item">Static Sidebar</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="icon-menu.html">
+                      <span class="sub-item">Icon Menu</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="collapse" href="#forms">
+                <i class="fas fa-pen-square"></i>
+                <p>Forms</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="forms">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="forms/forms.html">
+                      <span class="sub-item">Basic Form</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="collapse" href="#tables">
+                <i class="fas fa-table"></i>
+                <p>Tables</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="tables">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="tables/tables.html">
+                      <span class="sub-item">Basic Table</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="tables/datatables.html">
+                      <span class="sub-item">Datatables</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="collapse" href="#maps">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Maps</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="maps">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="maps/jqvmap.html">
+                      <span class="sub-item">JQVMap</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="collapse" href="#charts">
+                <i class="far fa-chart-bar"></i>
+                <p>Charts</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="charts">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="charts/charts.html">
+                      <span class="sub-item">Chart Js</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="charts/sparkline.html">
+                      <span class="sub-item">Sparkline</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="widgets.html">
+                <i class="fas fa-desktop"></i>
+                <p>Widgets</p>
+                <span class="badge badge-success">4</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="collapse" href="#submenu">
+                <i class="fas fa-bars"></i>
+                <p>Menu Levels</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="submenu">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a data-toggle="collapse" href="#subnav1">
+                      <span class="sub-item">Level 1</span>
+                      <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="subnav1">
+                      <ul class="nav nav-collapse subnav">
+                        <li>
+                          <a href="#">
+                            <span class="sub-item">Level 2</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <span class="sub-item">Level 2</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <a data-toggle="collapse" href="#subnav2">
+                      <span class="sub-item">Level 1</span>
+                      <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="subnav2">
+                      <ul class="nav nav-collapse subnav">
+                        <li>
+                          <a href="#">
+                            <span class="sub-item">Level 2</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="sub-item">Level 1</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mx-4 mt-2">
+              <a href="http://themekita.com/atlantis-bootstrap-dashboard.html" class="btn btn-primary btn-block"><span
+                  class="btn-label mr-2"> <i class="fa fa-heart"></i> </span>Buy Pro</a>
+            </li> -->
+          </ul>
+           <ul *ngIf="role=='Admin'" class="nav nav-primary">
+             <li class="nav-item active">
+               <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                 <i class="fas fa-home"></i>
+                 <p>Dashboard</p>
+               </a>
+
+             </li>
+             <li class="nav-section">
+               <span class="sidebar-mini-icon">
+                 <i class="fa fa-ellipsis-h"></i>
+               </span>
+               <h4 class="text-section">Manage Section</h4>
+             </li>
+             <li *ngIf="AdminpropertyConfig?.isManageAddress==true" class="nav-item">
+               <a data-toggle="collapse" href="#base">
+                 <i class="fas fa-layer-group"></i>
+                 <p>Manage Address</p>
+                 <span class="caret"></span>
+               </a>
+               <div class="collapse" id="base">
+                 <ul class="nav nav-collapse">
+                   <li *ngIf="AdminpropertyConfig?.isManageCity==true">
+                     <a style="cursor: pointer;" id="addmodalActivate" data-toggle="modal"
+                       data-target="#addexampleModalPreview" role="button" aria-expanded="false"
+                       aria-controls="collapseLayouts">
+                       <span class="sub-item">Manage City</span>
+                     </a>
+                   </li>
+                   <li *ngIf="AdminpropertyConfig?.isManageLocality==true">
+                     <a style="cursor: pointer;" id="addmodalActivate1" data-toggle="modal" role="button"
+                       data-target="#addexampleModalPreview1" aria-expanded="false" aria-controls="collapseLayouts">
+                       <span class="sub-item">Manage Locality</span>
+                     </a>
+                   </li>
+                   <li *ngIf="AdminpropertyConfig?.isManageSector==true">
+                     <a style="cursor: pointer;" id="addmodalActivate1sec" data-toggle="modal" role="button"
+                       data-target="#addexampleModalPreviewsec" aria-expanded="false" aria-controls="collapseLayouts">
+                       <span class="sub-item">Manage Sector</span>
+                     </a>
+                   </li>
+                   <li *ngIf="AdminpropertyConfig?.isManagePocket==true">
+                     <a style="cursor: pointer;" id="addmodalActivate1poc" data-toggle="modal" role="button"
+                       data-target="#addexampleModalPreviewpoc" aria-expanded="false" aria-controls="collapseLayouts">
+                       <span class="sub-item">Manage Pocket</span>
+                     </a>
+                   </li>
+                 </ul>
+               </div>
+             </li>
+
+             <li class="nav-item">
+               <a data-toggle="collapse" href="#base1">
+                 <i class="fas fa-eye"></i>
+                 <p>Property Status</p>
+                 <span class="caret"></span>
+               </a>
+               <div class="collapse" id="base1">
+                 <ul class="nav nav-collapse">
+                   <li>
+                     <a class="collapsed py-1" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1">
+                       <b>Rent</b>
+                       <span class="caret"></span>
+                     </a>
+                     <div id="submenu1sub1" class="collapse" id="submenu1sub1" aria-expanded="false">
+                       <ul class="nav nav-collapse">
+                         <li class="nav-item">
+                           <a class="nav-link p-1" (click)="AllRentProperty()" style="cursor: pointer;">
+                             <p>Total Property</p>
+                           </a>
+                         </li>
+                         <li class="nav-item">
+                           <a class="nav-link p-1" (click)="AllRentConfirmedProperty()" style="cursor: pointer;">
+                             <p>Confirm Property</p>
+                           </a>
+                         </li>
+                         <li class="nav-item">
+                           <a class="nav-link p-1" (click)="AllRentPendingProperty()" style="cursor: pointer;">
+                             <p>Pending Property</p>
+                           </a>
+                         </li>
+                         <li class="nav-item">
+                           <a class="nav-link p-1" (click)="AllRentRejectProperty()" style="cursor: pointer;">
+                             <p>Reject Property</p>
+                           </a>
+                         </li>
+                       </ul>
+                     </div>
+                   </li>
+                   <li>
+                     <a class="collapsed py-1" href="#submenu1sub2" data-toggle="collapse" data-target="#submenu1sub2">
+                       <b>Sell</b>
+                       <span class="caret"></span>
+                     </a>
+                     <div id="submenu1sub2" class="collapse" id="submenu1sub2" aria-expanded="false">
+                       <ul class="nav nav-collapse">
+                         <li class="nav-item">
+                           <a class="nav-link p-1" (click)="AllSellProperty()" style="cursor: pointer;">
+                             <p>Total Property</p>
+                           </a>
+                         </li>
+                         <li class="nav-item">
+                           <a class="nav-link p-1" (click)="AllSellConfirmedProperty()" style="cursor: pointer;">
+                             <p>Confirm Property</p>
+                           </a>
+                         </li>
+                         <li class="nav-item">
+                           <a class="nav-link p-1" (click)="AllSellPendingProperty()" style="cursor: pointer;">
+                             <p>Pending Property</p>
+                           </a>
+                         </li>
+                         <li class="nav-item">
+                           <a class="nav-link p-1" (click)="AllSellRejectProperty()" style="cursor: pointer;">
+                             <p>Reject Property</p>
+                           </a>
+                         </li>
+                       </ul>
+                     </div>
+                   </li>
+                   <li>
+                    <a class="collapsed py-1" href="#submenu1sub3" data-toggle="collapse"
+                      data-target="#submenu1sub3">
+                      <b>PG</b>
+                      <span class="caret"></span>
+                    </a>
+                    <div id="submenu1sub3" class="collapse" id="submenu1sub3" aria-expanded="false">
+                      <ul class="nav nav-collapse">
+                        <li class="nav-item">
+                          <a class="nav-link p-1" (click)="AllPGProperty()" style="cursor: pointer;">
+                             <p>Total Property</p> </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link p-1" (click)="AllPGConfirmedProperty()" style="cursor: pointer;">
+                            <p>Confirm Property</p> </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link p-1" (click)="AllPGPendingProperty()" style="cursor: pointer;">
+                             <p>Pending Property</p> </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link p-1" (click)="AllPGRejectProperty()" style="cursor: pointer;">
+                            <p>Reject Property</p> </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                 </ul>
+               </div>
+             </li>
+             <li *ngIf="AdminpropertyConfig?.isManageFeild==true" class="nav-item">
+               <a style="cursor: pointer;" (click)="loadActiveProperty()" id="addmodalActivate1field"
+                 data-toggle="modal" role="button" data-target="#addexampleModalPreview1field" aria-expanded="false"
+                 aria-controls="collapseLayouts">
+                 <i class="far fa-clone"></i>
+                 <p>Manage Fields</p>
+               </a>
+
+             </li>
+            
+             <li *ngIf="AdminpropertyConfig?.isSetPropImg==true" class="nav-item">
+                <a style="cursor: pointer;" id="addmodalActivate1field2"
+                     data-toggle="modal" role="button" data-target="#addexampleModalPreview2field2" aria-expanded="false"
+                     aria-controls="collapseLayouts">
+                   <i class="fa fa-upload" aria-hidden="true"></i>
+                     <p>Set Property Images</p>
+                   </a> 
+             </li>
+           </ul>
+        </div>
+      </div>
+    </div>
+    <!-- End Sidebar -->
+
+    <div *ngIf="!activeEdit" class="main-panel">
+      <div class="content">
+        <div class="panel-header bg-primary-gradient">
+          <div class="page-inner py-5">
+            <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+              <div>
+                <b class="text-white">Dashboard</b>
+                <h6 class="text-white op-7 mb-2">All Property's Data Listing</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-inner mt--5">
+          <div class="row mt--2">
+            <div class="col-md-6">
+              <div class="card full-height">
+                <div class="card-body">
+                  <div class="card-title">Overall statistics</div>
+                  <div class="card-category">Daily information about statistics in system</div>
+                 <hr style="border: 1px solid tomato;">
+                     <div class="row">
+                   
+                         <div class="col-sm-6 col-lg-6">
+                          <a (click)="AllProperty()" style="cursor: pointer;">
+                           <div class="card p-3">
+                             <div class="d-flex align-items-center">
+                               
+                                     <span class="stamp stamp-md bg-secondary mr-3">
+                                       <i>TP</i>
+                                     </span> 
+                               <div>
+                                 <h5 class="mb-1"><b><a 
+                                  style="cursor: pointer;" id="totalproActivate" data-toggle="modal"
+                                  data-target="#totalproModalPreview" role="button" 
+                                  >{{totalProperty}} <small>Property</small></a></b></h5>
+                                 <small class="text-muted">Total Property</small>
+                               </div>
+                             </div>
+                           </div>
+                          </a>
+                         </div>
+                       
+                         <div class="col-sm-6 col-lg-6">
+                          <a (click)="AllPendingProperty()" style="cursor: pointer;">
+                           <div class="card p-3">
+                             <div class="d-flex align-items-center">
+                               
+                                    <span class="stamp stamp-md bg-success mr-3">
+                                      <i class="">PP</i>
+                                    </span>
+                              
+                             
+                               <div>
+                                 <h5 class="mb-1"><b>{{totalPendingProperty}} <small>Property</small></b>
+                                 </h5>
+                                 <small class="text-muted">Pending Property</small>
+                               </div>
+                             </div>
+                           </div>
+                          </a>
+                         </div>
+                     </div>
+                        
+                    <div class="row">
+                      <div class="col-sm-6 col-lg-6">
+                        <a (click)="AllConfirmProperty()" style="cursor: pointer;">
+                        <div class="card p-3">
+                          <div class="d-flex align-items-center">
+                             
+                                   <span class="stamp stamp-md bg-info mr-3">
+                                     <i class="">CP</i>
+                                   </span>
+                             
+                         
+                            <div>
+                              <h5 class="mb-1"><b>{{totalConfirmProperty}} <small>Property</small></b>
+                              </h5>
+                              <small class="text-muted">Confirmed Property</small>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                      </div>
+
+                      <div class="col-sm-6 col-lg-6">
+                        <a (click)="AllRejectProperty()" style="cursor: pointer;">
+                        <div class="card p-3">
+                          <div class="d-flex align-items-center">
+                             
+                               <span class="stamp stamp-md bg-danger mr-3">
+                                 <i class="">RP</i>
+                               </span>
+                           
+                         
+                            <div>
+                              <h5 class="mb-1"><b>{{totalRejectProperty}}</b>
+                              </h5>
+                              <small class="text-muted">Rejected Property</small>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card full-height">
+                <div class="card-body">
+                  <div class="card-title">Statistics</div>
+                  <div class="row py-3">
+                    
+                    <div class="col-md-12">
+                      <div id="chart-container">
+                       <canvas  
+                       baseChart 
+                       [data]="pieChartData" 
+                       [labels]="pieChartLabels" 
+                       [chartType]="pieChartType"
+                        [options]="pieChartOptions" 
+                        [plugins]="pieChartPlugins" 
+                        [colors]="pieChartColors" 
+                        [legend]="pieChartLegend">
+                       </canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <div *ngIf="!AdminListActive && !OwnerListActive && !BrokerListActive && !BuilderListActive"
+              class="col-md-12">
+              <div class="card">
+                <div class="card-header"> 
+                  <div class="row">
+                    <div class="col-lg-2">
+                      <b>Property list</b>
+                    </div> 
+                      <div class="col-lg-6">
+                      </div>
+                      <div class="col-lg-2">
+                        <b style="font-size: smaller;">
+                         Item per pages
+                        </b>
+                           <select (change)="LoadPerPage($event)" class="pull-right" class="form-control">
+                             <option value="5">5</option>
+                             <option value="10">10</option>
+                             <option value="15">15</option>
+                             <option value="20">20</option>
+                           </select>
+                       </div>
+                     <div class="col-lg-2">
+                      <b style="font-size: smaller;">
+                        Filter By Property Type
+                      </b>
+                         <select (change)="LoadProType($event)" class="pull-right" class="form-control">
+                           <option value="All">All</option>
+                            <option value="Rent">Rent</option>
+                             <option value="Sell">Sell</option>
+                              <option value="PG">PG</option>
+                         </select>
+                     </div>
+                  </div>
+
+               
+               </div>
+                <div class="card-body">
+                 
+                  <div class="table-responsive">
+                  
+                    <table id="add-row" class="table table-head-bg-primary">
+                      <thead>
+                        <tr>
+                        <th class="fw-bold">SN.No</th>
+                         <th class="fw-bold">Image</th>
+                          <th class="fw-bold">For</th>
+                          <th class="fw-bold">Property Type</th>
+                          <th class="fw-bold">Price</th>
+                             <th class="fw-bold">Status</th>
+                          <th style="width: 10%">Action</th>
+                        </tr>
+                      </thead> 
+                          
+                      <tbody>
+                         <tr *ngIf="this.dataLoader==true">
+                           <td>
+                           </td>
+                           <td></td>
+                           <td>
+                           </td>
+                           <td> 
+                             <span *ngIf="this.dataLoader" class="spinner-border spinner-border-sm"
+                               role="status"></span>
+                             <span *ngIf="this.dataLoader" class="load-text"> Loading...</span>
+                           </td>
+                         </tr>
+                        <tr *ngIf="isData">
+                          <td>
+                          </td>
+                          <td></td>
+                           <td> 
+                           </td> 
+                          <td>
+                            <b class="alert alert-danger">
+                               {{msgNodata}}
+                            </b> 
+                           </td>
+                        </tr>
+                        <tr *ngFor="let item of Alldetais.all; let i=index">
+                          <td>{{i+1}}</td>
+                           <td>
+                             <div *ngFor="let img of Alldetais.imgs">
+                               <img *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url!='null'"
+                                 [src]="img.url"
+                                 style="height:50px; width: 50px;" alt="img"> 
+                             </div> 
+                              <div *ngFor="let img of Alldetais.imgs">
+                                 <img *ngIf="img.uniqueID==item.uniqueID && img.url=='null' && img.cover==true"
+                                   [src]="DefaultPropImages" style="height:50px; width: 50px;" alt="img">
+                              </div> 
+                           </td>
+                          <td>{{item.basicDetailId.wantTo}}</td>
+                          <td *ngIf="item.basicDetailId.wantTo!='PG'">{{item.basicDetailId.propertyType}}</td>
+                            <td *ngIf="item.basicDetailId.wantTo=='PG' && item.basicDetailId.pgName!=null">{{item.basicDetailId.pgName}}</td>
+                            <td *ngIf="item.basicDetailId.wantTo=='PG' && item.basicDetailId.pgName==null">Paying Guest</td>
+
+                            <td *ngIf="item.basicDetailId.wantTo=='Rent'">
+                              {{item.basicDetailId.mothlyRent | ShortNumber}}</td>
+                               <td *ngIf="item.basicDetailId.wantTo=='Sell' && item.basicDetailId.propertyType!='Plot'">
+                                 {{item.basicDetailId.mothlyRent | ShortNumber}}</td>
+                             <td *ngIf="item.basicDetailId.wantTo=='Sell' && item.basicDetailId.propertyType=='Plot'">
+                               {{item.basicDetailId.plotPrice | ShortNumber}}</td>
+                                <td
+                                  *ngIf="item.basicDetailId.wantTo=='PG'">
+                                  {{item.basicDetailId.pgRent | ShortNumber}}</td>
+                               
+                                 <td>
+                                   <b *ngIf="item?.isConfirmed==true && item?.isDecline==false"
+                                     class="badge badge-success">Confirmed</b>
+                                   <b *ngIf="item?.isConfirmed==false && item?.isDecline==true"
+                                     class="badge badge-danger">Rejected</b>
+                                   <b *ngIf="item?.isConfirmed==false && item?.isDecline==false"
+                                     class="badge badge-warning">Pending</b>
+                                 </td>
+                          <td>
+                            <div class="form-button-action">
+                              <button class="btn btn-icon btn-round btn-default" style="cursor: pointer;"
+                                id="modalActivate" data-toggle="modal" data-target="#myModal"
+                                (click)="GetDetails(item.uniqueID)">
+                                <i class="fa fa-align-left"></i>
+                              </button> 
+                            </div>
+                          </td>
+                        </tr>  
+                      </tbody>
+                    </table>
+                  </div>
+                   <div class="row">
+                     <div class="col-lg-10"> 
+                     </div> 
+                     <div class="col-lg-2">
+                         <pagination style="background-color: tomato;" class="pagination-sm my-pagination"
+                           [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+                           (pageChanged)="pageChanged($event)" [(ngModel)]="currentPage"></pagination>
+                     </div>
+                   </div>
+                </div>
+              </div>
+            </div>
+            <!-- //Admin List -->
+            <ng-container *ngIf="AdminListActive==true">
+              <app-AdminList></app-AdminList>
+            </ng-container>
+
+              <!-- //Owner List -->
+              <ng-container *ngIf="OwnerListActive==true">
+                 <app-ownerList>
+                 </app-ownerList>
+              </ng-container>
+                <!-- //Broker List -->
+                <ng-container *ngIf="BrokerListActive==true">
+                  <app-BrokerList>
+                  </app-BrokerList>
+                </ng-container>
+                  <!-- //Builder List -->
+                  <ng-container *ngIf="BuilderListActive==true">
+                    <app-BuilderList>
+                    </app-BuilderList>
+                  </ng-container>
+               
+        </div>
+      </div>
+      <footer class="footer"> 
+      </footer>
+    </div> 
+
+    <div *ngIf="activeEdit" class="main-panel">
+      <div class="content">
+        <div class="panel-header bg-primary-gradient">
+          <div class="page-inner py-5">
+            <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+              <div>
+                <b class="text-white">Profile Edit</b>
+                <h6 class="text-white op-7 mb-2">Edit Your Profile here..</h6>
+              </div> 
+            </div>
+          </div>
+        </div>
+        <div class="page-inner mt--5">
+          <div class="row mt--2">
+            <div class="col-md-6">
+               <div class="card">
+                 <div class="card-body">
+                   <div class="card-title">Profile Data</div>
+                   <div class="card-category">View Profile</div>
+                   <hr style="border: 1px solid tomato;">
+                     <div class="css-10s3v8m">
+                       <div class="css-azafo"><img [src]="url" class="img css-vamo5h"></div>
+                       <div class="css-r135jl">{{editData.userName}}</div>
+                       <div class="css-f5yg3r">{{editData.email}}</div>
+                     </div>
+                      
+                 </div>
+               </div>
+             
+          </div>
+            <div class="col-md-6">
+              <div class="card full-height">
+                <div class="card-body">
+                  <div class="card-title">Edit Profile</div>
+                  <div class="row py-3">
+                    <ng-container>
+                      <div style="margin-top: -40px; height: 500px;" class="css-16njf87">
+                        <div class="css-1sc532z">
+                          <div class="css-1na4nox">
+                            <div class="css-epi3g9">
+                              <form #form="ngForm" id="myform" autocomplete="off" (submit)="SaveChanges()" class="css-4ejps8">
+                                <div class="form-item type-pill css-a802sj">
+                                  <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">NAME</label>
+                                    <input type="text" #userName="ngModel" name="userName" [(ngModel)]="editData.userName"
+                                      class="form-control">
+                                  </div>
+                                </div>
+                                <br>
+                                <div class="form-item type-pill css-a802sj">
+                                  <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">EMAIL</label>
+                                    <input type="text" #email="ngModel" name="email" [(ngModel)]="editData.email" class="form-control">
+                                  </div>
+                                </div>
+                                <br>
+                                <app-UploadImges (url)="loadimg($event)"></app-UploadImges>
+                              </form>
+                            </div><br>
+                            <button style="margin-left: 12px; margin-top: 12px;" form="myform" type="submit"
+                              class="css-182b130 btn btn-info">
+                              <span *ngIf="this.btnLoader" class="spinner-border spinner-border-sm" role="status"></span>
+                              <span *ngIf="this.btnLoader" class="load-text"> Loading...</span>
+                              <span *ngIf="!this.btnLoader" class="btn-text"><i class="fa fa-save"></i> Save
+                                Changes</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+</body>
+
+</html> 
+
+<!-- property Config -->
+<div class="modal fade right" id="addexampleModalPreview1field" tabindex="-1" role="dialog"
+  aria-labelledby="addexampleModalPreviewLabel1field" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content-full-width modal-content ">
+      <div class="modal-header-full-width modal-header text-center">
+        <div class="logo">
+          <a [routerLink]="['/adminpanel']"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+              style="width: 180px; height: 30px" alt="logo"></a>
+        </div>
+        <button type="button" class="close " (click)="modalDismiss()" data-dismiss="modal" aria-label="Close">
+          <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div *ngIf="isActivePropLoaded" class="modal-body">
+        <h6 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Rent And Sell Fields</h6>
+        <hr style="border: 1px solid tomato;">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="PropTypeCheck()" [checked]="propertyConfig?.isPropertyType" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="Property Type" class="form-control"
+                aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="rld-list-style input-group-text">
+                  <input (click)="BHKCheck()" [checked]="propertyConfig?.isBhk" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="BHK" aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="AgeofPropCheck()" [checked]="propertyConfig?.ageOfProperty" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="AgeOfProperty"
+                aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="MaintainChargeCheck()" [checked]="propertyConfig?.maintainCharge" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="MaintainCharge"
+                aria-label="Text input with checkbox">
+            </div>
+          </div>
+
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="BathRoomCheck()" [checked]="propertyConfig?.bathRoom" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="BathRoom" class="form-control" aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="rld-list-style input-group-text">
+                  <input (click)="BalconyCheck()" [checked]="propertyConfig?.balcony" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="Balcony" aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="FurnishTypeCheck()" [checked]="propertyConfig?.furnishType" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="FurnishType"
+                aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="CoverParkingCheck()" [checked]="propertyConfig?.coverParking" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="CoverParking"
+                aria-label="Text input with checkbox">
+            </div>
+          </div>
+
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="OpenParkingCheck()" [checked]="propertyConfig?.openParking" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="OpenParking" class="form-control"
+                aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="rld-list-style input-group-text">
+                  <input (click)="TenantTypeCheck()" [checked]="propertyConfig?.tenantType" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="Tenant Type"
+                aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="AvailableFromCheck()" [checked]="propertyConfig?.availableFrom" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="availableFrom"
+                aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="MonthlyRentCheck()" [checked]="propertyConfig?.monthlyRent" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="Monthly Rent"
+                aria-label="Text input with checkbox">
+            </div>
+          </div>
+
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="SecurityDepositeCheck()" [checked]="propertyConfig?.securityDeposite" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="SecurityDeposite" class="form-control"
+                aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="rld-list-style input-group-text">
+                  <input (click)="brokerage()" [checked]="propertyConfig?.brokerage" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="Brokerage" aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="buildAreaCheck()" [checked]="propertyConfig?.buildArea" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="BuildArea" aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="TransactionTypeCheck()" [checked]="propertyConfig?.transactionType" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="TransactionType"
+                aria-label="Text input with checkbox">
+            </div>
+          </div>
+
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="ConstructionStatusCheck()" [checked]="propertyConfig?.constructionStatus"
+                    type="checkbox" aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="Construction Status" class="form-control"
+                aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+          <div class="col-md-3">
+
+          </div>
+          <div class="col-md-3">
+
+          </div>
+          <div class="col-md-2">
+
+          </div>
+
+        </div>
+
+        <hr style="border: 1px solid tomato;">
+        <h6 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">PG Fields</h6>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="PGNameCheck()" [checked]="propertyConfig?.pGName" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="PG Name" class="form-control" aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="rld-list-style input-group-text">
+                  <input (click)="TotalBedCheck()" [checked]="propertyConfig?.totalBed" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="Total Bed" aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="PGForCheck()" [checked]="propertyConfig?.pgFor" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="PG For" aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="SuitedForCheck()" [checked]="propertyConfig?.suitedFor" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="Suited For" aria-label="Text input with checkbox">
+            </div>
+          </div>
+
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="MealAvalableCheck()" [checked]="propertyConfig?.mealAvalable" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="Meal Avalable" class="form-control"
+                aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="rld-list-style input-group-text">
+                  <input (click)="RoomTypeCheck()" [checked]="propertyConfig?.roomType" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="Room Type" aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="BedInRoomCheck()" [checked]="propertyConfig?.bedInRoom" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="BedInRoom" aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="PgRentCheck()" [checked]="propertyConfig?.pgRent" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="Pg Rent" aria-label="Text input with checkbox">
+            </div>
+          </div>
+
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="FacilitiesOfferedCheck()" [checked]="propertyConfig?.facilitiesOffered"
+                    type="checkbox" aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="Facilities Offered" class="form-control"
+                aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="rld-list-style input-group-text">
+                  <input (click)="CommonAreasCheck()" [checked]="propertyConfig?.commonAreas" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="Common Areas"
+                aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="PropertyManagedByCheck()" [checked]="propertyConfig?.propertyManagedBy"
+                    type="checkbox" aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="Property Managed By"
+                aria-label="Text input with checkbox">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="NonVegAllowedCheck()" [checked]="propertyConfig?.nonVegAllowed" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" class="form-control" value="NonVeg Allowed"
+                aria-label="Text input with checkbox">
+            </div>
+          </div>
+
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="OppositeSexAllowedCheck()" [checked]="propertyConfig?.oppositeSexAllowed"
+                    type="checkbox" aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="Opposite Sex Allowed" class="form-control"
+                aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="AnyTimeAllowedCheck()" [checked]="propertyConfig?.anyTimeAllowed" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="Any Time Allowed" class="form-control"
+                aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="VisitorsAllowedCheck()" [checked]="propertyConfig?.visitorsAllowed" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="Visitors Allowed" class="form-control"
+                aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="GuardianAllowedCheck()" [checked]="propertyConfig?.guardianAllowed" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="Guardian Allowed" class="form-control"
+                aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="DrinkingAllowedCheck()" [checked]="propertyConfig?.drinkingAllowed" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="Drinking Allowed" class="form-control"
+                aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input (click)="SmokingAllowedCheck()" [checked]="propertyConfig?.smokingAllowed" type="checkbox"
+                    aria-label="Checkbox for following text input">
+                </div>
+              </div>
+              <input readonly type="text" value="Smoking Allowed" class="form-control"
+                aria-label="Text input with checkbox">
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" (click)="ManageField()" type="button"><i class="fa fa-save"></i> Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Details Model -->
+<div *ngIf="isDetailLoading" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-full" role="document">
+    <div class="modal-content">
+      <div  class="modal-header">
+        <div class="logo">
+          <a [routerLink]="['/adminpanel']"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+              style="width: 180px; height: 48px" alt="logo"></a>
+        </div>
+        <button type="button" class="close" (click)="modalDismiss()" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div style="overflow-y:auto;" class="modal-body p-4" id="result">
+        <div class="property-details-area">
+          <div class="bg-gray pd-top-100 pd-bottom-90">
+            <div class="container">
+              <h3 style="font-size: 24px; color: black; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                sans-serif" class="modal-title w-70" *ngFor="let item1 of detail.all"
+                id="exampleModalPreviewLabel">
+                Details
+                Of
+                <span *ngIf="item1.basicDetailId.wantTo=='Rent'">{{item1.basicDetailId.propertyType}}</span>
+                <span
+                  *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType!='Plot'">{{item1.basicDetailId.propertyType}}</span>
+                <span
+                  *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType=='Plot'">{{item1.basicDetailId.propertyType}}</span>
+
+                <span *ngIf="item1.basicDetailId.wantTo=='PG'">PG</span>
+              </h3>
+              <hr>
+              <div class="row">
+                <div class="col-xl-9 col-lg-8">
+                  <div style="margin-left: -15px;" class="row">
+                      <owl-carousel *ngIf="imgLoaded==true" class="col-md-12" [options]="SlideOptions" [items]="images"
+                      [carouselClasses]="['owl-theme', 'sliding']">
+                      <div class="item" *ngFor="let img of images;let i=index">
+                        <div style="align-content: center">
+                          <img style="width: 950px; height: 550px;" (click)="open(i)" src={{img.thumb}} />
+                        </div>
+                      </div>
+                    </owl-carousel>
+
+                    <owl-carousel *ngIf="imgLoaded==false" class="col-md-12" [options]="SlideOptions" [items]="images"
+                      [carouselClasses]="['owl-theme', 'sliding']">
+                      <div class="item">
+                        <div style="align-content: center">
+                          <img [src]="DefaultPropImages">
+                        </div>
+                      </div>
+                    </owl-carousel> 
+                    <!-- New Carosol -->
+                    
+                  </div>
+
+                  <div style="margin-left: -5px;" class="property-details-slider-info">
+                    <h5 style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: bolder; color: tomato;"
+                      *ngFor="let item1 of detail.all">
+                      <span *ngIf="item1.basicDetailId.wantTo=='Rent'">{{item1.basicDetailId.mothlyRent | ShortNumber}} / Per Month
+                      </span>
+                      <span
+                        *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType!='Plot'">{{item1.basicDetailId.mothlyRent | ShortNumber}} / Selling
+                        Price</span>
+                      <span *ngIf="item1.basicDetailId.wantTo=='PG'"><span>{{item1.basicDetailId.pgRent | ShortNumber}} / Per
+                          Month</span>
+                      </span>
+                      <span
+                        *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType=='Plot'">{{item1.basicDetailId.plotPrice | ShortNumber}} / Selling
+                        Price</span>
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-4">
+                  <div class="widget widget-owner-info mt-lg-0 mt-5">
+                    <div class="owner-info text-center">
+                      <div class="thumb">
+                        <img class="img-thumbnail"
+                          [src]="ownerimageUrl"
+                          alt="img">
+                      </div>
+                      <div class="details">
+                        <h6 *ngFor="let item1 of detail.all">For {{item1.basicDetailId.wantTo}}</h6>
+
+                        <div *ngFor="let item1 of detail.all" class="designation">
+                          <span *ngIf="item1.basicDetailId.wantTo=='Rent'">{{item1.basicDetailId.propertyType}}</span>
+                          <span
+                            *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType!='Plot'">{{item1.basicDetailId.propertyType}}</span>
+                          <span *ngIf="item1.basicDetailId.wantTo=='PG'">{{item1.basicDetailId.pgFor}}</span>
+                        </div>
+
+                        <!-- <p class="reviews"><i style="color: #fda94f;" class="fa fa-star"></i><span>4.8</span> 70
+                          Review</p> -->
+                      </div>
+                    </div>
+
+                    <div class="contact-info">
+                      <h6 class="mb-3">Contact Info</h6>
+                      <div class="media">
+                        <div class="media-left">
+                          <img src="./../../assets/img/loc.png" alt="img">
+                        </div>
+                        <div class="media-body">
+                          <p>Address<br>
+                            <span *ngFor="let item1 of
+                             detail.all">{{item1.locationId.city}},{{item1.locationId.locality}}
+                            </span></p>
+                        </div>
+                      </div>
+                      <div class="media">
+                        <div class="media-left">
+                          <i style="color: #fda94f;" class="fa fa-phone"></i>
+                        </div>
+                        <div class="media-body">
+                          <p>Phone<br>
+                            <span>{{userPhone}}</span></p>
+
+                        </div>
+                      </div>
+                      <div class="media mb-0">
+                        <div class="media-left">
+                          <i style="color: #fda94f;" class="fa fa-envelope"></i>
+                        </div>
+                        <div class="media-body">
+                          <p>Email<br>
+                            <span style="font-size:1.5ch;">{{userEmail}}</span></p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let item1 of detail.all" class="container">
+            <!-- FOR REnt -->
+            <div *ngIf="item1.basicDetailId.wantTo=='Rent'" class="property-news-single-card border-bottom-yellow pb-3">
+              <br>
+              <h4>Available Features</h4>
+              <br>
+              <hr>
+              <div class="row">
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Furnished Type</h6>
+                      <p>{{item1.basicDetailId.furnishedType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>BHK</h6>
+                      <p>{{item1.basicDetailId.bhk}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-building"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Balcony</h6>
+                      <p>{{item1.basicDetailId.balconey}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bath"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Bathroom</h6>
+                      <p>{{item1.basicDetailId.bathroom}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Preferred Tenant Type</h6>
+                      <p>{{item1.basicDetailId.teneandType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bullseye" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Age Of Property</h6>
+                      <p>{{item1.basicDetailId.propertadyAge}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Rent</h6>
+                      <p>{{item1.basicDetailId.mothlyRent | ShortNumber}} / Per Month</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Available From</h6>
+                      <p>{{item1.basicDetailId.avalableFrom | date}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-area-chart" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Built Up Area</h6>
+                      <p>{{item1.basicDetailId.buildUpArea}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="" aria-hidden="true">SD</i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Security Deposit</h6>
+                      <p>{{item1.basicDetailId.securityDeposite}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Security Deposit Amount</h6>
+                      <p *ngIf="item1.basicDetailId.securityDepositeAmt!=null">
+                        {{item1.basicDetailId.securityDepositeAmt | ShortNumber}}</p>
+                      <p *ngIf="item1.basicDetailId.securityDepositeAmt==0">
+                        0</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Cover Parking</h6>
+                      <p>{{item1.basicDetailId.coverParking}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Open Parking</h6>
+                      <p>{{item1.basicDetailId.openParking}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- For Only Sell -->
+            <div *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType!='Plot'"
+              class="property-news-single-card border-bottom-yellow pb-3">
+              <br>
+              <h4>Available Features</h4>
+              <br>
+              <hr>
+              <div class="row">
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Property Type</h6>
+                      <p>{{item1.basicDetailId.propertyType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>BHK</h6>
+                      <p>{{item1.basicDetailId.bhk}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-building"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Balcony</h6>
+                      <p>{{item1.basicDetailId.balconey}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bath"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Bathroom</h6>
+                      <p>{{item1.basicDetailId.bathroom}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Construction Status</h6>
+                      <p>{{item1.basicDetailId.constructionType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Transaction Type</h6>
+                      <p>{{item1.basicDetailId.transactionType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bullseye" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Age Of Property</h6>
+                      <p>{{item1.basicDetailId.propertadyAge}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Selling Price</h6>
+                      <p>{{item1.basicDetailId.mothlyRent | ShortNumber}} / Selling Price</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Brokerage</h6>
+                      <p>{{item1.basicDetailId.brokerage}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Brokerage Amount</h6>
+                      <p>{{item1.basicDetailId.brokerageAmt | ShortNumber}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Cover Parking</h6>
+                      <p>{{item1.basicDetailId.coverParking}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Open Parking</h6>
+                      <p>{{item1.basicDetailId.openParking}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- For Only Sell && Plot -->
+            <div *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType=='Plot'"
+              class="property-news-single-card border-bottom-yellow pb-3">
+              <br>
+              <h4>Available Features</h4>
+              <br>
+              <hr>
+              <div class="row">
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Property Type</h6>
+                      <p>{{item1.basicDetailId.propertyType}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Possession Status</h6>
+                      <p>{{item1.basicDetailId.possesionType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Transaction Type</h6>
+                      <p>{{item1.basicDetailId.transactionType}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Plot Price</h6>
+                      <p>{{item1.basicDetailId.plotPrice | ShortNumber}} / Selling Price</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Brokerage</h6>
+                      <p>{{item1.basicDetailId.brokerage}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Brokerage Amount</h6>
+                      <p>{{item1.basicDetailId.brokerageAmt | ShortNumber}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Plot Area</h6>
+                      <p>{{item1.basicDetailId.ploatArea}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Area Unit</h6>
+                      <p>{{item1.basicDetailId.areaUnit}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Plot Number</h6>
+                      <p>{{item1.basicDetailId.floorRange}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- For Only PG -->
+            <div *ngIf="item1.basicDetailId.wantTo=='PG'" class="property-news-single-card border-bottom-yellow pb-3">
+              <br>
+              <h4>Available Features</h4>
+
+              <hr>
+              <div class="row">
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>PG Name</h6>
+                      <p>{{item1.basicDetailId.pgName}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Total Beds</h6>
+                      <p>{{item1.basicDetailId.toatalBed}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>PG is for</h6>
+                      <p>{{item1.basicDetailId.pgFor}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="" aria-hidden="true">S</i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Suited for</h6>
+                      <p>{{item1.basicDetailId.pgSuitedFor}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Meals Available</h6>
+                      <p>{{item1.basicDetailId.mealAvalable}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="" aria-hidden="true">NV</i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Non Veg Allowed</h6>
+                      <p>{{item1.basicDetailId.nonVegAllowed}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-delicious" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Room Type</h6>
+                      <p>{{item1.basicDetailId.roomType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Total Beds in a Room</h6>
+                      <p>{{item1.basicDetailId.bedInRoom}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Rent</h6>
+                      <p>{{item1.basicDetailId.pgRent | ShortNumber}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="" aria-hidden="true">SD</i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Security Deposit</h6>
+                      <p>{{item1.basicDetailId.pgSecurityDeposite}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Property Managed By</h6>
+                      <p>{{item1.basicDetailId.propertyManageBy}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-male" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Opposite Sex Allowed</h6>
+                      <p>{{item1.basicDetailId.oppositeSex}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="" aria-hidden="true">VA</i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Visitors Allowed</h6>
+                      <p>{{item1.basicDetailId.visitorAllowed}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Guardian Allowed</h6>
+                      <p>{{item1.basicDetailId.visitorAllowed}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-beer" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Drinking Allowed</h6>
+                      <p>{{item1.basicDetailId.drinkingAllowed}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-">SA</i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Smoking Allowed</h6>
+                      <p>{{item1.basicDetailId.smokingAllowed}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="" aria-hidden="true">FO</i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Facilities Offered</h6>
+                      <p>{{item1.basicDetailId.facilitiesOffered}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Common Areas</h6>
+                      <p>{{item1.basicDetailId.commonArea}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div *ngIf="detail.all[0]?.isConfirmed==false && detail.all[0]?.isDecline==false" class="modal-footer">
+        <button *ngFor="let item1 of detail.all" class="btn btn-orange" data-dismiss="modal" role="button"
+          (click)="Accept(item1.id)"><i class="fa fa-check-circle" aria-hidden="true"></i> Accept</button>
+
+        &nbsp;&nbsp; <button *ngFor="let item1 of detail.all" class="btn btn-red" data-dismiss="modal" role="button"
+          (click)="Decline(item1.id)"><i class="fa fa-eject" aria-hidden="true"></i> Decline</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MANAGE CITY -->
+<div class="modal fade right" id="addexampleModalPreview" tabindex="-1" role="dialog"
+  aria-labelledby="addexampleModalPreviewLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content-full-width modal-content ">
+      <div class=" modal-header-full-width modal-header text-center">
+        <div class="logo">
+          <a [routerLink]="['/adminpanel']"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+              style="width: 180px; height: 48px" alt="logo"></a>
+        </div>
+        <button type="button" class="close " (click)="modalDismiss()" data-dismiss="modal" aria-label="Close">
+          <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-lg-6" style="box-shadow: 1px 1px 1px 1px tomato;">
+            <form [formGroup]="registerCity" (ngSubmit)="AddCity()">
+              <div class="form-group">
+                <label for="inputEmail">City</label>
+                <input formControlName="CitynName" type="text" class="form-control" id="inputEmail" placeholder="City">
+                <br>
+                <button type="submit" [disabled]="!registerCity.valid" class="btn btn-primary"><i
+                    class="fa fa-save"></i> Save</button>
+              </div>
+
+            </form>
+          </div>
+
+          <div class="col-lg-6">
+            <b>City List</b>
+            <table class="table table-stripe">
+              <thead>
+                <th>Id</th>
+                <th>City</th>
+                <th>Edit</th>
+                <th>Remove</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of citys; let i=index">
+                  <td>{{i+1}}</td>
+                  <td style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                    {{item.citynName}}</td>
+                  <td>
+                    <button type="button" data-toggle="tooltip" (click)="Edit(item)" title=""
+                      class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" data-toggle="tooltip" (click)="DeleteCity(item)"
+                      class="btn btn-link btn-danger" data-original-title="Remove">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Locality Modal -->
+<div class="modal fade right" id="addexampleModalPreview1" tabindex="-1" role="dialog"
+  aria-labelledby="addexampleModalPreviewLabel1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content-full-width modal-content ">
+      <div class=" modal-header-full-width modal-header text-center">
+        <div class="logo">
+          <a [routerLink]="['/adminpanel']"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+              style="width: 180px; height: 48px" alt="logo"></a>
+        </div>
+        <button type="button" class="close " (click)="modalDismiss()" data-dismiss="modal" aria-label="Close">
+          <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-4" style="box-shadow: 1px 1px 1px 1px tomato;">
+            <form [formGroup]="registerLocality" (ngSubmit)="AddLocality()">
+              <div class="form-group">
+                <label for="inputEmail">City</label>
+                <select (change)="GetLocality($event)" class="form-control">
+                  <option selected disabled>--Select--</option>
+                  <option *ngFor="let item of citys" [value]="item.id">{{item.citynName}}</option>
+                </select>
+                <ng-container *ngIf="show">
+                  <label for="inputEmail">Add Locality</label>
+                  <input formControlName="localityName" type="text" class="form-control">
+                </ng-container>
+                <br>
+                <button type="submit" [disabled]="!registerLocality.valid" class="btn btn-primary"><i
+                    class="fa fa-save"></i> Save</button>
+              </div>
+
+            </form>
+          </div>
+          <div class="col-lg-8">
+            <b>Locality List</b>
+            <table class="table table-stripe">
+              <thead>
+                <th>Id</th>
+                <th>Locality</th>
+                <th>Edit</th>
+                <th>Remove</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of locality; let i=index">
+                  <td>{{i+1}}</td>
+                  <td>{{item.localityName}}</td>
+
+                  <td>
+                    <button type="button" data-toggle="tooltip" (click)="EditLocality(item)" title=""
+                      class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" data-toggle="tooltip" (click)=" DeleteLocality(item)" title=""
+                      class="btn btn-link btn-danger btn-lg" data-original-title="Edit Task">
+                      <i class="fa fa-remove"></i>
+                    </button>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Sector Modal -->
+<div class="modal fade right" id="addexampleModalPreviewsec" tabindex="1" role="dialog"
+  aria-labelledby="addexampleModalPreviewLabelsec" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content-full-width modal-content ">
+      <div class=" modal-header-full-width modal-header text-center">
+        <div class="logo">
+          <a [routerLink]="['/adminpanel']"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+              style="width: 180px; height: 48px" alt="logo"></a>
+        </div>
+        <button type="button" class="close " (click)="modalDismiss()" data-dismiss="modal" aria-label="Close">
+          <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-4" style="box-shadow: 1px 1px 1px 1px tomato;">
+            <form [formGroup]="registerSector" (ngSubmit)="AddSector()">
+              <div class="form-group">
+                <label for="inputEmail">City</label>
+                <select (change)="GetLocality($event)" class="form-control">
+                  <option selected disabled>--Select--</option>
+                  <option *ngFor="let item of citys" [value]="item.id">{{item.citynName}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">Locality</label>
+                <select (change)="GetSector($event)" class="form-control">
+                  <option selected disabled>--Select--</option>
+                  <option *ngFor="let item of locality" [value]="item.id">{{item.localityName}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">Add Sector</label>
+                <input type="text" class="form-control" formControlName="sectorName" placeholder="Sector">
+              </div>
+              <br>
+              <button type="submit" [disabled]="!registerSector.valid" class="btn btn-primary"><i
+                  class="fa fa-save"></i>
+                Save</button>
+            </form>
+          </div>
+          <div class="col-lg-8">
+            <b>Sector List</b>
+            <table class="table table-stripe">
+              <thead>
+                <th>Id</th>
+                <th>Sector</th>
+                <th>Edit</th>
+                <th>Remove</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of sectors; let i=index">
+                  <td>{{i+1}}</td>
+                  <td>{{item.sectorName}}</td>
+                  <td>
+                    <button type="button" data-toggle="tooltip" (click)="EditSector(item)" title=""
+                      class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" data-toggle="tooltip"
+                      [swal]="['Oops!', 'This is not implemented yet :/', 'warning']" (click)="DeleteSector(item)"
+                      title="" class="btn btn-link btn-danger btn-lg" data-original-title="Edit Task">
+                      <i class="fa fa-remove"></i>
+                    </button>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Pocket Modal -->
+<div class="modal fade right" id="addexampleModalPreviewpoc" tabindex="-1" role="dialog"
+  aria-labelledby="addexampleModalPreviewLabelpoc" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content-full-width modal-content ">
+      <div class=" modal-header-full-width modal-header text-center">
+        <div class="logo">
+          <a [routerLink]="['/adminpanel']"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+              style="width: 180px; height: 48px" alt="logo"></a>
+        </div>
+        <button type="button" class="close " (click)="modalDismiss()" data-dismiss="modal" aria-label="Close">
+          <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-4" style="box-shadow: 1px 1px 1px 1px tomato;">
+            <form [formGroup]="registerPocket" (ngSubmit)="AddPocket()">
+              <div class="form-group">
+                <label for="inputEmail">City</label>
+                <select (change)="GetLocality($event)" class="form-control">
+                  <option selected disabled>--Select--</option>
+                  <option *ngFor="let item of citys" [value]="item.id">{{item.citynName}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">Locality</label>
+                <select (change)="GetSector($event)" class="form-control">
+                  <option selected disabled>--Select--</option>
+                  <option *ngFor="let item of locality" [value]="item.id">{{item.localityName}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">Sector</label>
+                <select (change)="GetPocket($event)" class="form-control">
+                  <option selected disabled>--Select--</option>
+                  <option *ngFor="let item of sectors" [value]="item.id">{{item.sectorName}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">Type Pocket</label>
+                <input type="text" class="form-control" formControlName="PocketAddress" placeholder="Pocket">
+              </div>
+              <br>
+              <button type="submit" [disabled]="!registerPocket.valid" class="btn btn-primary"><i
+                  class="fa fa-save"></i>
+                Save</button>
+            </form>
+          </div>
+          <div class="col-lg-8">
+            <b>Pocket List</b>
+            <table class="table table-stripe">
+              <thead>
+                <th>Id</th>
+                <th>Pocket</th>
+                <th>Edit</th>
+                <th>Remove</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of pockets; let i=index">
+                  <td>{{i+1}}</td>
+                  <td>{{item.pocketAddress}}</td>
+                  <td>
+                    <button type="button" data-toggle="tooltip" (click)="EditPocket(item)" title=""
+                      class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" data-toggle="tooltip" (click)="DeletePocket(item)" title=""
+                      class="btn btn-link btn-danger btn-lg" data-original-title="Edit Task">
+                      <i class="fa fa-remove"></i>
+                    </button>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div> 
+
+<!-- Upload Image Modal -->
+<div class="modal fade right" id="addexampleModalPreview2field2" tabindex="-1" role="dialog"
+  aria-labelledby="addexampleModalPreviewLabel1field2" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content-full-width modal-content ">
+      <div class=" modal-header-full-width modal-header text-center">
+        <div class="logo">
+          <a [routerLink]="['/adminpanel']"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+              style="width: 180px; height: 48px" alt="logo"></a>
+        </div>
+        <button type="button" class="close " (click)="modalDismiss()" data-dismiss="modal" aria-label="Close">
+          <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <h6 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Upload Image</h6>
+        <hr style="border: 1px solid tomato;">
+        <div class="su-photos">
+          <div class="center-div">
+            <div *ngIf="iShowImg == 'none'" class="su-img-upld">
+              <span><span class="img-upldr">
+                  <div class="add-box desktop">
+                    <div>
+                      <div (click)="file.click()" class="inner-box">
+                        <div>
+                          <div class="icon"></div>
+                          <div class="title">
+                            + Add Photos
+                            <div class="sub">
+                              (max limit 5 MB per image)
+                              <span style="color: red">*</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="button" (click)="file.click()" style="background-color: tomato; color: white"
+                        class="btn btn-danger">
+                        Upload Photos
+                      </button>
+                      <div class="txt-cont">
+                        <div>
+                          <i class="icon-tick-circle"></i><span>
+                            <div>
+                              <span class="bold">Upload Single Image</span>
+                              For Default Property
+                            </div>
+                          </span>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </span></span>
+              <input style="display: none" (change)="uploader.uploadAll()" [uploader]="uploader" type="file" #file
+                ng2FileSelect />
+            </div>
+            <div *ngIf="iShowImg == 'block'" style="display:contents;">
+              <div *ngFor="let item of imgs; let i = index" class="img-item selected desktop"
+                style="background-image: url({{item.url}})">
+                <div (click)="deletePhotos()" style="background-color: tomato; margin-top: 0px;"
+                  class="text text-center action selected">X</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" (click)="modalDismiss()" data-dismiss="modal" type="button"><i
+            class="fa fa-save"></i> Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add New Admin Modal -->
+<div class="modal fade right" id="addexampleModalPreview1fieldR" tabindex="-1" role="dialog"
+  aria-labelledby="addexampleModalPreviewLabel1fieldR" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content-full-width modal-content ">
+      <div class=" modal-header-full-width modal-header text-center">
+        <div  class="logo">
+          <a [routerLink]="['/adminpanel']"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+              style="width: 180px; height: 48px" alt="logo"></a>
+        </div>
+        <button type="button" class="close " (click)="modalDismiss()" data-dismiss="modal" aria-label="Close">
+          <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div style="margin-left: 130px;" class="card-body">
+        <app-AdminRegister></app-AdminRegister>
+      </div>
+
+    </div>
+  </div>
+</div>

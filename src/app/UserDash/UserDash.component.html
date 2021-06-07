@@ -1,0 +1,889 @@
+<div class="">
+  <div class="row">
+    <div class="col-md-3">
+      <label class="title no-bottom">Item Per Pages</label>
+      <select style="width: 18ch;"  (change)="LoadItemByPage($event)" class="form-control">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+
+    </div>
+    <div class="col-md-3">
+      <label class="title no-bottom">Filter by</label>
+      <select style="width: 18ch;" (change)="LoadProType($event)" class="form-control">
+        <option value="All">Rent & Sell</option>
+        <option value="Rent">Rent</option>
+        <option value="Sell">Sell</option>
+      </select>
+    </div>
+  </div>
+<hr>
+  <div class="table-responsive"> 
+    <table id="add-row" class="table table-head-bg-primary">
+      <thead>
+        <tr>
+          <th class="fw-bold">SN.No</th>
+          <th class="fw-bold">Image</th>
+          <th class="fw-bold">Property For</th>
+          <th class="fw-bold">Propety Type</th>
+          <th style="width: 25%;" class="fw-bold">Price</th>
+          <th class="fw-bold">Status</th>
+          <th style="width: 53%;">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      
+        <tr *ngFor="let item of Alldetais.all; let i=index">
+          <td>{{i+1}}</td>
+          <td>
+            <div *ngFor="let img of Alldetais.imgs">
+              <img *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url!='null'"
+                [src]="img.url" style="height:50px; width: 50px;"
+                alt="img">
+                  <img *ngIf="item.uniqueID==img.uniqueID && img.cover==true && img.url=='null'" src="../../assets/Images/apartment.png"
+                    style="height:50px; width: 50px;" alt="img">
+            </div>
+          </td>
+          <td>{{item.basicDetailId.wantTo}}</td>
+          <td *ngIf="item.basicDetailId.wantTo!='PG'">{{item.basicDetailId.propertyType}}</td>
+          <td *ngIf="item.basicDetailId.wantTo=='PG'">{{item.basicDetailId.pgName}}</td>
+          <td *ngIf="item.basicDetailId.wantTo=='Rent'">
+            {{item.basicDetailId.mothlyRent | ShortNumber}}</td>
+          <td *ngIf="item.basicDetailId.wantTo=='Sell' && item.basicDetailId.propertyType!='Plot'">
+            {{item.basicDetailId.mothlyRent | ShortNumber}}</td>
+          <td *ngIf="item.basicDetailId.wantTo=='Sell' && item.basicDetailId.propertyType=='Plot'">
+            {{item.basicDetailId.plotPrice | ShortNumber}}</td>
+          <td *ngIf="item.basicDetailId.wantTo=='PG'">
+            {{item.basicDetailId.pgRent | ShortNumber}}</td>
+
+          <td>
+            <b *ngIf="item?.isConfirmed==true && item?.isDecline==false"
+              class="badge badge-success">Confirmed</b>
+            <b *ngIf="item?.isConfirmed==false && item?.isDecline==true"
+              class="badge badge-danger">Rejected</b>
+            <b *ngIf="item?.isConfirmed==false && item?.isDecline==false"
+              class="badge badge-warning">Pending</b>
+          </td>
+          <td>
+            <ul class="list-inline m-0">
+              <li data-toggle="tooltip" data-placement="top" title="View" class="list-inline-item">
+                <div class="form-button-action">
+                  <button class="btn btn-primary btn-sm rounded-0" style="cursor: pointer;" id="modalActivate"
+                    data-toggle="modal" data-target="#myModal"  (click)="GetDetails(item.uniqueID)">
+                    <i class="fa fa-table"></i>
+                  </button>
+                </div> 
+                </li>
+              <li data-toggle="tooltip" data-placement="top" title="Edit" class="list-inline-item">
+                  <button class="btn btn-success btn-sm rounded-0" (click)="Edit(item.id)" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+              </li>
+              <li data-toggle="tooltip" data-placement="top" title="Delete" class="list-inline-item">
+                <div class="form-button-action">
+                  <button class="btn btn-danger btn-sm rounded-0" style="cursor: pointer;"
+                     (click)="Delete(item.id)">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </div> 
+                  
+              </li>
+          </ul>
+          
+           
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="center">
+    <pagination class="pagination-sm my-pagination"
+    [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+    (pageChanged)="pageChanged($event)" 
+    id="comp-pagination"
+    class="my-pagination"
+    [(ngModel)]="currentPage"></pagination>
+  </div>
+</div>
+ 
+  
+<!-- Details Model -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-full" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="logo">
+          <a href="index.html"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+              style="height:48px; width:180px;" alt="logo"></a>
+        </div>
+        <button type="button" class="close" (click)="modalDismiss()" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div style="overflow-y:auto;" class="modal-body p-4" id="result">
+        <div class="property-details-area">
+          <div class="bg-gray pd-top-100 pd-bottom-90">
+            <div class="container">
+              <h3 
+              style="font-size: 24px; color: black; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial,
+              sans-serif"
+              class="modal-title w-70" *ngFor="let item1 of detail?.all"
+              id="exampleModalPreviewLabel">
+              Details
+                Of
+                <span *ngIf="item1.basicDetailId.wantTo=='Rent'">{{item1.basicDetailId.propertyType}}</span>
+                <span
+                  *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType!='Plot'">{{item1.basicDetailId.propertyType}}</span>
+                <span
+                  *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType=='Plot'">{{item1.basicDetailId.propertyType}}</span>
+
+                <span *ngIf="item1.basicDetailId.wantTo=='PG'">PG</span>
+              </h3>
+              <hr>
+              <div class="row">
+                <div class="col-xl-9 col-lg-8">
+                  <div style="margin-left: -15px;" class="row">
+                   
+                    <owl-carousel *ngIf="imgLoaded" class="col-md-12" [options]="SlideOptions" [items]="images"
+                      [carouselClasses]="['owl-theme', 'sliding']">
+                      <div class="item" *ngFor="let img of imageObject;let i=index">
+                        <div style="align-content: center">
+                          <img style="width: 950px; height: 550px;" (click)="open(i)" src={{img.thumb}} />
+                        </div>
+                      </div>
+                    </owl-carousel>
+                      
+                      <owl-carousel *ngIf="imgLoaded==false" class="col-md-12" [options]="SlideOptions" [items]="images"
+                        [carouselClasses]="['owl-theme', 'sliding']">
+                        <div class="item">
+                          <div style="align-content: center">
+                            <img   src="../../assets/Images/apartment.png">
+                          </div>
+                        </div>
+                      </owl-carousel>
+                  </div>
+
+                  <div style="margin-left: -5px;" class="property-details-slider-info">
+                    <h5 style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: bolder; color: tomato;"
+                      *ngFor="let item1 of detail?.all">
+                      <span
+                        *ngIf="item1.basicDetailId.wantTo=='Rent'">{{item1.basicDetailId.mothlyRent | ShortNumber}}/Per
+                        Month
+                      </span>
+                      <span
+                        *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType!='Plot'">{{item1.basicDetailId.mothlyRent | ShortNumber}}/Selling Price
+                        </span>
+                      <span
+                        *ngIf="item1.basicDetailId.wantTo=='PG'"><span>{{item1.basicDetailId.pgRent | ShortNumber}}/Per
+                          Month</span>
+                      </span>
+                         <span
+                           *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType=='Plot'">{{item1.basicDetailId.plotPrice | ShortNumber}}/Selling price
+                           </span>
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-4">
+                  <div class="widget widget-owner-info mt-lg-0 mt-5">
+                    <div class="owner-info text-center">
+                      <div class="thumb">
+                        <img style="height: 140px; width: 150px;" class="img-thumbnail"
+                            [src]="ownerimageUrl"
+                           alt="img">
+                      </div>
+                      <div class="details">
+                        <h6 *ngFor="let item1 of detail?.all">For {{item1.basicDetailId.wantTo}}</h6>
+
+                        <div *ngFor="let item1 of detail?.all" class="designation">
+                          <span *ngIf="item1.basicDetailId.wantTo=='Rent'">{{item1.basicDetailId.propertyType}}</span>
+                          <span
+                            *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType!='Plot'">{{item1.basicDetailId.propertyType}}</span>
+                          <span *ngIf="item1.basicDetailId.wantTo=='PG'">{{item1.basicDetailId.pgFor}}</span>
+                        </div>
+
+                        <!-- <p class="reviews"><i style="color: #fda94f;" class="fa fa-star"></i><span>4.8</span> 70
+                          Review</p> -->
+                      </div>
+                    </div>
+
+                    <div class="contact-info">
+                      <h6 class="mb-3">Contact Info</h6>
+                      <div class="media">
+                        <div class="media-left">
+                          <img src="./../../assets/img/loc.png" alt="img">
+                        </div>
+                        <div class="media-body">
+                          <p>Address<br>
+                            <span *ngFor="let item1 of
+                             detail?.all">{{item1.locationId.city}},{{item1.locationId.locality}}
+                            </span></p>
+                        </div>
+                      </div>
+                      <div class="media">
+                        <div class="media-left">
+                          <i style="color: #fda94f;" class="fa fa-phone"></i>
+                        </div>
+                        <div class="media-body">
+                          <p>Phone<br>
+                            <span>{{userPhone}}</span></p>
+
+                        </div>
+                      </div>
+                      <div class="media mb-0">
+                        <div class="media-left">
+                          <i style="color: #fda94f;" class="fa fa-envelope"></i>
+                        </div>
+                        <div class="media-body">
+                          <p>Email<br>
+                            <span>{{email}}</span></p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let item1 of detail?.all" class="container">
+            <!-- FOR REnt -->
+            <div *ngIf="item1.basicDetailId.wantTo=='Rent'" class="property-news-single-card border-bottom-yellow pb-3">
+              <br>
+              <h4>Available Features</h4>
+              <br>
+              <hr>
+              <div class="row">
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Furnished Type</h6>
+                      <p>{{item1.basicDetailId.furnishedType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>BHK</h6>
+                      <p>{{item1.basicDetailId.bhk}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-building"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Balcony</h6>
+                      <p>{{item1.basicDetailId.balconey}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bath"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Bathroom</h6>
+                      <p>{{item1.basicDetailId.bathroom}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Preferred Tenant Type</h6>
+                      <p>{{item1.basicDetailId.teneandType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bullseye" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Age Of Property</h6>
+                      <p>{{item1.basicDetailId.propertadyAge}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Rent</h6>
+                      <p>{{item1.basicDetailId.mothlyRent | ShortNumber}} / Per Month</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Available From</h6>
+                      <p>{{item1.basicDetailId.avalableFrom | date}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-area-chart" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Built Up Area</h6>
+                      <p>{{item1.basicDetailId.buildUpArea}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="" aria-hidden="true">SD</i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Security Deposit</h6>
+                      <p>{{item1.basicDetailId.securityDeposite}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Security Deposit Amount</h6>
+                      <p *ngIf="item1.basicDetailId.securityDepositeAmt!=null">
+                        {{item1.basicDetailId.securityDepositeAmt | ShortNumber}}</p>
+                      <p *ngIf="item1.basicDetailId.securityDepositeAmt==0">
+                        0</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Cover Parking</h6>
+                      <p>{{item1.basicDetailId.coverParking}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Open Parking</h6>
+                      <p>{{item1.basicDetailId.openParking}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- For Only Sell -->
+            <div *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType!='Plot'"
+              class="property-news-single-card border-bottom-yellow pb-3">
+              <br>
+              <h4>Available Features</h4>
+              <br>
+              <hr>
+              <div class="row">
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Property Type</h6>
+                      <p>{{item1.basicDetailId.propertyType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>BHK</h6>
+                      <p>{{item1.basicDetailId.bhk}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-building"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Balcony</h6>
+                      <p>{{item1.basicDetailId.balconey}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bath"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Bathroom</h6>
+                      <p>{{item1.basicDetailId.bathroom}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Construction Status</h6>
+                      <p>{{item1.basicDetailId.constructionType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Transaction Type</h6>
+                      <p>{{item1.basicDetailId.transactionType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bullseye" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Age Of Property</h6>
+                      <p>{{item1.basicDetailId.propertadyAge}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Selling Price</h6>
+                      <p>{{item1.basicDetailId.mothlyRent | ShortNumber}} / Selling Price</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Brokerage</h6>
+                      <p>{{item1.basicDetailId.brokerage}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Brokerage Amount</h6>
+                      <p>{{item1.basicDetailId.brokerageAmt | ShortNumber}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Cover Parking</h6>
+                      <p>{{item1.basicDetailId.coverParking}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Open Parking</h6>
+                      <p>{{item1.basicDetailId.openParking}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- For Only Sell && Plot -->
+            <div *ngIf="item1.basicDetailId.wantTo=='Sell' && item1.basicDetailId.propertyType=='Plot'"
+              class="property-news-single-card border-bottom-yellow pb-3">
+              <br>
+              <h4>Available Features</h4>
+              <br>
+              <hr>
+              <div class="row">
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Property Type</h6>
+                      <p>{{item1.basicDetailId.propertyType}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Possession Status</h6>
+                      <p>{{item1.basicDetailId.possesionType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Transaction Type</h6>
+                      <p>{{item1.basicDetailId.transactionType}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Plot Price</h6>
+                      <p>{{item1.basicDetailId.plotPrice | ShortNumber}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Brokerage</h6>
+                      <p>{{item1.basicDetailId.brokerage}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Brokerage Amount</h6>
+                      <p>{{item1.basicDetailId.brokerageAmt | ShortNumber}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Plot Area</h6>
+                      <p>{{item1.basicDetailId.ploatArea}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Area Unit</h6>
+                      <p>{{item1.basicDetailId.areaUnit}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Plot Number</h6>
+                      <p>{{item1.basicDetailId.floorRange}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- For Only PG -->
+            <div *ngIf="item1.basicDetailId.wantTo=='PG'" class="property-news-single-card border-bottom-yellow pb-3">
+              <br>
+              <h4>Available Features</h4>
+
+              <hr>
+              <div class="row">
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>PG Name</h6>
+                      <p>{{item1.basicDetailId.pgName}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Total Beds</h6>
+                      <p>{{item1.basicDetailId.toatalBed}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>PG is for</h6>
+                      <p>{{item1.basicDetailId.pgFor}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="" aria-hidden="true">S</i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Suited for</h6>
+                      <p>{{item1.basicDetailId.pgSuitedFor}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Meals Available</h6>
+                      <p>{{item1.basicDetailId.mealAvalable}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="" aria-hidden="true">NV</i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Non Veg Allowed</h6>
+                      <p>{{item1.basicDetailId.nonVegAllowed}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-delicious" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Room Type</h6>
+                      <p>{{item1.basicDetailId.roomType}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-bed" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Total Beds in a Room</h6>
+                      <p>{{item1.basicDetailId.bedInRoom}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Rent</h6>
+                      <p>{{item1.basicDetailId.pgRent | ShortNumber}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="" aria-hidden="true">SD</i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Security Deposit</h6>
+                      <p>{{item1.basicDetailId.pgSecurityDeposite}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Property Managed By</h6>
+                      <p>{{item1.basicDetailId.propertyManageBy}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-male" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Opposite Sex Allowed</h6>
+                      <p>{{item1.basicDetailId.oppositeSex}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="" aria-hidden="true">VA</i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Visitors Allowed</h6>
+                      <p>{{item1.basicDetailId.visitorAllowed}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-users" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Guardian Allowed</h6>
+                      <p>{{item1.basicDetailId.visitorAllowed}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-beer" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Drinking Allowed</h6>
+                      <p>{{item1.basicDetailId.drinkingAllowed}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-">SA</i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Smoking Allowed</h6>
+                      <p>{{item1.basicDetailId.smokingAllowed}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="" aria-hidden="true">FO</i>
+                    </div>
+                    <div class="media-body">
+                      <h6>Facilities Offered</h6>
+                      <p>{{item1.basicDetailId.facilitiesOffered}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="single-floor-list media">
+                    <div class="media-left">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                      <h6> Common Areas</h6>
+                      <p>{{item1.basicDetailId.commonArea}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+ 

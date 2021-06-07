@@ -1,0 +1,201 @@
+<div class="lead-list-wrap">
+  <div class="service-tabs-container">
+    <div class="service-tabs"><a class="service-tab" [ngClass]="{active: ActiveSell}" (click)="Buy()"><span
+          class="service-tab-title">Buy </span><span class="tab-header-count">({{totalsell}})</span></a><a  (click)="Rent()"
+          [ngClass]="{active: ActiveRent}"  class="service-tab"><span class="service-tab-title">Rent </span><span
+          class="tab-header-count">({{totalrent}})</span></a><a  [ngClass]="{active: ActivePg}" (click)="Pg()" class="service-tab" data-service="rent"><span
+          class="service-tab-title">PG </span><span class="tab-header-count">({{totalpg}})</span></a></div>
+  </div>
+
+  <ng-container *ngIf="ActiveSell">
+    <article *ngFor="let item of Alldetais.all; let i=index" class="css-8jw9t9">    
+      <div *ngIf="item.basicDetailId.wantTo=='Sell' && item.basicDetailId.propertyType!='Plot'" class="css-xovbnn"> 
+       <img class="css-1p99d2q"  style="cursor: pointer;" 
+       src="./../../assets/img/male_avatar-512.webp"  > 
+ 
+       <div class="css-194z77h">
+         <div data-q="result-data">
+           <div class="css-12221nt">
+             <div class="css-1o1qew4"><span data-q="shortlist-0" class="shortlistIcon css-1xo17yf"></span></div>
+           </div>
+           <div data-q="price"  class="css-9hjfj0"><span class="rupee-icon css-1tfmgm3"></span> {{Alldetais.models[i].name}}</div>
+           <a
+             data-q="title" class="css-10ib6dt" href="/rent/4568864-1530-sqft-3-bhk-apartment-on-rent-in-tada-chennai">
+             <h6 class="css-zekqfr">
+               <div  class="css-ybv4ci">{{item.basicDetailId.bhk}}
+                 <span> {{item.basicDetailId.propertyType}}</span></div>
+             </h6>
+           </a>
+           <div data-q="address" class="css-n2pv9c"></div>
+           <div data-q="features" class="css-10v2eo1"><span class="css-wze9ea">Age of property </span><span
+               class="css-wze9ea">{{item.basicDetailId.propertadyAge}}</span></div>
+         </div>
+         
+         <div>
+           <div class="css-3tkqu0"><span class="css-1l5lt33">{{item.locationId.locality}}
+              </span> {{item.locationId.sector}}</div>
+              <hr>
+              <div class="css-1q6i9qn">
+                <div data-q="seller-data" class="contact-bar css-tatn4f">
+                  <div class="thumbnail-wrapper css-1uoxvj3">
+                    <div class="css-1lvvhqp" style="color: black;">
+                      <a href="mailto:{{Alldetais.models[i].email}}"> {{Alldetais.models[i].email}}</a>
+                    </div>
+                  </div>
+                  <div  class="details css-sac6n0">
+                    <div class="css-wni7av"><b class="css-0"></b></div>
+                    <div class="css-113fu5b"></div>
+                  </div>
+                  <b style="margin-right: 25px;">{{Alldetais.models[i].phoneNumber}}</b>
+                </div>
+              </div>
+         </div>
+       </div>
+     </div>
+ 
+      <div *ngIf="item.basicDetailId.wantTo=='Sell' && item.basicDetailId.propertyType=='Plot'" class="css-xovbnn"> 
+       <img class="css-1p99d2q"  style="cursor: pointer;" 
+       src="./../../assets/img/male_avatar-512.webp"  > 
+ 
+       <div class="css-194z77h">
+         <div data-q="result-data">
+           <div class="css-12221nt">
+             <div class="css-1o1qew4"><span data-q="shortlist-0" class="shortlistIcon css-1xo17yf"></span></div>
+           </div>
+           <div data-q="price"  class="css-9hjfj0"><span class="rupee-icon css-1tfmgm3"></span> {{Alldetais.models[i].name}}</div>
+           <a
+              class="css-10ib6dt">
+             <h6 class="css-zekqfr">
+               <div  class="css-ybv4ci">{{item.basicDetailId.transactionType}}
+                 
+                 <span> {{item.basicDetailId.propertyType}}</span></div>
+             </h6>
+           </a>
+           <div data-q="address" class="css-n2pv9c"></div>
+           <div data-q="features" class="css-10v2eo1"><span class="css-wze9ea">Build Up Area </span><span
+               class="css-wze9ea">{{item.basicDetailId.buildUpArea}} sq.ft</span></div>
+         </div>
+         
+         <div>
+           <div class="css-3tkqu0"><span class="css-1l5lt33">{{item.locationId.locality}}
+              </span> {{item.locationId.sector}}</div>
+              <hr>
+              <div class="css-1q6i9qn">
+                <div data-q="seller-data" class="contact-bar css-tatn4f">
+                  <div class="thumbnail-wrapper css-1uoxvj3">
+                    <div class="css-1lvvhqp" style="color: black;">
+                      <a href="mailto:{{Alldetais.models[i].email}}"> {{Alldetais.models[i].email}}</a>
+                    </div>
+                  </div>
+                  <div  class="details css-sac6n0">
+                    <div class="css-wni7av"><b class="css-0"></b></div>
+                    <div class="css-113fu5b"></div>
+                  </div>
+                  <b style="margin-right: 25px;">{{Alldetais.models[i].phoneNumber}}</b>
+                </div>
+              </div>
+         </div>
+       </div>
+     </div>
+ </article> 
+  </ng-container>
+
+
+  <ng-container *ngIf="ActiveRent">
+    <article *ngFor="let item of Alldetais1.all; let i=index" class="css-8jw9t9">
+      <div *ngIf="item.basicDetailId.wantTo=='Rent'" class="css-xovbnn"> 
+  
+        <img class="css-1p99d2q"  style="cursor: pointer;" 
+        src="./../../assets/img/male_avatar-512.webp"  > 
+      
+      <div class="css-194z77h">
+        <div data-q="result-data">
+          <div class="css-12221nt">
+            <div class="css-1o1qew4"><span data-q="shortlist-0" class="shortlistIcon css-1xo17yf"></span></div>
+          </div>
+            <div data-q="price"  class="css-9hjfj0"><span class="rupee-icon css-1tfmgm3"></span> {{Alldetais1.models[i].name}}</div>
+          <a
+            data-q="title" class="css-10ib6dt" >
+            <h6 class="css-zekqfr">
+              <div class="css-ybv4ci">{{item.basicDetailId.bhk}}
+                <span> {{item.basicDetailId.propertyType}}</span></div>
+            </h6>
+          </a>
+          <div data-q="address" class="css-n2pv9c"></div>
+          <div data-q="features" class="css-10v2eo1"><span class="css-wze9ea">Age Of Property </span><b
+              class="css-wze9ea">{{item.basicDetailId.propertadyAge}}</b></div>
+        </div>
+        
+        <div>
+          <div class="css-3tkqu0"><span class="css-1l5lt33">{{item.locationId.locality}}
+             </span> {{item.locationId.sector}}</div>
+             <hr>
+          <div class="css-1q6i9qn">
+            <div data-q="seller-data" class="contact-bar css-tatn4f">
+              <div class="thumbnail-wrapper css-1uoxvj3">
+                <div class="css-1lvvhqp" style="color: black;">
+                  <a href="mailto:{{Alldetais1.models[i].email}}"> {{Alldetais1.models[i].email}}</a>
+                </div>
+              </div>
+              <div  class="details css-sac6n0">
+                <div class="css-wni7av"><b class="css-0"></b></div>
+                <div class="css-113fu5b"></div>
+              </div>
+              <b style="margin-right: 25px;">{{Alldetais1.models[i].phoneNumber}}</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    </article>
+  </ng-container>
+
+  <ng-container *ngIf="ActivePg">
+    <article *ngFor="let item of Alldetais2.all; let i=index" class="css-8jw9t9">
+      
+<div *ngIf="item.basicDetailId.wantTo=='PG'" class="css-xovbnn"> 
+  <img class="css-1p99d2q"  style="cursor: pointer;" 
+  src="./../../assets/img/male_avatar-512.webp"> 
+  <div class="css-194z77h">
+    <div data-q="result-data">
+      <div class="css-12221nt">
+        <div class="css-1o1qew4"><span class="shortlistIcon css-1xo17yf"></span></div>
+      </div>
+      <div data-q="price"  class="css-9hjfj0"><span class="rupee-icon css-1tfmgm3"></span> {{Alldetais2.models[i].name}}</div>
+      <a 
+       class="css-10ib6dt">
+        <h6 class="css-zekqfr">
+          <div class="css-ybv4ci">{{item.basicDetailId.pgName}}<span> {{item.basicDetailId.roomType}}</span></div>
+        </h6>
+      </a>
+      <div data-q="address" class="css-n2pv9c"></div>
+      <div data-q="features" class="css-10v2eo1"><span class="css-wze9ea">Meal Avalable </span><span
+          class="css-wze9ea">{{item.basicDetailId.mealAvalable}}</span></div>
+    </div>
+    
+    <div>
+      <div class="css-3tkqu0"><span class="css-1l5lt33">{{item.locationId.locality}}
+         </span> {{item.locationId.sector}}</div>
+         <hr>
+         <div class="css-1q6i9qn">
+           <div data-q="seller-data" class="contact-bar css-tatn4f">
+             <div class="thumbnail-wrapper css-1uoxvj3">
+               <div class="css-1lvvhqp" style="color: black;">
+                <a href="mailto:{{Alldetais2.models[i].email}}"> {{Alldetais2.models[i].email}}</a>
+              </div>
+             </div>
+             <div  class="details css-sac6n0">
+               <div class="css-wni7av"><b class="css-0"></b></div>
+               <div class="css-113fu5b"></div>
+             </div>
+             <b style="margin-right: 25px;">{{Alldetais2.models[i].phoneNumber}}</b>
+           </div>
+         </div>
+    </div>
+  </div>
+</div> 
+    </article>
+  </ng-container>
+
+</div> 
+

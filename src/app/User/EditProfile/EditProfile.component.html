@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>ESPACING</title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <link rel="icon" href="../assets/img/icon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Fonts and icons -->
+  <script src="../../assets/Adminjs/plugin/webfont/webfont.min.js"></script>
+
+</head>
+<body> 
+  <div class="css-1npexfx">
+      <div class="main-header">
+        <!-- Logo Header -->
+        <div class="logo-header">
+          <a href="index.html"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+              style="height:48px; width:180px;" alt="logo"></a>
+
+          <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+            data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+              <i class="icon-menu"></i>
+            </span>
+          </button>
+          <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+          <div class="nav-toggle">
+            <button class="btn btn-toggle toggle-sidebar">
+              <i class="icon-menu"></i>
+            </button>
+          </div>
+        </div>
+        <nav class="navbar navbar-header navbar-expand-lg">
+          <div class="container-fluid">
+            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+              <li class=" nav-item dropdown">
+                <div style="left:-1vw;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a style="font-size: small; height: 45px; cursor: pointer;" class="dropdown-item"
+                    (click)="Property()">My Dashboard</a>
+                  <a style="font-size: small; height: 45px;" class="dropdown-item"
+                  href="/UserEdit/{{userId}}">Edit Profile</a>
+                  <a style="font-size: small; height: 45px; cursor: pointer;" class="dropdown-item"
+                    (click)="Logout()">Log
+                    Out</a>
+                </div>
+                <a *ngIf="emailData==false" style="color: white;" class="nav-link dropdown-toggle" href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img style="width: 30px; height: 30px;" [src]="url" class="rounded-circle">
+                  Welcome
+                  {{updateData.userName}}
+                </a>
+                  <a *ngIf="emailData==true" style="color: white;" class="nav-link dropdown-toggle" href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img style="width: 30px; height: 30px;" [src]="url" class="rounded-circle">
+                    Welcome
+                    {{userName}}
+                  </a>
+              </li> 
+             </ul>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+      </div>
+      <br>
+      <br>
+    <div class="css-1t6i0fu">
+      <div style="position:relative; display: block;" class="css-5rhs6m">
+        <div class="css-10s3v8m">
+          <div class="css-azafo"><img
+              [src]="url" class="img css-vamo5h"></div>
+          <div *ngIf="emailData==false" class="css-r135jl">{{updateData.userName}} ({{updateData.roles[0]}})</div>
+          <div *ngIf="emailData==false" class="css-f5yg3r">{{updateData.email}}</div>
+
+            <div *ngIf="emailData==true" class="css-r135jl">{{userName}}</div>
+            <div *ngIf="emailData==true" class="css-f5yg3r">{{email}}</div>
+             <div *ngIf="updateData.roles[0]!='Owner'" class="css-f5yg3r"><br>
+              <hr>
+              {{updateData.brokerFirm}}<br>
+             {{updateData.firmAddress}}
+            </div>
+        </div>
+      
+            <div class="css-5bjir3">
+              <hr class="css-aub70c"> 
+              <a class="css-1ivh1ur"  (click)="Leads()"
+              [ngStyle]="{color: activecolor0}" style="cursor: pointer;">Leads</a>
+              <a class="css-1ivh1ur" (click)="Property()" [ngStyle]="{color: activecolor1}"
+                style="cursor: pointer;">Properties</a>
+              
+              <a class="css-1ivh1ur" style="padding: 20px;" [routerLink]="['/my-listings']"
+                 style="cursor: pointer;">Post Properties</a>
+                <a class="css-1s7xl4d"    (click)="EditPro()"
+                [ngStyle]="{color: activecolor}" style="cursor: pointer;">Edit Profile</a>
+               
+            </div>
+      </div>
+
+      <ng-container *ngIf="ProfileActive && emailData==false">
+         <div class="css-16njf87">
+           <div class="css-1sc532z">
+             <div class="css-1na4nox"> 
+               <div class="css-epi3g9">
+                 <form #form="ngForm" id="myform" autocomplete="off" (submit)="SaveChanges()"
+                   class="css-4ejps8">
+                   <div class="form-item type-pill css-a802sj">
+                     <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">Name</label>
+                       <input style="width: 450px;" type="text" #userName="ngModel" name="userName"
+                         [(ngModel)]="updateData.userName"
+                         class="form-control">
+                     </div>
+                   </div>
+                   <br>
+                   <div class="form-item type-pill css-a802sj">
+                     <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">Email</label>
+                      <div style="width: 450px;" class="input-group mb-3">
+                        <input type="text" #email="ngModel" name="email" (keyup)="emailChange($event)"
+                          [(ngModel)]="updateData.email"
+                          class="form-control">
+                        <div class="input-group-append">
+                          <span 
+                          style="height: 38px; width: 96px; background-color: #ff5a5a;"
+                          *ngIf="updateData.confirmEmail==false" class="input-group-text">
+                                 <p style="margin-top: 15px; margin-left: 1vh; cursor: pointer;" (click)="VerifyEmail()" class="badge badge-danger">
+                                  <i
+                                  class="fa fa-close"></i>   Verify  </p>
+                          </span>
+                           <span style="height: 38px; background-color: lightgreen;"
+                             *ngIf="updateData.confirmEmail==true" class="input-group-text">
+                           
+                            <p style="margin-top: 15px;" class="badge badge-success"> <i
+                                class="fa fa-check"></i>
+                              Verified</p>
+                           </span>
+                        </div>
+                      </div>
+                     
+                       
+                     </div>
+                   </div>
+                   
+                      <div class="form-item type-pill css-a802sj">
+                        <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">Mobile No</label>
+                          <div style="width: 450px;" class="input-group mb-3">
+                            <input type="text" #mobileNo="ngModel" name="mobileNo" (keyup)="PhoneChange($event)"
+                              [(ngModel)]="updateData.mobileNo" class="form-control">
+                            <div class="input-group-append">
+                              <span style="height: 38px; width: 96px; background-color: #ff5a5a;"
+                                *ngIf="updateData.confirmMobile==false"
+                                class="input-group-text"> 
+                                   <p (click)="VerifyPhone()"
+                                    style="margin-top: 15px;  margin-left: 1vh; cursor: pointer;"
+                                     class="badge badge-danger">
+                                     <i
+                                     class="fa fa-close"></i>
+                                     Verify</p>
+                              </span>
+                              
+                              <span style="height: 38px; background-color: lightgreen;"
+                                *ngIf="updateData.confirmMobile==true"
+                                class="input-group-text">
+
+                                <p style="margin-top: 15px;" class="badge badge-success"> <i class="fa fa-check"></i>
+                                  Verified</p>
+                              </span>
+                            </div>
+                          </div> 
+                        </div>
+                      </div>
+                      <ng-container *ngIf="brockerActive">
+                         <div class="form-item type-pill css-a802sj">
+                           <div class="css-gueyi8"><label
+                               class="undefined inputLabelStyle css-7eclcj">Broker Firm Name</label>
+                             <input style="width: 450px;" type="text" #brokerFirm="ngModel" name="Broker Firm"
+                               [(ngModel)]="updateData.brokerFirm" class="form-control">
+                           </div>
+                         </div>
+                        <br>
+                          <div class="form-item type-pill css-a802sj">
+                            <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">RERA No</label>
+                              <input style="width: 450px;" type="text" #reraNo="ngModel" name="reraNo"
+                                [(ngModel)]="updateData.reraNo" class="form-control">
+                            </div>
+                          </div>
+                          <br>
+                           <div class="form-item type-pill css-a802sj">
+                             <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">GST No</label>
+                               <input style="width: 450px;" type="text" (keyup)="GstUppercase($event)" (change)="CheckGstValidation($event)" #gstNo="ngModel" name="gstNo"
+                                 [(ngModel)]="updateData.gstNo" class="form-control">
+                                 <small *ngIf="invalidGst" class="text text-danger">Please Enter Valid GSTIN
+                                   Number</small>
+                             </div>
+                           </div>
+                           <br>
+                             <div class="form-item type-pill css-a802sj">
+                               <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">
+                                 Landline No
+                               </label>
+                                 <input style="width: 450px;" type="text" #landlineNo="ngModel" name="landlineNo"
+                                   [(ngModel)]="updateData.landlineNo" class="form-control">
+                               </div>
+                             </div>
+                               <br>
+                              <div class="form-item type-pill css-a802sj">
+                                <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">
+                                  Firm Address
+                                  </label>
+                                  <input style="width: 450px;" type="text" #firmAddress="ngModel" name="firmAddress"
+                                    [(ngModel)]="updateData.firmAddress" class="form-control">
+                                </div>
+                              </div>
+                                <br>
+                              <div class="form-item type-pill css-a802sj">
+                                <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">
+                                    Firm Address1
+                                  </label>
+                                  <input style="width: 450px;" type="text" #firmAddress1="ngModel" name="firmAddress1"
+                                    [(ngModel)]="updateData.firmAddress1" class="form-control">
+                                </div>
+                              </div>
+                                <br>
+                               <div class="form-item type-pill css-a802sj">
+                                 <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">
+                                   Locations
+                                   </label>
+                                   <input style="width: 450px;" type="text" #locations="ngModel" name="locations"
+                                     [(ngModel)]="updateData.locations" class="form-control">
+                                 </div>
+                               </div>
+                                 <br>
+                                <div class="form-item type-pill css-a802sj">
+                                  <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">
+                                     Mobile No
+                                    </label>
+                                    <input style="width: 450px;" type="text" #mobNo1="ngModel" name="mobNo1"
+                                      [(ngModel)]="updateData.mobNo1" class="form-control">
+                                  </div>
+                                </div>
+                                   <br>
+                                  <div class="form-item type-pill css-a802sj">
+                                    <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">
+                                        Mobile No1
+                                      </label>
+                                      <input style="width: 450px;" type="text" #mobNo2="ngModel" name="mobNo2"
+                                        [(ngModel)]="updateData.mobNo2" class="form-control">
+                                    </div>
+                                  </div>
+                                    <br>
+                                   <div class="form-item type-pill css-a802sj">
+                                     <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">
+                                         Mobile No2
+                                       </label>
+                                       <input style="width: 450px;" type="text" #mobNo3="ngModel" name="mobNo3"
+                                         [(ngModel)]="updateData.mobNo3" class="form-control">
+                                     </div>
+                                   </div>
+                                     <br>
+                                     <div class="form-item type-pill css-a802sj">
+                                       <div class="css-gueyi8"><label class="undefined inputLabelStyle css-7eclcj">
+                                           Mobile No3
+                                         </label>
+                                         <input style="width: 450px;" type="text" #mobNo4="ngModel" name="mobNo4"
+                                           [(ngModel)]="updateData.mobNo4" class="form-control">
+                                       </div>
+                                     </div>
+                      </ng-container>
+                      <br>
+                       <div class="css-uqdoaa">Upload Profile Photo</div>
+                       <div class="css-h5fkc8">
+                         <div class="css-h5fkc8">
+                           <div class="css-gueyi8">
+                             <input style="width: 450px;" class="form-control" type="file" #file ng2FileSelect
+                               (change)="uploader.uploadAll()"
+                               [uploader]="uploader"
+                             />
+                             <!-- <hr>
+                             <button type="button" class="btn btn-tomato" (click)="uploader.uploadAll()">
+                               <span *ngIf="uploader.isUploading" class="spinner-border spinner-border-sm"
+                                 role="status"></span>
+                               <span *ngIf="uploader.isUploading" class="load-text"> Uploading...</span>
+                               <span *ngIf="!uploader.isUploading" class="btn-text"><i class="fa fa-upload"></i>
+                                 Upload</span>
+                             </button> -->
+                           </div>
+                           <br> 
+                         </div>
+                       </div>
+                         
+                 </form>
+               </div><br>
+               <button style="margin-left: 12px; margin-top: 12px;"
+             
+               form="myform" type="submit"
+                 class="css-182b130 btn btn-tomato">
+                 <span *ngIf="this.btnLoader" class="spinner-border spinner-border-sm" role="status"></span>
+                 <span *ngIf="this.btnLoader" class="load-text"> Loading...</span>
+                 <span *ngIf="!this.btnLoader" class="btn-text"><i class="fa fa-save"></i> Save Changes</span>
+               </button>
+             </div>
+            
+             <!-- <div class="css-mdci8l">
+            <div class="css-uqdoaa">CHANGE PASSWORD</div><button class="css-nhl9mo">Send OTP</button>
+            <div class="css-1094ni">Get OTP on your registered Phone/Email</div>
+          </div> -->
+           </div>
+         </div>
+      </ng-container>
+     
+      <ng-container *ngIf="PropertyActive">
+         <div style="margin-top: 40px; margin-left: 20px; width: max-content;" class="css-16njf87"> 
+               <app-UserDash></app-UserDash> 
+         </div>
+      </ng-container>
+
+      <ng-container *ngIf="LeadsActive">
+        <div style="margin-top: 40px; margin-left: 20px; width: max-content;" class="css-16njf87"> 
+          <h6>Active Leads</h6>   
+          <app-Leads></app-Leads> 
+        </div>
+     </ng-container>
+
+       
+    </div>
+  </div>
+</body>
+</html>

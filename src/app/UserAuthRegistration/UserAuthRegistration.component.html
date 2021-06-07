@@ -1,0 +1,222 @@
+   <head>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+  body {
+    color: #fff;
+    background: gray;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .form-control {
+    height: 40px; 
+    box-shadow: none;
+    color: #969fa4;
+  }
+
+  .form-control:focus {
+    border-color: #5cb85c;
+  }
+
+  .form-control,
+  .btn {
+    border-radius: 3px;
+  }
+
+  .signup-form {
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 90px;
+    padding: 30px 0;
+    font-size: 15px;
+  }
+
+  .signup-form h2 {
+    color: #636363;
+    margin: 0 0 15px;
+    position: relative;
+    text-align: center;
+  }
+
+  .signup-form h2:before,
+  .signup-form h2:after {
+    content: "";
+    height: 2px;
+    width: 30%;
+    background: #d4d4d4;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+  }
+
+  .signup-form h2:before {
+    left: 0;
+  }
+
+  .signup-form h2:after {
+    right: 0;
+  }
+
+  .signup-form .hint-text {
+    color: #999;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .signup-form form {
+    color: #999;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    background: #f2f3f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+  }
+
+  .signup-form .form-group {
+    margin-bottom: 20px;
+  }
+
+  .signup-form input[type="checkbox"] {
+    margin-top: 3px;
+  }
+
+  .signup-form .btn {
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 140px;
+    outline: none !important;
+  }
+
+  .signup-form .row div:first-child {
+    padding-right: 10px;
+  }
+
+  .signup-form .row div:last-child {
+    padding-left: 10px;
+  }
+
+  .signup-form a {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .signup-form a:hover {
+    text-decoration: none;
+  }
+
+  .signup-form form a {
+    color: #5cb85c;
+    text-decoration: none;
+  }
+
+  .signup-form form a:hover {
+    text-decoration: underline;
+  }
+</style>
+   </head>
+    <nav style="height: 55px" class="navbar navbar-fixed fixed-top navbar-expand-lg navbar-dark1">
+      <div class="">
+        <div class="logo">
+          <a href=""><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+              style="height:48px; width:180px;" alt="logo" /></a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive"></div>
+      </div>
+    </nav> 
+<body>
+  <div class="signup-form">
+    <form action="/examples/actions/confirmation.php" method="post">
+      <h2>Register</h2>
+      <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+      <div class="form-group">
+        <div class="row">
+          <div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name"
+              required="required"></div>
+          <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name"
+              required="required"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password"
+          required="required">
+      </div>
+      <div class="form-group">
+        <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of
+            Use</a> &amp; <a href="#">Privacy Policy</a></label>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
+      </div>
+    </form>
+    <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
+  </div>
+</body>
+    <!-- <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-login100">
+          <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" [formGroup]="registerFields"
+            autocomplete="off" (ngSubmit)="register()">
+            <span class="login100-form-title">
+             User Sign Up
+            </span>
+            <div style="margin-top: -10px;">
+                 <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Name">
+                   <input type="text" class="input100" name="name" id="name" formControlName="FullName"
+                     placeholder="Your Name" /> 
+                   <span class="focus-input100"></span>
+                 </div> 
+
+                 <div class="wrap-input100 validate-input m-b-16" data-validate="Email Here...">
+                   <input type="email" name="email" class="input100" id="email" formControlName="Email"
+                     placeholder="Your Email" />
+                   <span class="focus-input100"></span>
+                 </div>
+                  <div class="wrap-input100 validate-input m-b-16" data-validate="Phone Here...">
+                    <input type="number" name="PhoneNo" class="input100" id="PhoneNo" formControlName="PhoneNo"
+                      placeholder="Your Phone No" />
+                    <span class="focus-input100"></span>
+                  </div>
+                 <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter password">
+                   <input type="password" formControlName="Password" class="input100" name="pass" id="pass"
+                     placeholder="Password" />
+                   <span class="focus-input100"></span>
+                 </div>
+                 <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter confirm password">
+                   <input type="password" formControlName="ConfirmPassword" class="input100" name="re_pass" id="re_pass"
+                     placeholder="Confirm password" />
+                   <span class="focus-input100"></span>
+                 </div>
+                 <div class="container-login100-form-btn">
+                   <button type="submit" [disabled]="!registerFields.valid" class="login100-form-btn">
+                     <span *ngIf="this.btnLoader" class="spinner-border spinner-border-sm" role="status"></span>
+                     <span *ngIf="this.btnLoader" class="load-text"> Loading...</span>
+                     <span *ngIf="!this.btnLoader" class="btn-text"><i class="fa fa-user-secret"></i> Sign Up</span>
+                   </button>
+                 </div>
+            </div>
+         
+            <div class="flex-col-c ">
+              <span class="txt1 p-b-8">
+                I am already member
+              </span>
+              <a [routerLink]="['/UserLogin']" routerLinkActive="router-link-active" class="txt3">
+                Sign in now
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>  -->

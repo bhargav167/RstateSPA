@@ -1,0 +1,1741 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</head>
+<div class="wrapper">
+    <div class="main-header">
+      <!-- Logo Header -->
+      <div class="logo-header" data-background-color="blue"> 
+        <a href="index.html"><img src="../../assets/Images/./../../assets/img/Spacing/Logo.png"
+            style="height:48px; width:180px;" alt="logo"></a> 
+      </div>  
+      <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2"> 
+        <div class="container-fluid"> 
+          <ul style="margin-top: -6px; color: white; margin-bottom: 5px;"
+            class="navbar-nav topbar-nav ml-md-auto align-items-center">
+             <li  class=" nav-item dropdown">
+                 <div style="left:-5vw;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
+                   <a style="font-size: small; height: 50px; cursor: pointer;" class="dropdown-item"
+                     (click)="RedirectToDash(userId)">My Dashboard</a>
+                   <a style="font-size: small; height: 50px;" class="dropdown-item"
+                     [routerLink]="['/UserEdit', userId]">Edit Profile</a>
+                   <a style="font-size: small; height: 50px; cursor: pointer;" class="dropdown-item"
+                     (click)="Logout()">Log
+                     Out</a>
+                 </div>
+               <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                 role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <img style="width: 40px; height: 40px;" [src]="url"
+                   class="rounded-circle">
+                     Welcome
+                     {{names}}
+               </a>
+             
+             </li>
+           
+          </ul>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+    </div>
+   
+    <div class="su-cont desktop" style="display: block;">
+      <div class="su-sidebar-wrap">
+        <div class="su-sidebar">
+          <div id="h"  [ngClass]="{tabactive: tabhome}" ><a><span style="color: black;"
+                class="su-sb-li">Home</span></a></div>
+          <div [ngClass]="{tabactive: tablead}" style="color: black;" class="active"><a  (click)="Lead(userId)"><span style="color: black;"
+                class="su-sb-li">Leads</span></a></div>
+          <div style="color: black;"><a  (click)="RedirectToDash(userId)"><span style="color: black;"
+                class="su-sb-li">Properties</span></a></div>
+          <div style="color: black;"><a [routerLink]="['/UserEdit', userId]"><span style="color: black;"
+                class="su-sb-li">Profile</span></a></div>
+        </div>
+      </div>
+ 
+
+      <div [formGroup]="checkoutForm" class="su-main-cont">
+        <h5 class="su-head">Upload Listing</h5>
+        <div class="tab-cont">
+          <ul class="tab-head">
+            <li (click)="BasicInfo()" [class]="ActiveBI">Basic Info</li>
+            <li (click)="BasicAddress()" [class]="ActiveAddress">Address</li>
+            <li (click)="Photo()" [class]="ActivePhoto">Photos</li>
+          </ul>
+          <!-- Basic Info -->
+          <div *ngIf="ActiveBI == 'active'" class="tab-content">
+            <div formGroupName="basicInfo" class="su-basic">
+              <div class="form-cont">
+                <div class="field">
+                  <div class="group">
+                    <div class="title no-bottom">I want to <span style="color: red">*</span></div>
+                    <div>
+                      <div class="rf-group radio-group service">
+                        <div (click)="Rent()" [class.toggle-active]="ActiveRent"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">Rent </div>
+                        </div>
+                        <div (click)="Sell()" [class.toggle-active]="ActiveSell"
+                          class="rf-toggle radio radio-1 toggle-tag pills">
+                          <div class="toggle-label">Sell</div>
+                        </div>
+                        <div (click)="PG()" [class.toggle-active]="ActivePG"
+                          class="rf-toggle radio radio-2 toggle-tag pills">
+                          <div class="toggle-label">PG</div>
+                        </div>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="ActiveRent || ActiveSell" id="rent" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Property Type<span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group radio-group property_type_id">
+                        <div (click)="Apartment()" [class.toggle-active]="Apartments"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">Apartment</div>
+                        </div>
+                        <div (click)="IndependanceHouse()" [class.toggle-active]="IndependantHouses"
+                          class="rf-toggle radio radio-1 toggle-tag pills">
+                          <div class="toggle-label">Independent House</div>
+                        </div>
+                        <div (click)="IndependanceFloor()" [class.toggle-active]="IndependentFloors"
+                          class="rf-toggle radio radio-2 toggle-tag pills">
+                          <div class="toggle-label">Independent Floor</div>
+                        </div>
+                        <div (click)="Villa()" [class.toggle-active]="Villas"
+                          class="rf-toggle radio radio-3 toggle-tag pills">
+                          <div class="toggle-label">Villa</div>
+                        </div>
+                        <div *ngIf="ActiveSell" (click)="Plot()" [class.toggle-active]="Plotss"
+                          class="rf-toggle radio radio-3 toggle-tag pills">
+                          <div class="toggle-label">Plot</div>
+                        </div>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="ActiveSell" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Transaction Type <span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group radio-group is_first_sale">
+                        <div (click)="Allocy()" [class.toggle-active]="ActiveNewbooking"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">Allottee</div>
+                        </div>
+                        <div (click)="Resale()" [class.toggle-active]="ActiveResale"
+                          class="rf-toggle radio radio-1 toggle-active toggle-tag pills">
+                          <div class="toggle-label">Resale</div>
+                        </div>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="ActiveSell && !Plotss" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Construction Status<span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group radio-group is_uc_property">
+                        <div (click)="ReadyToMove()" [class.toggle-active]="ActiveReadyToMove"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">Ready to Move</div>
+                        </div>
+                        <div (click)="UnderConstruction()" [class.toggle-active]="ActiveUnderConstruction"
+                          class="rf-toggle radio radio-1 toggle-active toggle-tag pills">
+                          <div class="toggle-label">Under Construction</div>
+                        </div>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="Plotss && ActiveSell" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Possession Status<span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group radio-group is_uc_property">
+                        <div (click)="Immidiate()" [class.toggle-active]="ActiveImmidiate"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">Lease Hold</div>
+                        </div>
+                        <div (click)="Infuture()" [class.toggle-active]="ActiveInFuture"
+                          class="rf-toggle radio radio-1 toggle-tag pills">
+                          <div class="toggle-label">Free Hold</div>
+                        </div>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="ActiveRent || ActiveSell && !Plotss" class="field">
+                  <label class="title no-bottom">Age of Property (in years)<span style="color: red">*</span></label>
+                  <input formControlName="propertadyAge" type="text" (keyup)="checkNumeric($event)" maxlength="2"
+                    placeholder="" class="form-control" />
+                </div>
+                <div *ngIf="ActiveSell && Plotss" class="field">
+                  <label class="title no-bottom">Plot Price <span style="color: red">*</span></label><span
+                    class="icon icon-rupee"></span>
+                  <div class="form-group">
+                    <div class="input-group mb-3">
+                      <input type="text" maxlength="11" decimal-mask class="form-control" formControlName="PlotPrice"
+                        (keyup)="PlotPrice($event)">
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2"><b>{{rentinK}}</b> </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div *ngIf="ActiveRent" class="field">
+                  <label class="title no-bottom">Maintenance Charges (per month in &#x20B9;) <span
+                      style="color: red">*</span></label><span class="icon icon-rupee"></span>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control"
+                    decimal-mask placeholder="Maintenance Charges"
+                    (keyup)="maintainCharge($event)"
+                      formControlName="MaintainesCharge" maxlength="9"/>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2"><b>{{maintainK}}</b> </span>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="ActiveRent || (ActiveSell && !Plotss)" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      BHK <span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group radio-group apartment_type_id">
+                        <div (click)="RK()" [class.toggle-active]="ActiveRK"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">1 RK</div>
+                        </div>
+                        <div (click)="OneBHK()" [class.toggle-active]="Active1BHK"
+                          class="rf-toggle radio radio-1 toggle-tag pills">
+                          <div class="toggle-label">1 BHK</div>
+                        </div>
+                        <div (click)="TwoBHK()" [class.toggle-active]="Active2BHK"
+                          class="rf-toggle radio radio-2 toggle-tag pills">
+                          <div class="toggle-label">2 BHK</div>
+                        </div>
+                        <div (click)="ThreeBHK()" [class.toggle-active]="Active3BHK"
+                          class="rf-toggle radio radio-3 toggle-tag pills">
+                          <div class="toggle-label">3 BHK</div>
+                        </div>
+                        <div *ngIf="!PlusBhk" (click)="BHKPlus()" [class.toggle-active]="Active3PlusBHK"
+                          class="rf-toggle radio radio-4 toggle-tag pills">
+                          <div class="toggle-label">{{bhkval}}</div>
+
+                        </div>
+                        <ng-container *ngIf="PlusBhk">
+                          <div (click)="FourBHK()" [class.toggle-active]="Active4BHK"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">4 BHK</div>
+                          </div>
+                          <div (click)="FiveBHK()" [class.toggle-active]="Active5BHK"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">5 BHK</div>
+                          </div>
+                          <div (click)="SixBHK()" [class.toggle-active]="Active6BHK"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">6 BHK</div>
+                          </div>
+                          <div (click)="SevenBHK()" [class.toggle-active]="Active7BHK"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">7 BHK</div>
+                          </div>
+                          <div (click)="EightBHK()" [class.toggle-active]="Active8BHK"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">8 BHK</div>
+                          </div>
+                          <div (click)="NineBHK()" [class.toggle-active]="Active9BHK"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">9 BHK</div>
+                          </div>
+                          <div (click)="TenBHK()" [class.toggle-active]="Active10BHK"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">10 BHK</div>
+                          </div>
+                        </ng-container>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="ActiveRent || (ActiveSell && !Plotss)" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Bathroom <span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group radio-group total_bathroom_count">
+                        <div (click)="Bathroom0()" [class.toggle-active]="ActiveZeroBathroom"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">0</div>
+                        </div>
+                        <div (click)="Bathroom1()" [class.toggle-active]="ActiveOneBathroom"
+                          class="rf-toggle radio radio-1 toggle-tag pills">
+                          <div class="toggle-label">1</div>
+                        </div>
+                        <div (click)="Bathroom2()" [class.toggle-active]="ActiveTwoBathroom"
+                          class="rf-toggle radio radio-2 toggle-tag pills">
+                          <div class="toggle-label">2</div>
+                        </div>
+                        <div (click)="Bathroom3()" [class.toggle-active]="ActiveThreeBathroom"
+                          class="rf-toggle radio radio-3 toggle-tag pills">
+                          <div class="toggle-label">3</div>
+                        </div>
+                        <div *ngIf="!PlusBathroom" (click)="BathroomPlus()"
+                          [class.toggle-active]="ActiveThreePlusBathroom"
+                          class="rf-toggle radio radio-4 toggle-tag pills">
+                          <div class="toggle-label">3+</div>
+                        </div>
+                        <ng-container *ngIf="PlusBathroom">
+                          <div (click)="Bathroom4()" [class.toggle-active]="ActiveFourBathroom"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">4</div>
+                          </div>
+                          <div (click)="Bathroom5()" [class.toggle-active]="ActiveFiveBathroom"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">5</div>
+                          </div>
+                          <div (click)="Bathroom6()" [class.toggle-active]="ActiveSixBathroom"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">6</div>
+                          </div>
+                          <div (click)="Bathroom7()" [class.toggle-active]="ActiveSevenBathroom"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">7</div>
+                          </div>
+                          <div (click)="Bathroom8()" [class.toggle-active]="ActiveEightBathroom"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">8</div>
+                          </div>
+                          
+
+                        </ng-container>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                    <span class="text text-danger">{{ validationMsg }}</span>
+                  </div>
+                </div>
+                <div *ngIf="ActiveRent || (ActiveSell && !Plotss)" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Balcony <span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group radio-group total_balcony_count">
+                        <div (click)="Balconey0()" [class.toggle-active]="ActiveZeroBalconey"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">0</div>
+                        </div>
+                        <div (click)="Balconey1()" [class.toggle-active]="ActiveOneBalconey"
+                          class="rf-toggle radio radio-1 toggle-tag pills">
+                          <div class="toggle-label">1</div>
+                        </div>
+                        <div (click)="Balconey2()" [class.toggle-active]="ActiveTwoBalconey"
+                          class="rf-toggle radio radio-2 toggle-tag pills">
+                          <div class="toggle-label">2</div>
+                        </div>
+                        <div (click)="Balconey3()" [class.toggle-active]="ActiveThreeBalconey"
+                          class="rf-toggle radio radio-3 toggle-tag pills">
+                          <div class="toggle-label">3</div>
+                        </div>
+                        <div *ngIf="!BalconeyPlus" (click)="BalconeyPluss()"
+                          [class.toggle-active]="ActiveThreePlusBalconey"
+                          class="rf-toggle radio radio-4 toggle-tag pills">
+                          <div class="toggle-label">3+</div>
+                        </div>
+                        <ng-container *ngIf="BalconeyPlus">
+                          <div (click)="Balconey4()" [class.toggle-active]="ActiveFourBalconey"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">4</div>
+                          </div>
+                          <div (click)="Balconey5()" [class.toggle-active]="ActiveFiveBalconey"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">5</div>
+                          </div>
+                          <div (click)="Balconey6()" [class.toggle-active]="ActiveSixBalconey"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">6</div>
+                          </div>
+                          <div (click)="Balconey7()" [class.toggle-active]="ActiveSevenBalconey"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">7</div>
+                          </div>
+                          <div (click)="Balconey8()" [class.toggle-active]="ActiveEightBalconey"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">8</div>
+                          </div>
+                         
+                        </ng-container>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                </div>
+                <span class="text text-danger">{{ validationMsg1 }}</span>
+                <div *ngIf="ActiveRent || (ActiveSell && !Plotss)" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Furnish Type <span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group radio-group furnish_type_id">
+                        <div (click)="Furnished()" [class.toggle-active]="ActiveFurnished"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">Fully Furnished</div>
+                        </div>
+                        <div (click)="SemiFurnished()" [class.toggle-active]="ActiveSemiFurnished"
+                          class="rf-toggle radio radio-1 toggle-tag pills">
+                          <div class="toggle-label">Semi Furnished</div>
+                        </div>
+                        <div (click)="Unfurnished()" [class.toggle-active]="ActiveUnfurnished"
+                          class="rf-toggle radio radio-2 toggle-tag pills">
+                          <div class="toggle-label">Unfurnished</div>
+                        </div>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="ActiveRent || (ActiveSell && !Plotss)" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Covered Parking <span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group radio-group covered_parking_count">
+                        <div (click)="CoverParkingZero()" [class.toggle-active]="ActiveCoverParking0"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">0</div>
+                        </div>
+                        <div (click)="CoverParkingOne()" [class.toggle-active]="ActiveCoverParking1"
+                          class="rf-toggle radio radio-1 toggle-tag pills">
+                          <div class="toggle-label">1</div>
+                        </div>
+                        <div (click)="CoverParkingTwo()" [class.toggle-active]="ActiveCoverParking2"
+                          class="rf-toggle radio radio-2 toggle-tag pills">
+                          <div class="toggle-label">2</div>
+                        </div>
+                        <div (click)="CoverParkingThree()" [class.toggle-active]="ActiveCoverParking3"
+                          class="rf-toggle radio radio-3 toggle-tag pills">
+                          <div class="toggle-label">3</div>
+                        </div>
+                        <div *ngIf="!cp4" (click)="CoverPlus()" class="rf-toggle radio radio-4 toggle-tag pills">
+                          <div class="toggle-label">3+</div>
+                        </div>
+                        <ng-container *ngIf="cp4">
+                          <div (click)="CoverParkingFour()" [class.toggle-active]="ActiveCoverParking4"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">4</div>
+                          </div>
+                          <div (click)="CoverParkingFive()" [class.toggle-active]="ActiveCoverParking5"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">5</div>
+                          </div>
+                          <div (click)="CoverParkingSix()" [class.toggle-active]="ActiveCoverParking6"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">6</div>
+                          </div>
+                          <div (click)="CoverParkingSeven()" [class.toggle-active]="ActiveCoverParking7"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">7</div>
+                          </div>
+                          <div (click)="CoverParkingEight()" [class.toggle-active]="ActiveCoverParking8"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">8</div>
+                          </div>
+                          
+                        </ng-container>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                  <span class="text text-danger">{{ validationMsg2 }}</span>
+                </div>
+
+                <div *ngIf="ActiveRent || (ActiveSell && !Plotss)" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Open Parking <span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group radio-group open_parking_count">
+                        <div (click)="OpenParkingZero()" [class.toggle-active]="ActiveOpenParking0"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">0</div>
+                        </div>
+                        <div (click)="OpenParkingOne()" [class.toggle-active]="ActiveOpenParking1"
+                          class="rf-toggle radio radio-1 toggle-tag pills">
+                          <div class="toggle-label">1</div>
+                        </div>
+                        <div (click)="OpenParkingTwo()" [class.toggle-active]="ActiveOpenParking2"
+                          class="rf-toggle radio radio-2 toggle-tag pills">
+                          <div class="toggle-label">2</div>
+                        </div>
+                        <div (click)="OpenParkingThree()" [class.toggle-active]="ActiveOpenParking3"
+                          class="rf-toggle radio radio-3 toggle-tag pills">
+                          <div class="toggle-label">3</div>
+                        </div>
+                        <div *ngIf="!OpenParkingPlus" (click)="OpenParkingPluss()"
+                          class="rf-toggle radio radio-4 toggle-tag pills">
+                          <div class="toggle-label">3+</div>
+                        </div>
+                        <ng-container *ngIf="OpenParkingPlus">
+                          <div (click)="OpenParkingFour()" [class.toggle-active]="ActiveOpenParking4"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">4</div>
+                          </div>
+                          <div (click)="OpenParkingFive()" [class.toggle-active]="ActiveOpenParking5"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">5</div>
+                          </div>
+                          <div (click)="OpenParkingSix()" [class.toggle-active]="ActiveOpenParking6"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">6</div>
+                          </div>
+                          <div (click)="OpenParkingSeven()" [class.toggle-active]="ActiveOpenParking7"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">7</div>
+                          </div>
+                          <div (click)="OpenParkingEight()" [class.toggle-active]="ActiveOpenParking8"
+                            class="rf-toggle radio radio-3 toggle-tag pills">
+                            <div class="toggle-label">8</div>
+                          </div>
+                         
+                        </ng-container>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                  <span class="text text-danger">{{ validationMsg3 }}</span>
+                </div>
+                <div *ngIf="ActiveRent" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Preferred Tenant Type <span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group checkbox-group lease_type_ids">
+                        <div (click)="Family()" [class.toggle-active]="ActiveFamiliy"
+                          class="rf-toggle checkbox checkbox-0 toggle-tag pills">
+                          <div class="toggle-label">Family</div>
+                        </div>
+                        <div (click)="Beachelor()" [class.toggle-active]="ActiveBeachlor"
+                          class="rf-toggle checkbox checkbox-1 toggle-tag pills">
+                          <div class="toggle-label">Bachelors</div>
+                        </div>
+                        <div (click)="Company()" [class.toggle-active]="ActiveCompany"
+                          class="rf-toggle checkbox checkbox-2 toggle-tag pills">
+                          <div class="toggle-label">Company</div>
+                        </div>
+                        <div (click)="Other()" [class.toggle-active]="ActiveOther"
+                          class="rf-toggle checkbox checkbox-2 toggle-tag pills">
+                          <div class="toggle-label">All</div>
+                        </div>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Floor no slider -->
+                <div *ngIf="ActiveSell && Plotss" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Plot No 
+                    </div>
+                    <input type="text" formControlName="FloorRange" placeholder="Plot Number"
+                    class="form-control">
+                    <!-- <ng5-slider formControlName="FloorRange" [(value)]="minValue" [(highValue)]="maxValue"
+                      [options]="Flooroptions"></ng5-slider> -->
+                  </div>
+                </div>
+
+
+                <div *ngIf="ActiveRent" class="field">
+                  <label class="title no-bottom">Available From <span style="color: red">*</span></label>
+                  <div class="form-group">
+                    <div class="input-group mb-3">
+                      <input type="text" formControlName="AvalableFrom" placeholder="Available From"
+                        class="form-control" bsDatepicker #dp="bsDatepicker" [minDate]="today" [bsConfig]="bsConfig">
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar" bsDatepicker
+                            #dp="bsDatepicker" [bsConfig]="bsConfig" aria-hidden="true"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+                <div *ngIf="ActiveRent || !ActiveSell && !ActivePG" class="field">
+                  <label class="title no-bottom">Monthly Rent (in &#x20B9;)<span
+                      style="color: red">*</span></label><span class="icon icon-rupee"></span>
+                  <div class="form-group">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" decimal-mask maxlength="11" formControlName="mothlyRent"
+                        (keyup)="MonthRent($event)"
+                        >
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2"><b>{{rentinK}}</b> </span>
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+
+                <div *ngIf="!ActiveRent && !ActivePG && !Plotss && ActiveSell" class="field">
+                  <label class="title no-bottom">Price (in &#x20B9;)<span style="color: red">*</span></label><span
+                    class="icon icon-rupee"></span>
+                  <div class="form-group">
+                    <div class="input-group mb-3">
+                      <input formControlName="mothlyRent1"
+                    decimal-mask
+                      (keyup)="PlotRent($event)" type="text"
+                        class="form-control" />
+                         
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2"><b>{{rentinK}}</b> </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div *ngIf="ActiveRent" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Do you take security deposit?
+                      <span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group radio-group is_security_deposit_chargeable">
+                        <div (click)="securityDepositeYess()" [class.toggle-active]="securityDepositeYes"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">Yes</div>
+                        </div>
+                        <div (click)="securityDepositeNoo()" [class.toggle-active]="securityDepositeNo"
+                          class="rf-toggle radio radio-1 toggle-tag pills">
+                          <div class="toggle-label">No</div>
+                        </div>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="DepositeYes" class="field">
+                  <label class="title no-bottom">Security Deposit (in &#x20B9;)</label><span
+                    class="icon icon-rupee"></span>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" decimal-mask (keyup)="SecurityDepo($event)"
+                      formControlName="SecurityDepositeAmt" />
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2"><b>{{securityinK}}</b> </span>
+                    </div>
+                  </div>
+
+                </div>
+                <div *ngIf="userRole==='Broker' && !ActivePG" class="field">
+                  <div class="group">
+                    <div class="title no-bottom">
+                      Do you charge brokerage? <span style="color: red">*</span>
+                    </div>
+                    <div>
+                      <div class="rf-group radio-group is_rent_brokerage_chargeable">
+                        <div (click)="BrokerageYes()" [class.toggle-active]="ChargeBrokerageYes"
+                          class="rf-toggle radio radio-0 toggle-tag pills">
+                          <div class="toggle-label">Yes</div>
+                        </div>
+                        <div (click)="BrokerageNo()" [class.toggle-active]="ChargeBrokerageNo"
+                          class="rf-toggle radio radio-1 toggle-tag pills">
+                          <div class="toggle-label">No</div>
+                        </div>
+                      </div>
+                      <div class="errorStyle"></div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="ChargeBrokerageYes" class="field">
+                  <label class="title no-bottom">Brokerage (in &#x20B9;) <span style="color: red">*</span></label><span
+                    class="icon icon-rupee"></span>
+                  <div class="input-group mb-3">
+                    <input class="form-control" type="text" maxlength="7" decimal-mask (keyup)="BrokageAmt($event)"
+                      formControlName="brokerageAmt" />
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2"><b>{{brokregeinK}}</b> </span>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="ActiveRent || ActiveSell" class="field">
+                  <label class="title no-bottom">Built Up Area </label><span class="helper"><span
+                      style="color: red">*</span></span>
+                  <div class="input-group mb-3">
+                    <input formControlName="buildUpArea" decimal-mask class="form-control" type="text" />
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2"><b>Sq.ft</b> </span>
+                    </div>
+                  </div>
+
+                </div>
+                <div *ngIf="ActiveRent || ActiveSell" class="field">
+                  <label class="title no-bottom">Carpet Area (Optional)</label><span class="helper"></span>
+                  <div class="input-group mb-3">
+                    <input formControlName="CarpetArea" decimal-mask class="form-control" type="text" />
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2"><b>Sq.ft</b> </span>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div *ngIf="Plotss && ActiveSell" class="field half va-top">
+                  <label class="title no-bottom">Plot Area <span style="color: red">*</span></label>
+                  <input class="form-control" type="number" formControlName="PloatArea" autocomplete="text"
+                    maxlength="8" quickview="true" />
+                </div>
+
+                <div *ngIf="Plotss && ActiveSell" class="field half second">
+                  <label class="title no-bottom">Area Unit <span style="color: red">*</span></label><span
+                    class="helper-icon icon-arrow-down" style="transition: all 0.4s ease 0s"></span>
+                  <select formControlName="AreaUnit" class="form-control">
+                    <option selected disabled>--Select--</option>
+                    <option>sq. ft.</option>
+                    <option>sq. yd.</option>
+                    <option>sq. mt.</option>
+                  </select>
+                </div>
+                <div *ngIf="Plotss && ActiveSell" class="field half">
+                  <label class="title no-bottom">Length in ft</label>
+                  <input formControlName="Length" class="form-control" type="number" />
+                </div>
+                <div *ngIf="Plotss && ActiveSell" class="field half second">
+                  <label class="title no-bottom">Width in ft</label>
+                  <input class="form-control" formControlName="Width" type="number" />
+                </div>
+                <div *ngIf="Plotss && ActiveSell" class="field">
+                  <label class="title no-bottom">Width of Facing Road in ft</label>
+                  <input formControlName="WFR" class="form-control" type="number" />
+                </div>
+
+                <!-- PG Tab -->
+                <div *ngIf="ActivePG" class="tab-content">
+                  <br />
+                  <b>PG DETAILS</b>
+                  <hr style="border-top: 1px solid #ff6600;">
+                  <div class="su-basic">
+                    <div class="address-content showMap">
+                      <div class="su-address">
+                        <div class="form-cont">
+                          <div class="field">
+                            <label class="title no-bottom">PG Name(Optional)</label>
+                            <input type="text" class="form-control" formControlName="PgName" />
+                          </div>
+
+                          <div class="field">
+                            <label class="title no-bottom">Total Beds <span style="color: red">*</span></label>
+                            <input type="number" class="form-control" formControlName="ToatalBed" />
+                          </div>
+                          <div class="field inline mobile">
+                            <div class="group">
+                              <div class="title no-bottom">
+                                PG is for <span style="color: red">*</span>
+                              </div>
+                              <div>
+                                <div class="rf-group checkbox-group available_for">
+                                  <div (click)="GirlPG()" [class.toggle-active]="GirlPgYes"
+                                    class="rf-toggle checkbox checkbox-0 toggle-tag pills">
+                                    <div class="toggle-label">Girls</div>
+                                  </div>
+                                  <div (click)="BoyPG()" [class.toggle-active]="BoyPgYes"
+                                    class="rf-toggle checkbox checkbox-1 toggle-tag pills">
+                                    <div class="toggle-label">Boys</div>
+                                  </div>
+                                  <div (click)="BothPG()" [class.toggle-active]="BothPgYes"
+                                    class="rf-toggle checkbox checkbox-1 toggle-tag pills">
+                                    <div class="toggle-label">Both</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+                        
+                          <div class="field mobile">
+                            <div class="group">
+                              <div class="title no-bottom">
+                                Meals Available <span style="color: red">*</span>
+                              </div>
+                              <div>
+                                <div class="rf-group radio-group meals_available">
+                                  <div (click)="MealYes()" [class.toggle-active]="ActiveMealYes"
+                                    class="rf-toggle radio radio-0 toggle-tag pills">
+                                    <div class="toggle-label">Yes</div>
+                                  </div>
+                                  <div (click)="MealNo()" [class.toggle-active]="ActiveMealNo"
+                                    class="rf-toggle radio radio-1 toggle-tag pills">
+                                    <div class="toggle-label">No</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                              <div class="field inline mobile">
+                                <div class="group">
+                                  <div class="title no-bottom">
+                                    Best suited for <span style="color: red">*</span>
+                                  </div>
+                                  <div>
+                                    <div class="rf-group checkbox-group suitable_entity_type_ids">
+                                      <div (click)="Student()" [class.toggle-active]="ActiveStudent"
+                                        class="rf-toggle checkbox checkbox-0 toggle-tag pills">
+                                        <div class="toggle-label">Students</div>
+                                      </div>
+                                      <div (click)="Professionals()" [class.toggle-active]="ActiveProfessionals"
+                                        class="rf-toggle checkbox checkbox-1 toggle-tag pills">
+                                        <div class="toggle-label">Professionals</div>
+                                      </div>
+                                    </div>
+                                    <div class="errorStyle"></div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+
+                          <div *ngIf="isMealOffering" class="field">
+                            <div class="group">
+                              <div class="title no-bottom">Meal Offerings</div>
+                              <div>
+                                <div class="rf-group checkbox-group meal_type_ids">
+                                  <div (click)="Breakfast()" [class.toggle-active]="ActiveBreakfast"
+                                    class="rf-toggle checkbox checkbox-0 toggle-tag pills">
+                                    <div class="toggle-label">Breakfast</div>
+                                  </div>
+                                  <div (click)="Lunch()" [class.toggle-active]="ActiveLunch"
+                                    class="rf-toggle checkbox checkbox-1 toggle-tag pills">
+                                    <div class="toggle-label">Lunch</div>
+                                  </div>
+                                  <div (click)="Dinner()" [class.toggle-active]="ActiveDinner"
+                                    class="rf-toggle checkbox checkbox-2 toggle-tag pills">
+                                    <div class="toggle-label">Dinner</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Extra added Tab -->
+                          <div class="field">
+                            <div class="group">
+                              <div class="title no-bottom">Room Type</div>
+                              <div>
+                                <div class="rf-group radio-group occupancy_type_id">
+                                  <div (click)="PrivateRoom()" [class.toggle-active]="ActivePrivateRoom"
+                                    class="rf-toggle radio radio-0 toggle-tag pills">
+                                    <div class="toggle-label">Private Room</div>
+                                  </div>
+                                  <div (click)="DoubleRoom()" [class.toggle-active]="ActiveDoubleRoom"
+                                    class="rf-toggle radio radio-1 toggle-tag pills">
+                                    <div class="toggle-label">Double Sharing</div>
+                                  </div>
+                                  <div (click)="TripleRoom()" [class.toggle-active]="ActiveTripleRoom"
+                                    class="rf-toggle radio radio-2 toggle-tag pills">
+                                    <div class="toggle-label">Triple Sharing</div>
+                                  </div>
+                                  <div (click)="sharingRoom()" [class.toggle-active]="ActiveSharingRoom"
+                                    class="rf-toggle radio radio-3 toggle-tag pills">
+                                    <div class="toggle-label">3+ Sharing</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="title no-bottom">Total Beds in this Room
+                              (Optional)</label>
+                            <br>
+                            <ng5-slider formControlName="BedInRoom" [(value)]="BedInRoom" [options]="options">
+                            </ng5-slider>
+                            <!-- <input class="form-control" type="text" 
+                            section="basic" 
+                            groupindex="0"> -->
+                          </div>
+                          <div class="field adj-field">
+                            <label class="title no-bottom">Rent (Per month)</label><span
+                              class="icon icon-rupee"></span>
+                            <span style="color: red">*</span>
+                            <div class="form-group">
+                              <div class="input-group mb-3">
+                                <input class="form-control" type="number" formControlName="PGRent"
+                                  (keyup)="PgRent($event)" section="basic" groupindex="0">
+                                <div class="input-group-append">
+                                  <span class="input-group-text" id="basic-addon2"><b>{{rentinK}}</b> </span>
+                                </div>
+                              </div>
+                            </div>
+
+
+                          </div>
+                          <div class="field adj-field left-margin">
+                            <label class="title no-bottom">Security Deposit <span style="color: red">*</span></label>
+                            <div class="input-group mb-3">
+                              <input formControlName="PgSecurityDeposite" (keyup)="PGSecurityDepo($event)"
+                                class="has-value" type="text" autocomplete="text" class="form-control" maxlength="9"
+                                section="basic" groupindex="0">
+                              <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2"><b>{{pgsecurityinK}}</b> </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <div class="group">
+                              <div class="title no-bottom">Facilities Offered</div>
+                              <div>
+                                <div class="rf-group checkbox-group amenity_ids">
+                                  <div (click)="PersonalCupboard()" [class.toggle-active]="ActiveCupboardRoom"
+                                    class="rf-toggle checkbox checkbox-0 toggle-tag pills">
+                                    <div class="toggle-label">Personal Cupboard</div>
+                                  </div>
+                                  <div (click)="TableChair()" [class.toggle-active]="ActiveTableChair"
+                                    class="rf-toggle checkbox checkbox-1 toggle-tag pills">
+                                    <div class="toggle-label">Table Chair</div>
+                                  </div>
+                                  <div (click)="TV()" [class.toggle-active]="ActiveTv"
+                                    class="rf-toggle checkbox checkbox-2 toggle-tag pills">
+                                    <div class="toggle-label">TV in Room</div>
+                                  </div>
+                                  <div (click)="AttachBalcony()" [class.toggle-active]="ActiveAttachBalcony"
+                                    class="rf-toggle checkbox checkbox-3 toggle-tag pills">
+                                    <div class="toggle-label">Attched Balcony</div>
+                                  </div>
+                                  <div (click)="AttachBathroom()" [class.toggle-active]="ActiveAttachBathromm"
+                                    class="rf-toggle checkbox checkbox-4 toggle-tag pills">
+                                    <div class="toggle-label">Attached Bathroom</div>
+                                  </div>
+                                  <div (click)="MealInclude()" [class.toggle-active]="ActiveMealInclude"
+                                    class="rf-toggle checkbox checkbox-5 toggle-tag pills">
+                                    <div class="toggle-label">Meals Included</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Extra added tab -->
+
+                          <div class="field inline pg-text">
+                            <label class="title no-bottom">Notice Period (Days)
+                              <span style="color: red">*</span></label>
+                            <input class="form-control" type="number" formControlName="NoticePeriod" />
+                          </div>
+                          <div class="field inline">
+                            <label class="title no-bottom">Lock In Period (Days)
+                              <span style="color: red">*</span></label>
+                            <input class="form-control" type="number" formControlName="LockPeriod" />
+                          </div>
+                          <div class="field">
+                            <div class="group">
+                              <div class="title no-bottom">
+                                Common Areas <span style="color: red">*</span>
+                              </div>
+                              <div>
+                                <div class="rf-group checkbox-group common_area_type_ids">
+                                  <div (click)="LivingRoom()" [class.toggle-active]="ActiveLivingRoom"
+                                    class="rf-toggle checkbox checkbox-0 toggle-tag pills">
+                                    <div class="toggle-label">Living Room</div>
+                                  </div>
+                                  <div (click)="Kitchen()" [class.toggle-active]="ActiveKitchen"
+                                    class="rf-toggle checkbox checkbox-1 toggle-tag pills">
+                                    <div class="toggle-label">Kitchen</div>
+                                  </div>
+                                  <div (click)="Dining()" [class.toggle-active]="ActiveDining"
+                                    class="rf-toggle checkbox checkbox-2 toggle-tag pills">
+                                    <div class="toggle-label">Dining Hall</div>
+                                  </div>
+                                  <div (click)="StudyRoom()" [class.toggle-active]="ActiveStudyRoom"
+                                    class="rf-toggle checkbox checkbox-3 toggle-tag pills">
+                                    <div class="toggle-label">
+                                      Study Room / Library
+                                    </div>
+                                  </div>
+                                  <div (click)="Breakout()" [class.toggle-active]="ActiveBreakout"
+                                    class="rf-toggle checkbox checkbox-4 toggle-tag pills">
+                                    <div class="toggle-label">Breakout Room</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <b class="pg-subheading">
+                              OWNER / CARETAKER DETAILS
+                              <hr style="border-top: 1px solid #ff6600;">
+                            </b>
+                          </div>
+                          <div class="field">
+                            <div class="group">
+                              <div class="title no-bottom">
+                                Property Managed By
+                                <span style="color: red">*</span>
+                              </div>
+                              <div>
+                                <div class="rf-group radio-group property_manager_type_id">
+                                  <div (click)="Landlord()" [class.toggle-active]="ActiveLandlord"
+                                    class="rf-toggle radio radio-0 toggle-tag pills">
+                                    <div class="toggle-label">Landlord</div>
+                                  </div>
+                                  <div (click)="Caretaker()" [class.toggle-active]="ActiveCaretaker"
+                                    class="rf-toggle radio radio-1 toggle-tag pills">
+                                    <div class="toggle-label">Caretaker</div>
+                                  </div>
+                                  <div (click)="Dedicated()" [class.toggle-active]="ActiveDedicated"
+                                    class="rf-toggle radio radio-2 toggle-tag pills">
+                                    <div class="toggle-label">
+                                      Dedicated Professional
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <div class="group">
+                              <div class="title no-bottom">
+                                Property Manager stays at Property
+                                <span style="color: red">*</span>
+                              </div>
+                              <div>
+                                <div class="rf-group radio-group manager_on_property">
+                                  <div (click)="StayYes()" [class.toggle-active]="ActiveStayYes"
+                                    class="rf-toggle radio radio-0 toggle-tag pills">
+                                    <div class="toggle-label">Yes</div>
+                                  </div>
+                                  <div (click)="StayNo()" [class.toggle-active]="ActiveStayNo"
+                                    class="rf-toggle radio radio-1 toggle-tag pills">
+                                    <div class="toggle-label">No</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <b class="pg-subheading">PG RULES</b>
+                            <hr style="border-top: 1px solid #ff6600;">
+                          </div>
+                          <div class="field inline">
+                            <div class="group">
+                              <div class="title no-bottom">
+                                Non Veg Allowed <span style="color: red">*</span>
+                              </div>
+                              <div>
+                                <div class="rf-group radio-group is_non_veg_allowed">
+                                  <div (click)="NonVegYes()" [class.toggle-active]="ActiveNonVegYes"
+                                    class="rf-toggle radio radio-0 toggle-tag pills">
+                                    <div class="toggle-label">Yes</div>
+                                  </div>
+                                  <div (click)="NonVegNo()" [class.toggle-active]="ActiveNonVegNo"
+                                    class="rf-toggle radio radio-1 toggle-tag pills">
+                                    <div class="toggle-label">No</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field inline">
+                            <div class="group">
+                              <div class="title no-bottom">
+                                Opposite Sex Allowed
+                                <span style="color: red">*</span>
+                              </div>
+                              <div>
+                                <div class="rf-group radio-group is_opposite_sex_allowed">
+                                  <div (click)="OppoSexYes()" [class.toggle-active]="ActiveOppoSexYes"
+                                    class="rf-toggle radio radio-0 toggle-tag pills">
+                                    <div class="toggle-label">Yes</div>
+                                  </div>
+                                  <div (click)="OppoSexNo()" [class.toggle-active]="ActiveOppoSexNo"
+                                    class="rf-toggle radio radio-1 toggle-tag pills">
+                                    <div class="toggle-label">No</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field inline">
+                            <div class="group">
+                              <div class="title no-bottom">
+                                Any Time Allowed <span style="color: red">*</span>
+                              </div>
+                              <div>
+                                <div class="rf-group radio-group timing_restriction">
+                                  <div (click)="TimeAllowedYes()" [class.toggle-active]="ActiveTimeAllowedYes"
+                                    class="rf-toggle radio radio-0 toggle-tag pills">
+                                    <div class="toggle-label">Yes</div>
+                                  </div>
+                                  <div (click)="TimeAllowedNo()" [class.toggle-active]="ActiveTimeAllowedNo"
+                                    class="rf-toggle radio radio-1 toggle-tag pills">
+                                    <div class="toggle-label">No</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div *ngIf="timeallowedNo" class="field inline pg-dropdown">
+                            <label class="title no-bottom">Last Time
+                              Entry</label><span class="icon icon-clock"></span>
+                            <select formControlName="AllowedTime" class="form-control">
+                              <option selected disabled value="0">Last Time Entry</option>
+                              <option value="6:00 pm">6:00 pm</option>
+                              <option value="6:30 pm">6:30 pm</option>
+                              <option value="7:00 pm">7:00 pm</option>
+                              <option value="7:30 pm">7:30 pm</option>
+                              <option value="8:00 pm">8:00 pm</option>
+                              <option value="8:30 pm">8:30 pm</option>
+                              <option value="9:00 pm">9:00 pm</option>
+                              <option value="9:30 pm">9:30 pm</option>
+                              <option value="10:00 pm">10:00 pm</option>
+                              <option value="10:30 pm">10:30 pm</option>
+                              <option value="11:00 pm">11:00 pm</option>
+                              <option value="11:30 pm">11:30 pm</option>
+                              <option value="12:00 pm">12:00 pm</option>
+                              <option value="12:30 pm">12:30 pm</option>
+                              <option value="1:00 pm">1:00 pm</option>
+                              <option value="1:30 pm">1:30 pm</option>
+                              <option value="2:00 pm">2:00 pm</option>
+                            </select>
+
+                          </div>
+                          <div class="field inline">
+                            <div class="group">
+                              <div class="title no-bottom">
+                                Visitors Allowed <span style="color: red">*</span>
+                              </div>
+                              <div>
+                                <div class="rf-group radio-group are_visitors_allowed">
+                                  <div (click)="VisitorYes()" [class.toggle-active]="ActiveAllowedYes"
+                                    class="rf-toggle radio radio-0 toggle-tag pills">
+                                    <div class="toggle-label">Yes</div>
+                                  </div>
+                                  <div (click)="VisitorNo()" [class.toggle-active]="ActiveAllowedNo"
+                                    class="rf-toggle radio radio-1 toggle-tag pills">
+                                    <div class="toggle-label">No</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field inline">
+                            <div class="group">
+                              <div class="title no-bottom">
+                                Guardian Allowed <span style="color: red">*</span>
+                              </div>
+                              <div>
+                                <div class="rf-group radio-group is_guardian_allowed">
+                                  <div (click)="GuardianYes()" [class.toggle-active]="ActiveGuardianYes"
+                                    class="rf-toggle radio radio-0 toggle-tag pills">
+                                    <div class="toggle-label">Yes</div>
+                                  </div>
+                                  <div (click)="GuardianNo()" [class.toggle-active]="ActiveGuardianNo"
+                                    class="rf-toggle radio radio-1 toggle-tag pills">
+                                    <div class="toggle-label">No</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field inline">
+                            <div class="group">
+                              <div class="title no-bottom">
+                                Drinking Allowed <span style="color: red">*</span>
+                              </div>
+                              <div>
+                                <div class="rf-group radio-group is_drinking_allowed">
+                                  <div (click)="DrinkingYes()" [class.toggle-active]="ActiveDrinkingYes"
+                                    class="rf-toggle radio radio-0 toggle-tag pills">
+                                    <div class="toggle-label">Yes</div>
+                                  </div>
+                                  <div (click)="DrinkingNo()" [class.toggle-active]="ActiveDrinkingNo"
+                                    class="rf-toggle radio radio-1 toggle-tag pills">
+                                    <div class="toggle-label">No</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field inline">
+                            <div class="group">
+                              <div class="title no-bottom">
+                                Smoking Allowed <span style="color: red">*</span>
+                              </div>
+                              <div>
+                                <div class="rf-group radio-group is_smoking_allowed">
+                                  <div (click)="SmokingYes()" [class.toggle-active]="ActiveSmokingYes"
+                                    class="rf-toggle radio radio-0 toggle-tag pills">
+                                    <div class="toggle-label">Yes</div>
+                                  </div>
+                                  <div (click)="SmokingNo()" [class.toggle-active]="ActiveSmokingNo"
+                                    class="rf-toggle radio radio-1 toggle-tag pills">
+                                    <div class="toggle-label">No</div>
+                                  </div>
+                                </div>
+                                <div class="errorStyle"></div>
+                              </div>
+
+                            </div>
+                            <a href="#modalScrollableCenter" role="button" class="btn btn-primary" data-toggle="modal"
+                              class="btn btn-yellow">+Add Security Amenities</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- PG MODAL -->
+                <div class="bs-example">
+                  <!-- Scrollable Modal HTML -->
+                  <div id="modalScrollableCenter" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                      <h5 class="alert alert-warning modal-title">Security Amenities</h5>
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="tab-content">
+                            <div class="su-basic">
+                              <div class="form-cont">
+                                <div class="field pg-amenities">
+                                  <div class="group">
+                                    <div class="title no-bottom">Security Amenities</div>
+                                    <div>
+                                      <div class="rf-group checkbox-group securityAmenities">
+                                        <div (click)="CCTV()" [class.toggle-active]="ActiveCCTV"
+                                          class="rf-toggle checkbox checkbox-0 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-CCTV"></i> <span>CCTV</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="GatedCommunity()" [class.toggle-active]="ActiveGatedCommunity"
+                                          class="rf-toggle checkbox checkbox-1 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-gated-society"></i> <span>Gated Community</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="Security()" [class.toggle-active]="ActiveSecurity"
+                                          class="rf-toggle checkbox checkbox-2 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-security1"></i> <span>Security</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="Biometric()" [class.toggle-active]="ActiveBiometric"
+                                          class="rf-toggle checkbox checkbox-3 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-biometric"></i> <span>Biometric</span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="errorStyle"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field pg-amenities">
+                                  <div class="group">
+                                    <div class="title no-bottom">Furnishings in Property</div>
+                                    <div>
+                                      <div class="rf-group checkbox-group furnishAmenities">
+                                        <div (click)="Fridge()" [class.toggle-active]="ActiveFridge" class="rf-toggle checkbox checkbox-0
+                        toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-fridge"></i> <span>Fridge</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="WashingMachine()" [class.toggle-active]="ActiveWashingMachine"
+                                          class="rf-toggle checkbox checkbox-1 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-washing-machine"></i> <span>Washing Machine</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="Microwave()" [class.toggle-active]="ActiveMicrowave"
+                                          class="rf-toggle checkbox checkbox-2 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-microwave"></i> <span>Microwave</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="WaterPurifier()" [class.toggle-active]="ActiveWaterPurifier"
+                                          class="rf-toggle checkbox checkbox-3 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-water-purifier"></i> <span>Water Purifier</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="TTTable()" [class.toggle-active]="ActiveTTTable"
+                                          class="rf-toggle checkbox checkbox-4 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-pingPong"></i> <span>TT Table</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="TVs()" [class.toggle-active]="ActiveTV"
+                                          class="rf-toggle checkbox checkbox-5 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-tv"></i> <span>TV</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="CoffeeMachine()" [class.toggle-active]="ActiveCoffeeMachine"
+                                          class="rf-toggle checkbox checkbox-6 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-coffeeCup"></i> <span>Coffee Machine</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="SnacksMachine()" [class.toggle-active]="ActiveSnacksMachine"
+                                          class="rf-toggle checkbox checkbox-7 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-snack"></i> <span>Snacks Machine</span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="errorStyle"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field pg-amenities">
+                                  <div class="group">
+                                    <div class="title no-bottom">Services</div>
+                                    <div>
+                                      <div class="rf-group checkbox-group serviceAmenities">
+                                        <div (click)="Laundry()" [class.toggle-active]="ActiveLaundry"
+                                          class="rf-toggle checkbox checkbox-0 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-laundry"></i> <span>Laundry</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="Housekeeping()" [class.toggle-active]="ActiveHousekeeping"
+                                          class="rf-toggle checkbox checkbox-1 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-housekeeping"></i> <span>Housekeeping</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="Internet()" [class.toggle-active]="ActiveInternet"
+                                          class="rf-toggle checkbox checkbox-2 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-internet"></i> <span>Internet/Wi-Fi Connectivity</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="errorStyle"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field pg-amenities">
+                                  <div class="group">
+                                    <div class="title no-bottom">Top Amenities</div>
+                                    <div>
+                                      <div class="rf-group checkbox-group topAmenities">
+                                        <div (click)="Gym()" [class.toggle-active]="ActiveGym"
+                                          class="rf-toggle checkbox checkbox-0 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-dumbel"></i> <span>Gym</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="Lift()" [class.toggle-active]="ActiveLift"
+                                          class="rf-toggle checkbox checkbox-1 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-elevator"></i> <span>Lift</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="RegularWaterSupply()"
+                                          [class.toggle-active]="ActiveRegularWaterSupply"
+                                          class="rf-toggle checkbox checkbox-2 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-water-supply"></i> <span>Regular Water Supply</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div (click)="SwimmingPool()" [class.toggle-active]="ActiveSwimmingPool"
+                                          class="rf-toggle checkbox checkbox-3 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-pool"></i> <span>Swimming Pool</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="ReservedParking()" [class.toggle-active]="ActiveReservedParking"
+                                          class="rf-toggle checkbox checkbox-4 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-parking"></i> <span>Reserved Parking</span></div>
+                                          </div>
+                                        </div>
+                                        <div (click)="PowerBackup()" [class.toggle-active]="ActivePowerBackup"
+                                          class="rf-toggle checkbox checkbox-5 toggle-tag pills">
+                                          <div class="toggle-label">
+                                            <div><i class="icon-power-backup"></i> <span>Power Backup</span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="errorStyle"></div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-yellow" data-dismiss="modal">DONE</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- PG Tab End -->
+
+                <div class="btn-cont">
+                  <button (click)="NavToAddress()" [disabled]="checkoutForm.get('basicInfo').invalid"
+                    class="btn secondary">
+                    Continue To Address
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Address Tab-->
+          <div *ngIf="ActiveAddress == 'active'" formGroupName="AddressInfo" class="tab-content">
+            <div class="su-basic">
+              <div class="address-content showMap">
+                <div class="su-address">
+                  <div class="form-cont">
+                    <div class="field">
+                      <label class="title no-bottom">City Here <span style="color: red">*</span></label>
+                      <div style="width: 455px" class="ng-autocomplete">
+                        <ng-autocomplete [data]="country" [searchKeyword]="keyword" placeHolder="Enter the City Name"
+                          (selected)="selectEvent($event)" (inputChanged)="onChangeSearch($event)"
+                          [itemTemplate]="itemTemplate"
+                          [notFoundTemplate]="notFoundTemplate">
+                        </ng-autocomplete>
+
+                        <ng-template #itemTemplate let-item>
+                          <a [innerHTML]="item.citynName"></a>
+                        </ng-template>
+
+                        <ng-template #notFoundTemplate let-notFound>
+                          <div [innerHTML]="notFound"></div>
+                        </ng-template>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="title no-bottom">Locality <span style="color: red">*</span></label>
+                      <div style="width: 455px" class="ng-autocomplete">
+                        <ng-autocomplete [data]="city" [searchKeyword]="keyword1" placeHolder="Enter Locality"
+                          (selected)="selectEvent1($event)" [itemTemplate]="itemTemplate1"
+                          [notFoundTemplate]="notFoundTemplate">
+                        </ng-autocomplete>
+
+                        <ng-template #itemTemplate1 let-item>
+                          <a [innerHTML]="item.localityName"></a>
+                        </ng-template>
+
+                        <ng-template #notFoundTemplate let-notFound>
+                          <div [innerHTML]="notFound"></div>
+                        </ng-template>
+                      </div>
+                    </div>
+
+                    <div class="field building">
+                      <label class="title no-bottom">Building/Project/Society (Optional)</label>
+                      <input type="text" class="form-control" formControlName="Project" />
+                    </div>
+
+                    <div class="field flat">
+                      <label class="title no-bottom">Sector No.</label>
+                      <select (change)="SectorChange($event)" formControlName="SectorNo" class="form-control">
+                        <option selected value="select">Select</option>
+                        <option [value]="item.sectorName" *ngFor="let item of sectors">{{item.sectorName}}</option>
+                      </select>
+                    </div>
+                    <div class="field floor">
+                      <label class="title no-bottom">Pocket No.</label>
+                      <select formControlName="PocketNo" class="form-control">
+                        <option value="Select">Select</option>
+                        <option [value]="item.id" *ngFor="let item of pockets">{{item.pocketAddress}}</option>
+
+                      </select>
+                      <span style="color: red; font-size: smaller;"
+                        *ngIf="ActivevalidationFloorNoMsg">{{validationFloorNoMsg}}</span>
+                      <span style="color: red; font-size: smaller;"
+                        *ngIf="ActivevalidationTotalFloorNoGreterMsg">{{validationTotalFloorNoGreterMsg}}</span>
+                    </div>
+                    <div class="field total-floor">
+                      <label class="title no-bottom">House no/Plot No</label>
+                      <input formControlName="PlotNo" class="form-control" type="text" autocomplete="text"
+                        maxlength="12" />
+                      <span style="color: red; font-size: smaller;"
+                        *ngIf="ActivevalidationTotalFloorNoMsg">{{validationTotalFloorNoMsg}}</span>
+
+                    </div>
+                    <div class="row"></div>
+                    <div (click)="BackToBS()" class="btn-cont">
+                      <button class="back-button btn primary bordered">Back</button>
+                      <button (click)="NavToPhoto()" [disabled]="checkoutForm.get('AddressInfo').invalid"
+                        class="btn secondary">
+                        Continue To Photo
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Adddress Tab -->
+
+          <!-- Photo Tab -->
+          <div *ngIf="ActivePhoto == 'active'" formGroupName="PhotosInfo" class="tab-content">
+            <div class="tab-content">
+              <div>
+                <div class="su-photos">
+                  <div class="center-div">
+                    <span>
+                      <!-- //Samall upload -->
+                      <div *ngIf="iShowImg == 'block'" class="su-img-upld">
+                        <span class="img-upldr">
+                          <div class="add-box desktop inline">
+                            <span (click)="file.click()">
+                              <div class="inner-box">
+                                <div>
+                                  <div class="icon"></div>
+                                  <div class="title">
+                                    + Add More
+                                    <div class="sub">
+                                      (max limit 5 MB per image)
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </span>
+                          </div>
+                        </span>
+                        <!-- <input type="file" (change)="uploadFile($event)" multiple="" #file
+                          accept="image" style="display: none" /> -->
+                             <input type="file" ng2FileSelect (change)="uploader.uploadAll()" style="display: none"
+                               #file [uploader]="uploader" multiple />
+                      </div>
+
+                      <div *ngIf="iShowImg == 'none'" class="su-img-upld">
+                        <span><span class="img-upldr">
+                            <div class="add-box desktop">
+                              <div>
+                                <div (click)="file.click()" class="inner-box">
+                                  <div>
+                                    <div class="icon"></div>
+                                    <div class="title">
+                                      + Add Photos
+                                      <div class="sub">
+                                        (max limit 5 MB per image)
+                                        <span style="color: red">*</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <button type="button" (click)="file.click()"
+                                  style="background-color: #ff6600; color: white" class="btn btn-danger">
+                                  Upload Photos
+                                </button>
+                                <div class="txt-cont">
+                                  <div>
+                                    <i class="icon-tick-circle"></i><span>
+                                      <div>
+                                        <span class="bold">Atleast 8 photos</span>
+                                        will increase property quality score by 15%
+                                      </div>
+                                    </span>
+                                  </div>
+                                  <div>
+                                    <i class="icon-tick-circle"></i><span>
+                                      <div>
+                                        <span class="bold">Hall, Bedroom, Kitchen and Bathroom</span>
+                                        photos will get more points in quality score
+                                      </div>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                           </span></span>
+                          
+                             <input style="display: none" type="file" #file ng2FileSelect  [uploader]="uploader"
+                                 (change)="uploader.uploadAll()" multiple />
+                      </div>
+                    </span>
+                    <div *ngIf="iShowImg == 'block'" style="display:contents;">
+                      <div *ngFor="let item of imgs; let i = index" class="img-item selected desktop"
+                        style="background-image: url({{item.url}})">
+                        <div (click)="setMainPhoto(item)" id="{{i}}" class="cover"
+                         [ngClass]="item.cover ? 'btn-success active' : 'btn-default'">
+                          <span>COVER</span><i class="icon-reco-filled"></i>
+                        </div>
+                        <div (click)="deletePhotos(item.id)" style="background-color: #ff6600; margin-top: 0px;"
+                          class="text text-center action selected">X</div>
+                        <span class="tag-cont">
+                          <div class="select-cont normal-input">
+                            <i class="icon-arrow-down"></i>
+                            <select (change)="setTagPhotos($event,item)" class="tag-item drop">
+                              <option selected disabled>--Select--</option>
+                              <option value="Living Room">Living Room</option>
+                              <option value="Bedroom">Bedroom</option>
+                              <option value="Kitchen">Kitchen</option>
+                              <option value="Bathroom">Bathroom</option>
+
+                              <option value="Balcony">Balcony</option>
+                              <option value="Parking">Parking</option>
+                              <option value="Building Front">Building Front</option>
+                              
+                            </select>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-cont">
+                    <div class="btn-cont back-btn-cont">
+                      <div class="internal-btn-cont">
+                        <button (click)="BackToAddress()" class="back-button btn primary bordered">
+                          Back</button><button (click)="Submit()" [disabled]="FinalSaving"
+                          class="btn secondary">
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Photo Tab End -->
+        </div>
+      </div>
+     
+
+      <!-- Side BOx -->
+      <div class="side-box">
+        <div class="pb-wrap basic">
+          <div class="cont">
+            <div class="head">Listing Completeness</div>
+            <div  class="pb-cont">
+              <div class="external" style="
+              width: 158px;
+              background-color: rgb(247, 247, 247);
+              height: 7px;
+            ">
+                <div class="internal" [ngStyle]="{ width: progress }" style="background-color: #ff6600c4;">
+                  <span class="pb-num">{{ progressText }}%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div *ngIf="ActiveSell" class="pb-cont">
+              <div class="external" style="
+              width: 158px;
+              background-color: rgb(247, 247, 247);
+              height: 7px;
+            ">
+                <div class="internal" [ngStyle]="{ width: progress1 }" style="background-color: rgb(29, 211, 143)">
+                  <span class="pb-num">{{ progressText1 }}%</span>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div class="img-cont">
+            <div class="img"></div>
+            <div class="txt">
+              <span>100% complete listing gets you more leads</span>
+            </div>
+          </div>
+        </div>
+        <div class="qv-cont">
+          <div class="qv-head">
+            <span class="head">Your Property Card Preview</span>
+          </div>
+          <div class="qv-scroll">
+            <div *ngIf="iShowImg == 'none'" class="prev-img">
+              <div class="img-cont img stub stub-cont"></div>
+              <div class="img-cont stub-cont">
+                <div style="width: 200px" class="small img stub"></div>
+                <div style="width: 200px" class="small img stub"></div>
+              </div>
+            </div>
+
+              <div *ngIf="iShowImg == 'block'" class="prev-img">
+                <div>
+                  <img *ngFor="let item of imgs; let i = index" style="width: 200px; height: 190px;" [src]="item.url" />
+                </div>
+              </div>
+           
+            <div class="qv-content">
+              <div class="title main">
+                {{ BhkValue }} {{ PropertyTypeValue }}
+                <div *ngIf="!isRentEnter" class="rfloat">
+                  <i class="icon icon-rupee"></i> {{rentTypetxt}}
+                </div>
+                <div *ngIf="isRentEnter" class="rfloat">
+                  <i class="icon icon-rupee"></i> &#x20B9;{{ rentinK}}
+                </div>
+                <div class="sub">{{ FurnishedTypeValue }}</div>
+              </div>
+              <div class="det blk">
+                <div class="head">{{Addresstext}}</div>
+              </div>
+              <div class="title">Overview</div>
+              <div class="det">
+                <div class="head">{{AgeOfPropertytext}}</div>
+
+                <div class="val">
+                  <span class="tooltip status-reason tooltip-bottom-left age-of-property-tooltip"
+                    data-title="This field describes how old is the property. For new properties enter 0 years."><span
+                      class="va-middle status-reason-icon"></span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+   
+
+
+ 
